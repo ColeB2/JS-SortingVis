@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+    	<link href="resources/css/style.css" type="text/css" rel="stylesheet">
+    	<title>Sorting Visualizer</title>
+    </head>
+	
+    <body>
+	    <div>
+		    <h1>Sorting Visualizer</h1>
+		</div>
+		
+	    <div id="canvas-container">
+		    <canvas id="myCanvas" width="650" height="450">No canvas support</canvas>
+		</div>
+		
+		<div id="button-container">
+		    <button class="button" id='pause'>Start</button>
+			<button class="button" id='reset'>Reset</button>
+			<button class="button" id='random'>Random</button>
+		</div>
+				
+		<div id="load-button-container">
+		    <button class="load button" id="toad">Toad</button>
+		    <button class="load button" id="galaxy">Galaxy</button>
+			<button class="load button" id="blinker">Blinker</button>
+			<button class="load button" id="pulsar">Pulsar</button>
+		</div>
+		 
+		<div class="slidecontainer">
+           <input type="range" min="100" max="1000" value="300" class="slider" id="delayRange">
+		   <p>Delay: <span id="delayValue"></span> ms</p>
+        </div>
+		
+		<br><br><br><br><br><hr>
+		<div class="container">
+		    <footer class="footer">
+			    <p><a href="https://coleb2.github.io/">Cole B</a></p>
+				<p><a href="mailto:cebCole@gmail.com">Contact Me!</a></p>
+				<p><a href="https://github.com/ColeB2">Github</a></p>
+			
+			</footer>
+		</div>
+		<script type="module" src="resources/js/main.js"></script>		
+    </body>
+</html>
