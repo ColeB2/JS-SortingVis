@@ -11,5 +11,5 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 TEST_ARRAY.map(function(element, index) {
 	console.log(element)
 	console.log(index)
-	cons.CTX.fillRect(index + 5, 0, cons.BAR_WIDTH, element)
+	cons.CTX.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH, (2*element))
 });
