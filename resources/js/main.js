@@ -11,5 +11,5 @@ const CTX = CANVAS.get
 
 
 TEST_ARRAY.map(function(element, index) {
-	CTX.fillRect(index*BAR_WIDTH, 0, BAR_WIDTH,BAR_WIDTH
+	CTX.fillRect(index*BAR_WIDTH, 0, BAR_WIDTH, element)
 });
