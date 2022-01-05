@@ -8,3 +8,8 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 
 const CANVAS = document.getElementById("myCanvas")
 const CTX = CANVAS.get
+
+
+TEST_ARRAY.map(function(element, index) {
+	CTX.fillRect(index*BAR_WIDTH, 0, BAR_WIDTH,BAR_WIDTH
+});
