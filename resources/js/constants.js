@@ -6,4 +6,4 @@ export const CANVAS_WIDTH = CANVAS.width;
 export const CANVAS_HEIGHT = CANVAS.height;
 export const DELAY = 100;
 
-export const BAR_WIDTH = 10;
+export const BAR_WIDTH = 25;
