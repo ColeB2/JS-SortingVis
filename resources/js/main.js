@@ -24,4 +24,19 @@ function updateCanvas(arr, context) {
 	drawArray(arr, context)
 }
 
+
+//Bubble Sort --: loop through list, get largest, move it to end, repeat until sorted.
+//functional --> won't loop -- recursively return array w largest element moved to end
+//keep track end so we know how much is sorted and when to terminate
+function getLargest(arr) {
+	
+}
+
+function bubbleSort(arr, arr_complete) {
+	if (arr.length === 1) {
+		return
+	}
+	
+}
+
 updateCanvas(TEST_ARRAY, CTX);
