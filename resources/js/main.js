@@ -12,10 +12,16 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 //	cons.CTX.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
 //});
 
+
 function drawArray(arr, context) {
 	arr.map(function(element, index) {
 		context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
 	})
 }
 
-drawArray(TEST_ARRAY, cons.CTX);
+function updateCanvas(arr, context) {
+	context.clearRect(0, 0, context.width, context.height);
+	drawArray(arr, context)
+}
+
+updateCanvas(TEST_ARRAY, CTX);
