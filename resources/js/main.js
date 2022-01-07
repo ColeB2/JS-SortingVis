@@ -39,4 +39,4 @@ function bubbleSort(arr, arr_complete) {
 	
 }
 
-updateCanvas(TEST_ARRAY, CTX);
+updateCanvas(TEST_ARRAY, cons.CTX);
