@@ -38,5 +38,3 @@ function bubbleSort(arr) {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-bubbleSort(TEST_ARRAY);
-updateCanvas(TEST_ARRAY, cons.CTX);
