@@ -47,11 +47,21 @@ function pauseLoop() {
 	}
 	
 	isRunning = !isRunning;
-	updateCanvas(TEST_ARRAY, cons.CTX);
 }
 
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
+function mainLoop() {
+	if (isRunning) {
+		bubbleSort(TEST_ARRAY)
+		updateCanvas(TEST_ARRAY, cons.CTX);
+		setTimeout( ()=> {
+			window.requestAnimationFrame(mainLoop);
+		}, 1000)
+	}
+}
+
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
+mainLoop();
