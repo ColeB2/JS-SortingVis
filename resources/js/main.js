@@ -37,4 +37,21 @@ function bubbleSort(arr) {
 	}
 }
 
+function pauseLoop() {
+	if (isRunning) {
+		pauseButton.innerText = 'Start';
+		pauseButton.classList.remove('button-paused')
+	} else {
+		pauseButton.innerText = 'Pause';
+		pauseButton.classList.add('button-paused')
+	}
+	
+	isRunning = !isRunning;
+	updateCanvas(TEST_ARRAY, cons.CTX);
+}
+
+const pauseButton = document.getElementById('pause')
+pauseButton.addEventListener('click', pauseLoop, false)
+
 updateCanvas(TEST_ARRAY, cons.CTX);
+let isRunning = false
