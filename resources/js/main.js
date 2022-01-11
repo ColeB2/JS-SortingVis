@@ -60,7 +60,10 @@ let start, previousTimeStamp;
 
 function animate(){
 	bubbleSort(TEST_ARRAY)
-	requestAnimationFrame(animate);
+	setTimeout(function() {
+		requestAnimationFrame(animate);
+	}, 1000)
+	
 }
 
 function mainLoop() {
