@@ -20,7 +20,7 @@ function drawArray(arr, context) {
 }
 
 function updateCanvas(arr, context) {
-	context.clearRect(0, 0, context.width, context.height);
+	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
 }
 
