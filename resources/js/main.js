@@ -4,7 +4,7 @@ const ARRAY_LENGTH = 20
 Array.from(Array(ARRAY_LENGTH)).map(x=>Math.random())
 
 
-const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45,55]
+const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45,56]
 
 
 
@@ -39,6 +39,27 @@ function bubbleSort(arr) {
 			}
 		}      		
 	}
+}
+
+function bubbleSortR(arr, n) {
+	if (n==1) {
+		return
+	}
+	
+	for (var i = 0; i < n - 1; i++)
+        if (arr[i] > arr[i + 1])
+        {
+         
+            // swap arr[i], arr[i+1]
+            var temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+        }
+	yield arr
+	bubbleSort(arr, n-1)
+}
+function bubbleDriver(arr) {
+	bubbleSortR(arr, arr.length)
 }
 
 function pauseLoop() {
