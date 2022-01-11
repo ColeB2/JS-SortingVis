@@ -56,6 +56,13 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
+let start, previousTimeStamp;
+
+function animate(){
+	bubbleSort(TEST_ARRAY)
+	requestAnimationFrame(animate);
+}
+
 function mainLoop() {
 	if (isRunning) {
 		//bubbleSort(TEST_ARRAY)
@@ -67,5 +74,6 @@ function mainLoop() {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-let isRunning = true
-mainLoop();
+//let isRunning = true
+//mainLoop();
+animate()
