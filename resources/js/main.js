@@ -58,9 +58,9 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 function mainLoop() {
 	if (isRunning) {
-		bubbleSort(TEST_ARRAY)
+		//bubbleSort(TEST_ARRAY)
 		//updateCanvas(TEST_ARRAY, cons.CTX);
-		setTimeout( ()=> {
+		setTimeout( (bubbleSort(TEST_ARRAY))=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
 	}
