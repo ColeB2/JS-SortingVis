@@ -67,9 +67,9 @@ function mainLoop() {
 	if (isRunning) {
 		//bubbleSort(TEST_ARRAY)
 		//updateCanvas(TEST_ARRAY, cons.CTX);
-		setTimeout(bubbleSort {
+		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
-		}, 1000, TEST_ARRAY)
+		}, 1000)
 	}
 }
 
