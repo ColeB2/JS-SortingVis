@@ -29,6 +29,7 @@ function bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			if (arr[j] > arr[j+1]) {
+				updateCanvas(arr, cons.CTX)
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp			
@@ -55,7 +56,7 @@ pauseButton.addEventListener('click', pauseLoop, false)
 function mainLoop() {
 	if (isRunning) {
 		bubbleSort(TEST_ARRAY)
-		updateCanvas(TEST_ARRAY, cons.CTX);
+		//updateCanvas(TEST_ARRAY, cons.CTX);
 		setTimeout( ()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
