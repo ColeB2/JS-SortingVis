@@ -1,3 +1,5 @@
+'use strict';
+
 import * as cons from './constants.js'
 
 const ARRAY_LENGTH = 20
