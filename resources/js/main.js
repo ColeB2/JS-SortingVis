@@ -55,7 +55,6 @@ function bubbleSortR(arr, n) {
             arr[i] = arr[i + 1];
             arr[i + 1] = temp;
         }
-	yield arr
 	bubbleSort(arr, n-1)
 }
 function bubbleDriver(arr) {
