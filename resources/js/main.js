@@ -45,6 +45,11 @@ function bubbleSort(arr) {
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
                 console.log(arr)
+				const sortPromise = new Promise((resolve, reject) => ) {
+					setTimeout(() => {
+						resolve(arr);
+					}, 300)
+				}
 			}
 		}      		
 	}
@@ -77,7 +82,8 @@ function animate(){
 function mainLoop() {
 	if (isRunning) {
 		bubbleSort(TEST_ARRAY)
-		updateCanvas(TEST_ARRAY, cons.CTX);
+		sortPromise.then(value => {updateCanvas(arr, cons.CTX) })
+		//updateCanvas(TEST_ARRAY, cons.CTX);
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
