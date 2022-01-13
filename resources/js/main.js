@@ -21,13 +21,22 @@ function drawArray(arr, context) {
 	})
 }
 
-function updateCanvas(arr, context) {
+function updateLogic(arr, context) {
+	
+}
+
+function updateVisuals(arr, context) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
+	
+}
+
+function updateCanvas(arr, context) {
+	updateVisuals(arr, context)
 }
 
 
-function bubbleSort(arr) {
+async function bubbleSort(arr) {
 	console.log(arr)
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
@@ -37,6 +46,7 @@ function bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
+				yield arr
                 console.log(arr)
 			}
 		}      		
