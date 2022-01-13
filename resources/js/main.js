@@ -39,17 +39,12 @@ function bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			if (arr[j] > arr[j+1]) {
-				//updateCanvas(arr, cons.CTX)
+				updateCanvas(arr, cons.CTX)
 				console.log(arr)
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
                 console.log(arr)
-				const sortPromise = new Promise((resolve, reject) =>  {
-					setTimeout(() => {
-						resolve(arr);
-					}, 300)
-				})
 			}
 		}      		
 	}
@@ -72,9 +67,8 @@ pauseButton.addEventListener('click', pauseLoop, false)
 let start, previousTimeStamp;
 
 function animate(){
-	bubbleSort(TEST_ARRAY)
 	setTimeout(function() {
-		requestAnimationFrame(animate);
+		requestAnimationFrame(mainLoop);
 	}, 1000)
 	
 }
@@ -82,8 +76,7 @@ function animate(){
 function mainLoop() {
 	if (isRunning) {
 		bubbleSort(TEST_ARRAY)
-		sortPromise.then(value => {updateCanvas(arr, cons.CTX) })
-		//updateCanvas(TEST_ARRAY, cons.CTX);
+		updateCanvas(TEST_ARRAY, cons.CTX);
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
