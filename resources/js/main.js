@@ -1,5 +1,3 @@
-'use strict';
-
 import * as cons from './constants.js'
 
 const ARRAY_LENGTH = 20
@@ -46,7 +44,6 @@ function bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield arr
                 console.log(arr)
 			}
 		}      		
