@@ -45,7 +45,7 @@ function bubbleSort(arr) {
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
                 console.log(arr)
-				const sortPromise = new Promise((resolve, reject) => ) {
+				const sortPromise = new Promise((resolve, reject) =>  {
 					setTimeout(() => {
 						resolve(arr);
 					}, 300)
