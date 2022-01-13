@@ -36,7 +36,7 @@ function updateCanvas(arr, context) {
 }
 
 
-async function bubbleSort(arr) {
+function bubbleSort(arr) {
 	console.log(arr)
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
