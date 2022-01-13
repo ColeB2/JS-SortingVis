@@ -85,6 +85,6 @@ function mainLoop() {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-//let isRunning = true
+let isRunning = true
 mainLoop();
 //animate()
