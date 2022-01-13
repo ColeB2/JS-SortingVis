@@ -49,7 +49,7 @@ function bubbleSort(arr) {
 					setTimeout(() => {
 						resolve(arr);
 					}, 300)
-				}
+				})
 			}
 		}      		
 	}
