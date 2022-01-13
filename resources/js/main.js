@@ -76,8 +76,8 @@ function animate(){
 
 function mainLoop() {
 	if (isRunning) {
-		//bubbleSort(TEST_ARRAY)
-		//updateCanvas(TEST_ARRAY, cons.CTX);
+		bubbleSort(TEST_ARRAY)
+		updateCanvas(TEST_ARRAY, cons.CTX);
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
@@ -86,5 +86,5 @@ function mainLoop() {
 
 updateCanvas(TEST_ARRAY, cons.CTX);
 //let isRunning = true
-//mainLoop();
-animate()
+mainLoop();
+//animate()
