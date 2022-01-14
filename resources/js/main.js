@@ -14,7 +14,7 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 
 
 function drawArray(arr, context) {
-	context.fillStyle = '#89FB92'
+	context.fillStyle = '#343A40'
 	arr.map(function(element, index) {
 		context.fillSt
 		context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
