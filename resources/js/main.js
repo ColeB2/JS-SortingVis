@@ -74,7 +74,7 @@ function animate(obj){
 	let i = 0
 	if (i < n) {
 		console.log("inside i< n")
-		console.log(ojb)
+		console.log(obj)
 		updateCANVAS(obj[i][0], cons.CTX)
 		i ++;
 		setTimeout(function() {
