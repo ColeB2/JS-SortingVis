@@ -70,6 +70,7 @@ function pauseLoop() {
 	}
 	
 	isRunning = !isRunning;
+	mainLoop();
 }
 
 const pauseButton = document.getElementById('pause')
