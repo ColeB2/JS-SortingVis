@@ -33,7 +33,7 @@ function updateVisuals(arr, context) {
 
 async function updateCanvas(arr, context) {
 	updateVisuals(arr, context)
-	await pause()
+	await delay()
 }
 
 
@@ -54,7 +54,7 @@ async function bubbleSort(arr) {
 	algoRunning = false
 }
 
-async function pause() {
+async function delay() {
 	return new Promise(resolve => {
 		setTimeout(() => {
 			resolve();
@@ -62,13 +62,23 @@ async function pause() {
 	})
 }
 
-function pauseLoop() {
+async function pause() {
+	return new Promise((resolve) => {
+		if (isRunning) {
+			resolve()
+		}
+		
+	}
+}
+
+async function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
+		await pause()
 	} else {
 		pauseButton.innerText = 'Pause';
-		pauseButton.classList.add('button-paused')
+		pauseButton.classList.add('button-paused')	
 	}
 	
 	isRunning = !isRunning;
@@ -81,6 +91,7 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 async function mainLoop() {
 	if (isRunning) {
+		await pause()
 		if (!algoRunning) {
 			await bubbleSort(TEST_ARRAY)
 		}
