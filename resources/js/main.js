@@ -73,6 +73,8 @@ function animate(obj){
 	n = obj.length
 	i = 0
 	if (i < n) {
+		console.log("inside i< n")
+		console.log(ojb)
 		updateCANVAS(obj[i][0])
 		i ++;
 		setTimeout(function() {
@@ -89,6 +91,7 @@ function mainLoop() {
 	if (isRunning) {
 		let ani = bubbleSort(TEST_ARRAY)
 		updateCanvas(TEST_ARRAY, cons.CTX);
+		animate(ani)
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
