@@ -34,7 +34,7 @@ function updateCanvas(arr, context) {
 }
 
 
-function bubbleSort(arr) {
+async function bubbleSort(arr) {
 	console.log(arr)
 	let ani = []
 	for (let i = arr.length - 1; i >= 0; i--) {
@@ -46,7 +46,7 @@ function bubbleSort(arr) {
 				arr[j+1] = temp
 				let array = arr.slice(0)
 				updateCanvas(arr, cons.CTX)
-				pause()
+				await pause()
 				ani.push([array, j, j+1])
 				console.log(ani)
 			}
