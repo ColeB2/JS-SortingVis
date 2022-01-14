@@ -41,12 +41,13 @@ function bubbleSort(arr) {
 		for (let j = 0; j < i; j++) {
 			if (arr[j] > arr[j+1]) {
 				//updateCanvas(arr, cons.CTX)
-				console.log(arr)
+				//console.log(arr)
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
 				ani.push([arr, j, j+1])
-                console.log(arr)
+				console.log(ani)
+                //console.log(arr)
 			}
 		}      		
 	}
