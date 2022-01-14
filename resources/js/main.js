@@ -75,7 +75,7 @@ function animate(obj){
 	if (i < n) {
 		console.log("inside i< n")
 		console.log(obj)
-		updateCANVAS(obj[i][0], cons.CTX)
+		updateCanvas(obj[i][0], cons.CTX)
 		i ++;
 		setTimeout(function() {
 			window.requestAnimationFrame(function() {
