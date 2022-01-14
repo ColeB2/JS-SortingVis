@@ -47,6 +47,7 @@ async function bubbleSort(arr) {
 				arr[j+1] = temp
 				
 				//remove and abstract the update, pause portions.
+				await pause()
 				await updateCanvas(arr, cons.CTX)
 			}
 		}      		
