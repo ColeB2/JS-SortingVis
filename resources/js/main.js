@@ -38,6 +38,7 @@ async function updateCanvas(arr, context) {
 
 
 async function bubbleSort(arr) {
+	algoRunning = true
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			if (arr[j] > arr[j+1]) {
@@ -50,6 +51,7 @@ async function bubbleSort(arr) {
 			}
 		}      		
 	}
+	algoRunning = false
 }
 
 async function pause() {
@@ -79,12 +81,16 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 async function mainLoop() {
 	if (isRunning) {
-		await bubbleSort(TEST_ARRAY)
+		if (!algoRunning) {
+			await bubbleSort(TEST_ARRAY)
+		}
+		
 	}
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
+let algoRunning = false;
 mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
