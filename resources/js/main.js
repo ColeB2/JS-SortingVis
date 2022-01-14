@@ -95,9 +95,6 @@ function animate(obj){
 function mainLoop() {
 	if (isRunning) {
 		bubbleSort(TEST_ARRAY)
-		setTimeout(()=> {
-			window.requestAnimationFrame(mainLoop);
-		}, 1000)
 	}
 }
 
