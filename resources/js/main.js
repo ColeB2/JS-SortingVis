@@ -94,9 +94,7 @@ function animate(obj){
 
 function mainLoop() {
 	if (isRunning) {
-		let ani = bubbleSort(TEST_ARRAY)
-		//updateCanvas(TEST_ARRAY, cons.CTX);
-		animate(ani)
+		bubbleSort(TEST_ARRAY)
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
 		}, 1000)
@@ -104,7 +102,7 @@ function mainLoop() {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-//let isRunning = true
-//mainLoop();
-bubbleSort(TEST_ARRAY)
+let isRunning = true
+mainLoop();
+//bubbleSort(TEST_ARRAY)
 //animate()
