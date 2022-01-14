@@ -83,7 +83,7 @@ async function mainLoop() {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-let isRunning = true
+let isRunning = false
 mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
