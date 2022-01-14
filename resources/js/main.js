@@ -78,10 +78,11 @@ function animate(obj){
 		updateCanvas(obj[i][0], cons.CTX)
 		i ++;
 		setTimeout(function() {
+			console.log("inside timeout")
 			window.requestAnimationFrame(function() {
 				animate(obj);
 			});
-		}, 1000)
+		}, 5000)
 	}
 	
 	
