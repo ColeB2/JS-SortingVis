@@ -71,7 +71,10 @@ let start, previousTimeStamp;
 
 function animate(obj){
 	n = obj.length
-	if (n >= 0) {
+	i = 0
+	if (i < n) {
+		updateCANVAS(obj[i][0])
+		i ++;
 		setTimeout(function() {
 			window.requestAnimationFrame(function() {
 				animate(obj);
