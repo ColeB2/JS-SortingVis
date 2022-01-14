@@ -70,8 +70,8 @@ pauseButton.addEventListener('click', pauseLoop, false)
 let start, previousTimeStamp;
 
 function animate(obj){
-	n = obj.length
-	i = 0
+	let n = obj.length
+	let i = 0
 	if (i < n) {
 		console.log("inside i< n")
 		console.log(ojb)
