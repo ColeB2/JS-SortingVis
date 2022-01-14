@@ -71,11 +71,20 @@ async function pause() {
 	})
 }
 
+function pauser() {
+	if (isRunning) {
+		return
+	}
+	return delay().then(() => pauser());
+}
+
+
 async function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
-		await pause()
+		//await pause()
+		pauser()
 	} else {
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')	
@@ -91,7 +100,8 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 async function mainLoop() {
 	if (isRunning) {
-		await pause()
+		//await pause()
+		pauser()
 		if (!algoRunning) {
 			await bubbleSort(TEST_ARRAY)
 		}
