@@ -50,6 +50,7 @@ function bubbleSort(arr) {
 			}
 		}      		
 	}
+	console.log(ani)
 	return ani
 }
 function pauseLoop() {
