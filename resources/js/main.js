@@ -29,8 +29,9 @@ function updateVisuals(arr, context) {
 	
 }
 
-function updateCanvas(arr, context) {
+async function updateCanvas(arr, context) {
 	updateVisuals(arr, context)
+	await pause()
 }
 
 
@@ -41,9 +42,9 @@ async function bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
+				
+				//remove and abstract the update, pause portions.
 				updateCanvas(arr, cons.CTX)
-				await pause()
-
 			}
 		}      		
 	}
