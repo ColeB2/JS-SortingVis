@@ -36,18 +36,21 @@ function updateCanvas(arr, context) {
 
 function bubbleSort(arr) {
 	console.log(arr)
+	let ani = []
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			if (arr[j] > arr[j+1]) {
-				updateCanvas(arr, cons.CTX)
+				//updateCanvas(arr, cons.CTX)
 				console.log(arr)
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
+				ani.push([arr, j, j+1])
                 console.log(arr)
 			}
 		}      		
 	}
+	return ani
 }
 function pauseLoop() {
 	if (isRunning) {
@@ -66,16 +69,22 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 let start, previousTimeStamp;
 
-function animate(){
-	setTimeout(function() {
-		requestAnimationFrame(mainLoop);
-	}, 1000)
+function animate(obj){
+	n = obj.length
+	if (n >= 0) {
+		setTimeout(function() {
+			window.requestAnimationFrame(function() {
+				animate(obj);
+			});
+		}, 1000)
+	}
+	
 	
 }
 
 function mainLoop() {
 	if (isRunning) {
-		bubbleSort(TEST_ARRAY)
+		let ani = bubbleSort(TEST_ARRAY)
 		updateCanvas(TEST_ARRAY, cons.CTX);
 		setTimeout(()=> {
 			window.requestAnimationFrame(mainLoop);
