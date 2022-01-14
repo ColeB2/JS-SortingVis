@@ -75,26 +75,10 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
-function animate(obj){
-	let n = obj.length
-	let i = 0
-	if (i < n) {
-		console.log("inside i< n")
-		console.log(obj[i][0])
-		updateCanvas(obj[i][0], cons.CTX)
-		i ++;
-		setTimeout(function() {
-			console.log("inside timeout")
-			window.requestAnimationFrame(function() {
-				animate(obj);
-			});
-		}, 5000)
-	}
-}
 
-function mainLoop() {
+async function mainLoop() {
 	if (isRunning) {
-		bubbleSort(TEST_ARRAY)
+		await bubbleSort(TEST_ARRAY)
 	}
 }
 
