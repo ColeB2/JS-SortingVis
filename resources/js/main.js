@@ -45,6 +45,7 @@ function bubbleSort(arr) {
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
 				let array = arr.slice(0)
+				updateCanvas(arr, cons.CTX)
 				ani.push([array, j, j+1])
 				console.log(ani)
 			}
@@ -68,8 +69,6 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
-let start, previousTimeStamp;
-
 function animate(obj){
 	let n = obj.length
 	let i = 0
@@ -85,8 +84,6 @@ function animate(obj){
 			});
 		}, 5000)
 	}
-	
-	
 }
 
 function mainLoop() {
@@ -101,6 +98,7 @@ function mainLoop() {
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
-let isRunning = true
-mainLoop();
+//let isRunning = true
+//mainLoop();
+bubbleSort(TEST_ARRAY)
 //animate()
