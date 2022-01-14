@@ -45,7 +45,8 @@ function bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				ani.push([arr, j, j+1])
+				let array = arr.slice(0)
+				ani.push([array, j, j+1])
 				console.log(ani)
                 //console.log(arr)
 			}
