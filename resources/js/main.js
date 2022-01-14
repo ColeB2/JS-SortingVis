@@ -46,6 +46,7 @@ function bubbleSort(arr) {
 				arr[j+1] = temp
 				let array = arr.slice(0)
 				updateCanvas(arr, cons.CTX)
+				pause()
 				ani.push([array, j, j+1])
 				console.log(ani)
 			}
@@ -54,6 +55,15 @@ function bubbleSort(arr) {
 	console.log(ani)
 	return ani
 }
+
+async function pause() {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve();
+		}, 2000)
+	})
+}
+
 function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
