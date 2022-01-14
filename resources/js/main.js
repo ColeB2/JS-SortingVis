@@ -68,7 +68,7 @@ async function pause() {
 			resolve()
 		}
 		
-	}
+	})
 }
 
 async function pauseLoop() {
