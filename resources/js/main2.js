@@ -85,10 +85,10 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 
 function mainLoop() {
-	generatorAlgo = bubbleSort(TEST_ARRAY)
+	let generatorAlgo = bubbleSort(TEST_ARRAY)
 	if (isRunning) {
 		
-		generatorObj(generatorAlgo)
+		generatorRunner(generatorAlgo)
 		
 	}
 }
