@@ -88,7 +88,7 @@ function mainLoop() {
 	generatorAlgo = bubbleSort(TEST_ARRAY)
 	if (isRunning) {
 		
-		generatorObj(bubbleSort(generatorAlgo)
+		generatorObj(generatorAlgo)
 		
 	}
 }
