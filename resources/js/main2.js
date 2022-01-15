@@ -54,7 +54,7 @@ function* bubbleSort(arr) {
 
 function generatorRunner(generatorObj) {
 	for (let value of generatorObj) {
-		alert(value)
+		console.log(value)
 	}
 }
 
