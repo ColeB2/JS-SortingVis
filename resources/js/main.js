@@ -82,6 +82,8 @@ function pauser() {
 
 
 async function pauseLoop() {
+	console.log("pauseLoop: isRunning:")
+	console.log(isRunning)
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
