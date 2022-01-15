@@ -44,13 +44,19 @@ function* bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield;
+				yield (arr, j, j+1);
 			}
 		}      		
 	}
 	algoRunning = false
 }
 
+
+function generatorRunner(generatorObj) {
+	for (let value of generatorObj) {
+		alert(value)
+	}
+}
 
 async function delay() {
 	return new Promise(resolve => {
@@ -78,11 +84,11 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 
-async function mainLoop() {
+function mainLoop() {
+	generatorAlgo = bubbleSort(TEST_ARRAY)
 	if (isRunning) {
-		if (!algoRunning) {
-			await bubbleSort(TEST_ARRAY)
-		}
+		
+		generatorObj(bubbleSort(generatorAlgo)
 		
 	}
 }
