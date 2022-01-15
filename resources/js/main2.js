@@ -54,24 +54,6 @@ function* bubbleSort(arr) {
 }
 
 
-async function bubbleSort(arr) {
-	algoRunning = true
-	for (let i = arr.length - 1; i >= 0; i--) {
-		for (let j = 0; j < i; j++) {
-			if (arr[j] > arr[j+1]) {
-				let temp = arr[j]
-				arr[j] = arr[j+1]
-				arr[j+1] = temp
-				
-				//remove and abstract the update, pause portions.
-				await pause()
-				await updateCanvas(arr, cons.CTX)
-			}
-		}      		
-	}
-	algoRunning = false
-}
-
 async function delay() {
 	return new Promise(resolve => {
 		setTimeout(() => {
