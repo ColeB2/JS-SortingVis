@@ -1,5 +1,3 @@
-
-
 import * as cons from './constants.js'
 
 const ARRAY_LENGTH = 20
@@ -62,32 +60,11 @@ async function delay() {
 	})
 }
 
-async function pause() {
-	return new Promise((resolve) => {
-		if (isRunning) {
-			resolve()
-		}
-		
-	})
-}
 
-function pauser() {
-	console.log('inside pauser')
-	if (isRunning) {
-		return
-	}
-	return delay().then(() => pauser());
-}
-
-
-async function pauseLoop() {
-	console.log("pauseLoop: isRunning:")
-	console.log(isRunning)
+function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
-		//await pause()
-		pauser()
 	} else {
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')	
@@ -103,8 +80,6 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 async function mainLoop() {
 	if (isRunning) {
-		//await pause()
-		pauser()
 		if (!algoRunning) {
 			await bubbleSort(TEST_ARRAY)
 		}
