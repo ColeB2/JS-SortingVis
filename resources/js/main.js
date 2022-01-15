@@ -75,7 +75,7 @@ async function pause() {
 function pauser() {
 	console.log('inside pauser')
 	if (isRunning) {
-		return mainLoop()
+		return
 	}
 	return delay().then(() => pauser());
 }
