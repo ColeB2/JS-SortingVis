@@ -53,7 +53,7 @@ function* bubbleSort(arr) {
 }
 
 
-function generatorRunner(generatorObj) {
+async function generatorRunner(generatorObj) {
 	console.log(generatorObj)
 	for (let value of generatorObj) {
 		console.log("inside for loop genobj value of")
