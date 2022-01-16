@@ -31,10 +31,8 @@ function updateVisuals(arr, context) {
 	
 }
 
-async function updateCanvas(arr, context) {
+function updateCanvas(arr, context) {
 	updateVisuals(arr, context)
-	
-	await delay()
 }
 
 function* bubbleSort(arr) {
@@ -53,12 +51,12 @@ function* bubbleSort(arr) {
 }
 
 
-async function generatorRunner(generatorObj) {
+function generatorRunner(generatorObj) {
 	console.log(generatorObj)
 	for (let value of generatorObj) {
 		console.log("inside for loop genobj value of")
 		console.log(value)
-		await updateCanvas(value[0], cons.CTX)
+		updateCanvas(value[0], cons.CTX)
 
 	}
 }
@@ -89,13 +87,19 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 
-function mainLoop() {
+function runAlgo() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
-	if (isRunning) {
-		
+	function mainLoop() {
+		if (isRunning) {
 		generatorRunner(generatorAlgo)
+		setTimeout( () => {
+			weindow.requestAnimationFrame(mainLoop);
+		}, 1000)
 		
 	}
+		
+	}
+	
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
