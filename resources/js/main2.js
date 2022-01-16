@@ -92,9 +92,9 @@ function runAlgo() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
 	function mainLoop() {
 		if (isRunning) {
-		generatorRunner(generatorAlgo)
-		setTimeout( () => {
-			weindow.requestAnimationFrame(mainLoop);
+			generatorRunner(generatorAlgo)
+			setTimeout( () => {
+				window.requestAnimationFrame(mainLoop);
 		}, 1000)
 		
 	}
