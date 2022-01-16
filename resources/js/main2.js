@@ -80,7 +80,8 @@ function pauseLoop() {
 	}
 	
 	isRunning = !isRunning;
-	mainLoop();
+	runAlgo();
+	//mainLoop();
 }
 
 const pauseButton = document.getElementById('pause')
