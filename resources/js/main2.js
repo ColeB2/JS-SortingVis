@@ -57,6 +57,7 @@ function generatorRunner(generatorObj) {
 	for (let value of generatorObj) {
 		console.log("inside for loop genobj value of")
 		console.log(value)
+		updateCanvas(value[0], cons.CTX)
 
 	}
 }
