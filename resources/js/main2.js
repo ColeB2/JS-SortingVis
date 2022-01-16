@@ -33,6 +33,7 @@ function updateVisuals(arr, context) {
 
 async function updateCanvas(arr, context) {
 	updateVisuals(arr, context)
+	
 	await delay()
 }
 
@@ -58,6 +59,7 @@ function generatorRunner(generatorObj) {
 		console.log("inside for loop genobj value of")
 		console.log(value)
 		updateCanvas(value[0], cons.CTX)
+		await delay()
 
 	}
 }
