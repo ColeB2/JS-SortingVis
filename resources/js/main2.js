@@ -105,6 +105,6 @@ function runAlgo() {
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 let algoRunning = false;
-mainLoop();
+runAlgo();
 //bubbleSort(TEST_ARRAY)
 //animate()
