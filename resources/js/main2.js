@@ -44,7 +44,7 @@ function* bubbleSort(arr) {
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield (arr, j, j+1);
+				yield [arr, j, j+1];
 			}
 		}      		
 	}
