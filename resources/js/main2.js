@@ -80,32 +80,25 @@ function pauseLoop() {
 	}
 	
 	isRunning = !isRunning;
-	runAlgo();
-	//mainLoop();
+	mainLoop();
 }
 
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 
-function runAlgo() {
+function mainLoop() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
-	function mainLoop() {
-		if (isRunning) {
-			generatorRunner(generatorAlgo)
-			setTimeout( () => {
-				window.requestAnimationFrame(mainLoop);
-		}, 1000)
+	if (isRunning) {
+		
+		generatorRunner(generatorAlgo)
 		
 	}
-		
-	}
-	
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 let algoRunning = false;
-runAlgo();
+mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
