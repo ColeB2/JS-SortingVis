@@ -97,7 +97,7 @@ function mainLoop() {
 	if (isRunning) {
 		let val = generatorAlgo.next()
 		console.log(val)
-		updateCanvas(val[0], cons.CTX)
+		updateCanvas(val['value'][0], cons.CTX)
 		//generatorRunner(generatorAlgo)
 		setTimeout( () => {
 			window.requestAnimationFrame(mainLoop);
