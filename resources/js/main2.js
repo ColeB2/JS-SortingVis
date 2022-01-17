@@ -96,6 +96,7 @@ function mainLoop() {
 	if (generatorAlgo === null) {
 		console.log("inside if")
 		let generatorAlgo = bubbleSort(TEST_ARRAY)
+		console.log(generatorAlgo)
 	}
 	
 	
