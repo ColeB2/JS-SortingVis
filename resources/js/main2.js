@@ -105,10 +105,9 @@ function mainLoop() {
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
 			}, 1000)
-		
+		}	
 	}
-		
-	}
+	window.requestAnimationFrame(main)
 	
 }
 
