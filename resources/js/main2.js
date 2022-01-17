@@ -95,7 +95,7 @@ pauseButton.addEventListener('click', pauseLoop, false)
 function mainLoop() {
 	if (generatorAlgo === null) {
 		console.log("inside if")
-		let generatorAlgo = bubbleSort(TEST_ARRAY)
+		var generatorAlgo = bubbleSort(TEST_ARRAY)
 		console.log(generatorAlgo)
 	}
 	
@@ -120,7 +120,7 @@ function mainLoop() {
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 let algoRunning = false;
-let generatorAlgo = null;
+var generatorAlgo = null;
 mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
