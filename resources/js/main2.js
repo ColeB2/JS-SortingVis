@@ -93,7 +93,11 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 
 function mainLoop() {
-	let generatorAlgo = bubbleSort(TEST_ARRAY)
+	if (!generatorAlgo) {
+		let generatorAlgo = bubbleSort(TEST_ARRAY)
+	}
+	
+	
 	console.log(generatorAlgo)
 	
 	function main() {
@@ -114,6 +118,7 @@ function mainLoop() {
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 let algoRunning = false;
+let generatorAlgo = null;
 mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
