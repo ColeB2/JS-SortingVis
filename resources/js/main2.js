@@ -61,6 +61,11 @@ function generatorRunner(generatorObj) {
 	}
 }
 
+
+function generatorRunner2(generatorObj) {
+	
+}
+
 async function delay() {
 	return new Promise(resolve => {
 		setTimeout(() => {
@@ -90,8 +95,12 @@ pauseButton.addEventListener('click', pauseLoop, false)
 function mainLoop() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
 	if (isRunning) {
-		
-		generatorRunner(generatorAlgo)
+		let val = generatorAlgo.next()
+		updateCanvas(val[0], cons.CTX)
+		//generatorRunner(generatorAlgo)
+		setTimeout( () => {
+			window.requestAnimationFrame(mainLoop);
+		}, 1000)
 		
 	}
 }
