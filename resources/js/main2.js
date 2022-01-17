@@ -94,16 +94,21 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 function mainLoop() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
-	if (isRunning) {
-		let val = generatorAlgo.next()
-		console.log(val)
-		updateCanvas(val['value'][0], cons.CTX)
-		//generatorRunner(generatorAlgo)
-		setTimeout( () => {
-			window.requestAnimationFrame(mainLoop);
-		}, 1000)
+	
+	function main() {
+		if (isRunning) {
+			let val = generatorAlgo.next()
+			console.log(val)
+			updateCanvas(val['value'][0], cons.CTX)
+			//generatorRunner(generatorAlgo)
+			setTimeout( () => {
+				window.requestAnimationFrame(main);
+			}, 1000)
 		
 	}
+		
+	}
+	
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
