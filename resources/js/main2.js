@@ -110,7 +110,7 @@ function mainLoop() {
 			//generatorRunner(generatorAlgo)
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
-			}, 1000)
+			}, 2000)
 		}	
 	}
 	window.requestAnimationFrame(main)
