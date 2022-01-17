@@ -96,6 +96,7 @@ function mainLoop() {
 	let generatorAlgo = bubbleSort(TEST_ARRAY)
 	if (isRunning) {
 		let val = generatorAlgo.next()
+		console.log(val)
 		updateCanvas(val[0], cons.CTX)
 		//generatorRunner(generatorAlgo)
 		setTimeout( () => {
