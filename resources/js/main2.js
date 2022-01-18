@@ -25,7 +25,9 @@ function updateLogic(arr, context) {
 	
 }
 
-function updateBar()
+function updateBar() {
+	
+}
 
 function updateVisuals(arr, context) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
