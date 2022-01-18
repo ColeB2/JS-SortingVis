@@ -16,7 +16,6 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 function drawArray(arr, context) {
 	context.fillStyle = '#343A40'
 	arr.map(function(element, index) {
-		context.fillSt
 		context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
 	})
 }
@@ -29,9 +28,14 @@ function updateBar() {
 	
 }
 
-function updateVisuals(arr, context) {
+function updateVisuals(arr, context, bar=null, bar2=null, bar3=null) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
+	if (bar) {
+		context.fillStyle = '#89FB92'
+		context.fillRect( (bar * cons.BAR_WIDTH)+10, 0, cons.BAR_WIDTH-1, (2*arr[bar]))
+		context.fillStyle = '#343A40'
+	}
 	
 }
 
@@ -96,7 +100,7 @@ function mainLoop() {
 		if (isRunning) {
 			let val = generatorAlgo.next()
 			console.log(val)
-			updateCanvas(val['value'][0], cons.CTX)
+			updateCanvas(val['value'][0], cons.CTX, val['value'][1])
 			//generatorRunner(generatorAlgo)
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
