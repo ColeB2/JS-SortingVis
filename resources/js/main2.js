@@ -33,7 +33,7 @@ function updateVisuals(arr, context) {
 	
 }
 
-function updateCanvas(arr, context) {
+function updateCanvas(arr, context, bar=null, bar2=null, bar3=null) {
 	updateVisuals(arr, context)
 }
 
