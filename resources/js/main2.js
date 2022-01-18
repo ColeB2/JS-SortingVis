@@ -32,7 +32,7 @@ function updateVisuals(arr, context, bar=null, bar2=null, bar3=null) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
 	if (bar) {
-		"inside bar, drawing new bar"
+		console.log("inside bar, drawing new bar")
 		context.fillStyle = '#89FB92'
 		context.fillRect( (bar * cons.BAR_WIDTH)+10, 0, cons.BAR_WIDTH-1, (2*arr[bar]))
 		context.fillStyle = '#343A40'
