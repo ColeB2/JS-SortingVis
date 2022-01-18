@@ -25,6 +25,8 @@ function updateLogic(arr, context) {
 	
 }
 
+function updateBar()
+
 function updateVisuals(arr, context) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
@@ -60,20 +62,6 @@ function generatorRunner(generatorObj) {
 
 	}
 }
-
-
-function generatorRunner2(generatorObj) {
-	
-}
-
-async function delay() {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve();
-		}, 1000)
-	})
-}
-
 
 function pauseLoop() {
 	if (isRunning) {
