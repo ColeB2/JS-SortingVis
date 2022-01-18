@@ -32,6 +32,7 @@ function updateVisuals(arr, context, bar=null, bar2=null, bar3=null) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
 	if (bar) {
+		"inside bar, drawing new bar"
 		context.fillStyle = '#89FB92'
 		context.fillRect( (bar * cons.BAR_WIDTH)+10, 0, cons.BAR_WIDTH-1, (2*arr[bar]))
 		context.fillStyle = '#343A40'
@@ -58,16 +59,6 @@ function* bubbleSort(arr) {
 	algoRunning = false
 }
 
-
-function generatorRunner(generatorObj) {
-	console.log(generatorObj)
-	for (let value of generatorObj) {
-		console.log("inside for loop genobj value of")
-		console.log(value)
-		updateCanvas(value[0], cons.CTX)
-
-	}
-}
 
 function pauseLoop() {
 	if (isRunning) {
@@ -101,7 +92,6 @@ function mainLoop() {
 			let val = generatorAlgo.next()
 			console.log(val)
 			updateCanvas(val['value'][0], cons.CTX, val['value'][1])
-			//generatorRunner(generatorAlgo)
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
 			}, 2000)
