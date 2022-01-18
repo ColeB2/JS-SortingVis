@@ -41,7 +41,7 @@ function updateVisuals(arr, context, bar=null, bar2=null, bar3=null) {
 }
 
 function updateCanvas(arr, context, bar=null, bar2=null, bar3=null) {
-	updateVisuals(arr, context)
+	updateVisuals(arr, context, bar, bar2, bar3)
 }
 
 function* bubbleSort(arr) {
