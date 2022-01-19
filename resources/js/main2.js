@@ -106,7 +106,7 @@ function mainLoop() {
 			updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
-			}, 2000)
+			}, 1000)
 		}	
 	}
 	window.requestAnimationFrame(main)
