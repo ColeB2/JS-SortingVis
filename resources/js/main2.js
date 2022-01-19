@@ -28,31 +28,43 @@ function updateBar() {
 	
 }
 
-function updateVisuals(arr, context, bar=null, bar2=null, bar3=null) {
+function updateVisuals(arr, context, choice=null, arr2=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
-	if (bar) {
+	if (choice === "compare") {
 		console.log("inside bar, drawing new bar")
 		context.fillStyle = '#89FB92'
-		context.fillRect( (bar * cons.BAR_WIDTH)+10, 0, cons.BAR_WIDTH-1, (2*arr[bar]))
+		arr2.map(function(element, index) {
+			context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
+		})
+		context.fillStyle = '#343A40'
+	}
+	if (choice === "swap") {
+		console.log("inside bar, drawing new bar")
+		context.fillStyle = '#F0F0F0'
+		arr2.map(function(element, index) {
+			context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
+		})
 		context.fillStyle = '#343A40'
 	}
 	
 }
 
-function updateCanvas(arr, context, bar=null, bar2=null, bar3=null) {
-	updateVisuals(arr, context, bar, bar2, bar3)
+function updateCanvas(arr, context, choice=null, arr2=[]) {
+	updateVisuals(arr, context, choice, arr2)
 }
 
 function* bubbleSort(arr) {
 	algoRunning = true
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
+			yield [arr, "compare", [j, j+1]]
 			if (arr[j] > arr[j+1]) {
+				yield [arr, "swap", [j, j+1]];
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield [arr, j, j+1];
+				yield [arr, "swap", [j, j+1]];
 			}
 		}      		
 	}
@@ -91,7 +103,7 @@ function mainLoop() {
 		if (isRunning) {
 			let val = generatorAlgo.next()
 			console.log(val)
-			updateCanvas(val['value'][0], cons.CTX, val['value'][1])
+			updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
 			}, 2000)
