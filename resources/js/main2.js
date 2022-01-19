@@ -41,7 +41,7 @@ function updateVisuals(arr, context, choice=null, arr2=[]) {
 	}
 	if (choice === "swap") {
 		console.log("inside bar, drawing new bar")
-		context.fillStyle = '#F0F0F0'
+		context.fillStyle = '#CE050F'
 		arr2.map(function(element, index) {
 			context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
 		})
