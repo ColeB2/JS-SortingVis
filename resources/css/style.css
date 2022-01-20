@@ -126,13 +126,6 @@ body {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
-html,body{
-  display: grid;
-  height: 100%;
-  place-items: center;
-  background: #0069d9;
-  font-family: 'Lato', sans-serif;
-}
 .wrapper{
   display: inline-flex;
   background: #fff;
