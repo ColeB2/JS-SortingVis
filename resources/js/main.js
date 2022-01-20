@@ -16,7 +16,6 @@ const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45
 function drawArray(arr, context) {
 	context.fillStyle = '#343A40'
 	arr.map(function(element, index) {
-		context.fillSt
 		context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
 	})
 }
@@ -25,70 +24,58 @@ function updateLogic(arr, context) {
 	
 }
 
-function updateVisuals(arr, context) {
-	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
-	drawArray(arr, context)
+function updateBar() {
 	
 }
 
-async function updateCanvas(arr, context) {
-	updateVisuals(arr, context)
-	await delay()
+function updateVisuals(arr, context, choice=null, arr2=[]) {
+	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
+	drawArray(arr, context)
+	if (choice === "compare") {
+		console.log("inside bar, drawing new bar")
+		context.fillStyle = '#89FB92'
+		arr2.map(function(element, index) {
+			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
+		})
+		context.fillStyle = '#343A40'
+	}
+	if (choice === "swap") {
+		console.log("inside bar, drawing new bar")
+		context.fillStyle = '#CE050F'
+		arr2.map(function(element, index) {
+			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
+		})
+		context.fillStyle = '#343A40'
+	}
+	
 }
 
+function updateCanvas(arr, context, choice=null, arr2=[]) {
+	updateVisuals(arr, context, choice, arr2)
+}
 
-async function bubbleSort(arr) {
+function* bubbleSort(arr) {
 	algoRunning = true
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
+			yield [arr, "compare", [j, j+1]]
 			if (arr[j] > arr[j+1]) {
+				yield [arr, "swap", [j, j+1]];
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				
-				//remove and abstract the update, pause portions.
-				await pause()
-				await updateCanvas(arr, cons.CTX)
+				yield [arr, "swap", [j, j+1]];
 			}
 		}      		
 	}
 	algoRunning = false
 }
 
-async function delay() {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve();
-		}, 1000)
-	})
-}
 
-async function pause() {
-	return new Promise((resolve) => {
-		if (isRunning) {
-			resolve()
-		}
-		
-	})
-}
-
-function pauser() {
-	console.log('inside pauser')
-	if (isRunning) {
-		return
-	}
-	return delay().then(() => pauser());
-}
-
-
-async function pauseLoop() {
-	console.log("pauseLoop: isRunning:")
-	console.log(isRunning)
+function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
-		//await pause()
-		pauser()
 	} else {
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')	
@@ -102,20 +89,34 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 
-async function mainLoop() {
-	if (isRunning) {
-		//await pause()
-		pauser()
-		if (!algoRunning) {
-			await bubbleSort(TEST_ARRAY)
-		}
-		
+function mainLoop() {
+	if (generatorAlgo === null) {
+		console.log("inside if")
+		generatorAlgo = bubbleSort(TEST_ARRAY)
+		console.log(generatorAlgo)
 	}
+	
+	
+	console.log(generatorAlgo)
+	
+	function main() {
+		if (isRunning) {
+			let val = generatorAlgo.next()
+			console.log(val)
+			updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
+			setTimeout( () => {
+				window.requestAnimationFrame(main);
+			}, 1000)
+		}	
+	}
+	window.requestAnimationFrame(main)
+	
 }
 
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 let algoRunning = false;
+var generatorAlgo = null;
 mainLoop();
 //bubbleSort(TEST_ARRAY)
 //animate()
