@@ -54,18 +54,13 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 function mainLoop() {
 	if (generatorAlgo === null) {
-		console.log("inside if")
 		generatorAlgo = bubbleSort(TEST_ARRAY)
-		console.log(generatorAlgo)
 	}
 	
-	
-	console.log(generatorAlgo)
 	
 	function main() {
 		if (isRunning) {
 			let val = generatorAlgo.next()
-			console.log(val)
 			updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 			setTimeout( () => {
 				window.requestAnimationFrame(main);
@@ -80,6 +75,5 @@ function mainLoop() {
 //Main
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
-let algoRunning = false;
 var generatorAlgo = null;
 mainLoop();
