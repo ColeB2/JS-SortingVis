@@ -21,14 +21,18 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 	if (choice === "compare") {
 		context.fillStyle = '#89FB92'
 		arr2.map(function(element, index) {
-			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
+			context.fillRect(
+			    ((element * cons.BAR_WIDTH)+10),
+			    0, cons.BAR_WIDTH-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
 	}
 	if (choice === "swap") {
 		context.fillStyle = '#CE050F'
 		arr2.map(function(element, index) {
-			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
+			context.fillRect(
+			    ((element * cons.BAR_WIDTH)+10),
+				0, cons.BAR_WIDTH-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
 	}
