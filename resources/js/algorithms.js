@@ -1,7 +1,6 @@
 
 
 export function* bubbleSort(arr) {
-	algoRunning = true
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			yield [arr, "compare", [j, j+1]]
@@ -14,5 +13,4 @@ export function* bubbleSort(arr) {
 			}
 		}      		
 	}
-	algoRunning = false
 }
