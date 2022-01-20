@@ -15,19 +15,10 @@ function drawArray(arr, context) {
 	})
 }
 
-function updateLogic(arr, context) {
-	
-}
-
-function updateBar() {
-	
-}
-
-function updateVisuals(arr, context, choice=null, arr2=[]) {
+function updateCanvas(arr, context, choice=null, arr2=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
 	if (choice === "compare") {
-		console.log("inside bar, drawing new bar")
 		context.fillStyle = '#89FB92'
 		arr2.map(function(element, index) {
 			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
@@ -35,7 +26,6 @@ function updateVisuals(arr, context, choice=null, arr2=[]) {
 		context.fillStyle = '#343A40'
 	}
 	if (choice === "swap") {
-		console.log("inside bar, drawing new bar")
 		context.fillStyle = '#CE050F'
 		arr2.map(function(element, index) {
 			context.fillRect( ((element * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*arr[element]))
@@ -44,11 +34,6 @@ function updateVisuals(arr, context, choice=null, arr2=[]) {
 	}
 	
 }
-
-function updateCanvas(arr, context, choice=null, arr2=[]) {
-	updateVisuals(arr, context, choice, arr2)
-}
-
 
 function pauseLoop() {
 	if (isRunning) {
