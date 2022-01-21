@@ -67,7 +67,7 @@ bubbleSortButton.addEventListener('click', (event) => {
 
 function mainLoop() {
 	if (generatorAlgo === null) {
-		generatorAlgo = bubbleSort(TEST_ARRAY)
+		//generatorAlgo = bubbleSort(TEST_ARRAY)
 	}
 	
 	
