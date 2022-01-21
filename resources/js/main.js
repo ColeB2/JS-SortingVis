@@ -60,13 +60,11 @@ function selectAlgo(algo, array) {
 }
 
 function radioButton(buttonCalling) {
-	for (let btn in algorithmButtons) {
-		console.log(btn)
-		console.log(algorithmButtons)
+	algorithmButtons.forEach((btn) => {
 		if (buttonCalling != btn) {
 			btn.classList.remove('button-paused')
 		}
-	}	
+	})	
 }
 
 let algorithmButtons = []
