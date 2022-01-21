@@ -146,22 +146,12 @@ body {
   transition: all 0.3s ease;
 }
 
-input[type="radio"]{
-  display: none;
-}
 #option-1:checked:checked ~ .option-1,
 #option-2:checked:checked ~ .option-2{
-  border-color: #0069d9;
-  background: #0069d9;
+  border-color: #008CBA;
+  background: #008CBA;
 }
-#option-1:checked:checked ~ .option-1 .dot,
-#option-2:checked:checked ~ .option-2 .dot{
-  background: #fff;
-}
-#option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
-  opacity: 1;
-  transform: scale(1);
+
 }
 .wrapper .option span{
   font-size: 20px;
