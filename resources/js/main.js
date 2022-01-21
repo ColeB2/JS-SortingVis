@@ -56,12 +56,13 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 function selectAlgo(algo, array) {
-	genratorAlgo = algo
+	generatorAlgo = algo(array)
 }
 
 const bubbleSortButton = document.getElementById('bubblesort')
 bubbleSortButton.addEventListener('click', (event) => {
 	selectAlgo(bubbleSort, TEST_ARRAY)
+	
 },false)
 
 
@@ -89,4 +90,5 @@ function mainLoop() {
 updateCanvas(TEST_ARRAY, cons.CTX);
 let isRunning = false
 var generatorAlgo = null;
+var algoSelected = false;
 mainLoop();
