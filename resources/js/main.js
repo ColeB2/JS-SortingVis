@@ -55,9 +55,14 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
-function selectAlgo() {
-	genratorAlgo = 
+function selectAlgo(algo, array) {
+	genratorAlgo = algo
 }
+
+const bubbleButton = document.getElementById('bubblesort')
+bubbleSortButton.addEventListener('click', (event) => {
+	selectAlgo(bubbleSort, TEST_ARRAY)
+},false)
 
 
 function mainLoop() {
