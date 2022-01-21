@@ -55,6 +55,10 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
+function selectAlgo() {
+	genratorAlgo = 
+}
+
 
 function mainLoop() {
 	if (generatorAlgo === null) {
