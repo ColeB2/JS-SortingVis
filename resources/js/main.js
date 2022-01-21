@@ -70,7 +70,7 @@ let algorithmButtons = []
 const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
 bubbleSortButton.addEventListener('click', (event) => {
-	radioButtons()
+	radioButton()
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
 	
