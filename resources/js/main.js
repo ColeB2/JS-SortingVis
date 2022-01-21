@@ -59,9 +59,20 @@ function selectAlgo(algo, array) {
 	generatorAlgo = algo(array)
 }
 
+function radioButton() {
+	for (btn in algorithmButtons) {
+		btn.classList.remove('button-paused')
+	}	
+}
+
+let algorithmButtons = []
+
 const bubbleSortButton = document.getElementById('bubblesort')
+algorithmButtons.push(bubbleSortButton)
 bubbleSortButton.addEventListener('click', (event) => {
+	radioButtons()
 	selectAlgo(bubbleSort, TEST_ARRAY)
+	bubbleSortButton.classList.add('button-paused')
 	
 },false)
 
