@@ -60,7 +60,7 @@ function selectAlgo(algo, array) {
 }
 
 function radioButton(buttonCalling) {
-	for (btn in algorithmButtons) {
+	for (let btn in algorithmButtons) {
 		if (buttonCalling != btn) {
 			btn.classList.remove('button-paused')
 		}
