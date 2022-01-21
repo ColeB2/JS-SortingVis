@@ -151,7 +151,14 @@ body {
   border-color: #008CBA;
   background: #008CBA;
 }
-
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
 }
 .wrapper .option span{
   font-size: 20px;
