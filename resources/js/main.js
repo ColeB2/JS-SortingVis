@@ -59,7 +59,7 @@ function selectAlgo(algo, array) {
 	genratorAlgo = algo
 }
 
-const bubbleButton = document.getElementById('bubblesort')
+const bubbleSortButton = document.getElementById('bubblesort')
 bubbleSortButton.addEventListener('click', (event) => {
 	selectAlgo(bubbleSort, TEST_ARRAY)
 },false)
