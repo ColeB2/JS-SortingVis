@@ -41,18 +41,13 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 
 function pauseLoop() {
 	if (isRunning) {
-		console.log("isRunning == true,")
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
 		console.log(algorithmButtons)
 		algorithmButtons.forEach((btn) => {
-			console.log(btn)
-			console.log(btn.disabled)
-			btn.disabled = 'false';
-			btn.disabled = 'false'
+
 			btn.removeAttribute("disabled")
-			console.log(btn.disabled)
-			})
+
 	} else {
 		console.log("calling else")
 		pauseButton.innerText = 'Pause';
