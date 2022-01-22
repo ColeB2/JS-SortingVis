@@ -43,11 +43,19 @@ function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
+		
+		algorithmButtons.forEach((btn) => {
+			btn.disabled = 'false';
+			
+			})
 	} else {
 		pauseButton.innerText = 'Pause';
-		pauseButton.classList.add('button-paused')	
+		pauseButton.classList.add('button-paused')
+		
+		algorithmButtons.forEach((btn) => {
+			btn.disabled = 'true';
+			})
 	}
-	
 	isRunning = !isRunning;
 	mainLoop();
 }
@@ -64,7 +72,7 @@ function radioButton(buttonCalling) {
 		if (buttonCalling != btn) {
 			btn.classList.remove('button-paused')
 		}
-	})	
+	})
 }
 
 let algorithmButtons = []
@@ -72,7 +80,6 @@ let algorithmButtons = []
 const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
 bubbleSortButton.addEventListener('click', (event) => {
-	console.log(event)
 	radioButton(bubbleSortButton)
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
