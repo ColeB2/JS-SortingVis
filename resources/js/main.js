@@ -47,7 +47,9 @@ function pauseLoop() {
 		console.log(algorithmButtons)
 		algorithmButtons.forEach((btn) => {
 			console.log(btn)
+			console.log(btn.disabled)
 			btn.disabled = 'false';
+			console.log(btn.disabled)
 			})
 	} else {
 		pauseButton.innerText = 'Pause';
