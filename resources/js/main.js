@@ -84,7 +84,6 @@ bubbleSortButton.addEventListener('click', (event) => {
 	radioButton(bubbleSortButton)
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
-	bubbleSortButton.disabled = 'true'
 	
 },false)
 
@@ -94,7 +93,6 @@ selectionSortButton.addEventListener('click', (event) => {
 	radioButton(selectionSortButton)
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	selectionSortButton.classList.add('button-paused')
-	selectionSortButton.disabled = 'true'
 	
 },false)
 
