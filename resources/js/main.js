@@ -50,6 +50,7 @@ function pauseLoop() {
 			console.log(btn.disabled)
 			btn.disabled = 'false';
 			btn.disabled = 'false'
+			btn.removeAttribute("disabled")
 			console.log(btn.disabled)
 			})
 	} else {
