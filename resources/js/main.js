@@ -49,6 +49,7 @@ function pauseLoop() {
 			console.log(btn)
 			console.log(btn.disabled)
 			btn.disabled = 'false';
+			btn.disabled = 'false'
 			console.log(btn.disabled)
 			})
 	} else {
