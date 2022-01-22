@@ -71,6 +71,7 @@ function radioButton(buttonCalling) {
 	algorithmButtons.forEach((btn) => {
 		if (buttonCalling != btn) {
 			btn.classList.remove('button-paused')
+			btn.removeAttribute("disabled")
 		}
 	})
 }
@@ -83,6 +84,7 @@ bubbleSortButton.addEventListener('click', (event) => {
 	radioButton(bubbleSortButton)
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
+	bubbleSortButton.disabled = 'true'
 	
 },false)
 
@@ -92,6 +94,7 @@ selectionSortButton.addEventListener('click', (event) => {
 	radioButton(selectionSortButton)
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	selectionSortButton.classList.add('button-paused')
+	selectionSortButton.disabled = 'true'
 	
 },false)
 
