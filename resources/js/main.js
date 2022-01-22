@@ -95,11 +95,14 @@ function mainLoop() {
 	
 	function main() {
 		if (isRunning) {
-			let val = generatorAlgo.next()
-			updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
-			setTimeout( () => {
-				window.requestAnimationFrame(main);
-			}, 1000)
+			if (generatorAlgo !== null) {
+				let val = generatorAlgo.next()
+				updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
+				setTimeout( () => {
+					window.requestAnimationFrame(main);
+					}, 1000)	
+			}
+			
 		}	
 	}
 	window.requestAnimationFrame(main)
