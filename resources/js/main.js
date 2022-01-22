@@ -43,13 +43,12 @@ function pauseLoop() {
 	if (isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
-		console.log(algorithmButtons)
+		
 		algorithmButtons.forEach((btn) => {
-
 			btn.removeAttribute("disabled")
+		})
 
 	} else {
-		console.log("calling else")
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')
 		
