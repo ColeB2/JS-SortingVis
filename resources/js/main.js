@@ -53,6 +53,7 @@ function pauseLoop() {
 			console.log(btn.disabled)
 			})
 	} else {
+		console.log("calling else")
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')
 		
