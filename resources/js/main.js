@@ -87,6 +87,15 @@ bubbleSortButton.addEventListener('click', (event) => {
 	
 },false)
 
+const selectionSortButton = document.getElementById('selectionsort')
+algorithmButtons.push(selectionSortButton)
+bubbleSortButton.addEventListener('click', (event) => {
+	radioButton(selectionSortButton)
+	selectAlgo(bubbleSort, TEST_ARRAY)
+	selectionSortButton.classList.add('button-paused')
+	
+},false)
+
 
 function mainLoop() {
 	if (generatorAlgo === null) {
