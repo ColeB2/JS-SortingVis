@@ -25,6 +25,7 @@ export function* selectionSort(arr) {
 			
 			if (arr[j] > arr[maxI]) {
 				var maxI = j
+				yield [arr, "compare", [maxI]]
 			}
 		}
 		yield [arr, "swap", [i, maxI]]
