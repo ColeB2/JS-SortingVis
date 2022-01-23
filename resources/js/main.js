@@ -1,5 +1,5 @@
 import * as cons from './constants.js'
-import {bubbleSort} from './algorithms.js'
+import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
 Array.from(Array(ARRAY_LENGTH)).map(x=>Math.random())
@@ -91,7 +91,7 @@ const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
 selectionSortButton.addEventListener('click', (event) => {
 	radioButton(selectionSortButton)
-	selectAlgo(bubbleSort, TEST_ARRAY)
+	selectAlgo(selectionSort, TEST_ARRAY)
 	selectionSortButton.classList.add('button-paused')
 	
 },false)
