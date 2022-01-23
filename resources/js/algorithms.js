@@ -17,14 +17,14 @@ export function* bubbleSort(arr) {
 
 export function* selectionSort(arr) {
 	for (let i = arr.length-1; i >= 0; i--) {
-		let maxI = 0
+		var maxI = 0
 		yield [arr, "compare", [maxI]]
 		
 		for (let j = 1; j <= i; j++) {
 			yield [arr, "compare", [maxI, j]]
 			
 			if (arr[j] > arr[maxI]) {
-				let maxI = j
+				var maxI = j
 			}
 		}
 		yield [arr, "swap", [i, maxI]]
