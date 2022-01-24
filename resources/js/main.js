@@ -44,6 +44,7 @@ function generateArray() {
 	if (!isRunning) {
 		console.log("!isRunning")
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+		updateCanvas(TEST_ARRAY, cons.CTX);
 	}
 }
 
