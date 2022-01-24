@@ -79,7 +79,7 @@ function selectAlgo(algo, array) {
 	generatorAlgo = algo(array)
 }
 
-function sortFunction()
+function sortFunction() {}
 
 function radioButton(buttonCalling) {
 	algorithmButtons.forEach((btn) => {
