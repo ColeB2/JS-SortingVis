@@ -3,9 +3,8 @@ import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
 Array.from(Array(ARRAY_LENGTH)).map(x=>Math.random())
+let TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.floor(Math.random() * 40));
 
-
-const TEST_ARRAY = [100,25,95,15,48,16,20,17,55,69,72,83,14,28,30,22,78,69,38,45,56]
 
 
 function drawArray(arr, context) {
