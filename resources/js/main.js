@@ -109,12 +109,7 @@ selectionSortButton.addEventListener('click', (event) => {
 },false)
 
 
-function mainLoop() {
-	if (generatorAlgo === null) {
-		//generatorAlgo = bubbleSort(TEST_ARRAY)
-	}
-	
-	
+function mainLoop() {	
 	function main() {
 		if (isRunning) {
 			if (generatorAlgo !== null) {
@@ -138,3 +133,5 @@ let isRunning = false
 var generatorAlgo = null;
 var algoSelected = false;
 mainLoop();
+
+window.TA = TEST_ARRAY
