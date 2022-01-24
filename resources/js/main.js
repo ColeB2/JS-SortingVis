@@ -81,7 +81,11 @@ function selectAlgo(algo, array) {
 	generatorAlgo = algo(array)
 }
 
-function sortFunction() {}
+function sortFunction(buttonObj, algoFunction, arr,) {
+	radioButton(buttonObj)
+	selectAlgo(algoFunction, arr)
+	buttonObj.classList.add('button-paused')
+}
 
 function radioButton(buttonCalling) {
 	algorithmButtons.forEach((btn) => {
@@ -96,16 +100,14 @@ let algorithmButtons = []
 
 const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
-bubbleSortButton.addEventListener('click', (event) => {
-	console.log(event)
-	console.log(TEST_ARRAY)
-	radioButton(bubbleSortButton)
-	selectAlgo(bubbleSort, TEST_ARRAY)
-	bubbleSortButton.classList.add('button-paused')
+//bubbleSortButton.addEventListener('click', (event) => {
+	//radioButton(bubbleSortButton)
+	//selectAlgo(bubbleSort, TEST_ARRAY)
+	//bubbleSortButton.classList.add('button-paused')
 	
-},false)
+//},false)
 
-//bubbleSortButton.addEventListener('click', sortFunction, false)
+bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
 
 const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
