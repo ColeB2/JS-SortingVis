@@ -3,6 +3,7 @@ import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
 var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+console.log(TEST_ARRAY)
 
 
 
