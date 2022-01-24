@@ -101,7 +101,7 @@ bubbleSortButton.addEventListener('click', (event) => {
 	selectAlgo(bubbleSort, TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
 	
-},true)
+},false)
 
 //bubbleSortButton.addEventListener('click', sortFunction, false)
 
