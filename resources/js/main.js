@@ -2,7 +2,7 @@ import * as cons from './constants.js'
 import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
-var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+window.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 console.log(TEST_ARRAY)
 
 
@@ -98,9 +98,9 @@ const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
 bubbleSortButton.addEventListener('click', (event) => {
 	console.log(event)
-	console.log(TEST_ARRAY)
+	console.log(window.TEST_ARRAY)
 	radioButton(bubbleSortButton)
-	selectAlgo(bubbleSort, TEST_ARRAY)
+	selectAlgo(bubbleSort, window.TEST_ARRAY)
 	bubbleSortButton.classList.add('button-paused')
 	
 },false)
