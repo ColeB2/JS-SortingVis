@@ -40,7 +40,9 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 
 
 function generateArray() {
+	console.log("genArray")
 	if (!isRunning) {
+		console.log("!isRunning")
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 	}
 }
