@@ -2,7 +2,6 @@ import * as cons from './constants.js'
 import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
-Array.from(Array(ARRAY_LENGTH)).map(x=>Math.random())
 var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 
 
@@ -43,7 +42,9 @@ function generateArray() {
 	console.log("genArray")
 	if (!isRunning) {
 		console.log("!isRunning")
+		console.log(TEST_ARRAY)
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+		console.log(TEST_ARRAY)
 		updateCanvas(TEST_ARRAY, cons.CTX);
 	}
 }
