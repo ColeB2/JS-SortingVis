@@ -3,7 +3,7 @@ import {bubbleSort, selectionSort} from './algorithms.js'
 
 const ARRAY_LENGTH = 20
 Array.from(Array(ARRAY_LENGTH)).map(x=>Math.random())
-let TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 
 
 
@@ -37,6 +37,16 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 	}
 	
 }
+
+
+function generateArray() {
+	if (!isRunning) {
+		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+	}
+}
+
+const generateArrayButton = document.getElementById('generatearray')
+generateArrayButton.addEventListener('click', generateArray, false)
 
 function pauseLoop() {
 	if (isRunning) {
