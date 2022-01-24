@@ -128,8 +128,7 @@ function mainLoop() {
 			
 		}	
 	}
-	window.requestAnimationFrame(main)
-	
+	window.requestAnimationFrame(main)	
 }
 
 
@@ -139,5 +138,3 @@ let isRunning = false
 var generatorAlgo = null;
 var algoSelected = false;
 mainLoop();
-
-window.TA = TEST_ARRAY
