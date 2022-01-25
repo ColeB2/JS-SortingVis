@@ -78,7 +78,7 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 function selectAlgo(algo, array) {
-	var generatorAlgo = algo(array)
+	generatorAlgo = algo(array)
 }
 
 function sortFunction(buttonObj, algoFunction, arr,) {
