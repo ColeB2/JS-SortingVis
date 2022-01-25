@@ -46,7 +46,7 @@ function generateArray() {
 	if (!isRunning) {
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(TEST_ARRAY, cons.CTX);
-		updateSortListeners
+		updateSortListeners()
 	}
 }
 
@@ -78,14 +78,10 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 function selectAlgo(algo, array) {
-	console.log("selectALGO:")
-	console.log(array)
 	generatorAlgo = algo(array)
 }
 
 function sortFunction(buttonObj, algoFunction, arr,) {
-	console.log("sortFunction:")
-	console.log(arr)
 	radioButton(buttonObj)
 	selectAlgo(algoFunction, arr)
 	buttonObj.classList.add('button-paused')
