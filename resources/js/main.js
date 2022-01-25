@@ -47,7 +47,7 @@ const generateArrayButton = document.getElementById('generatearray')
 generateArrayButton.addEventListener('click', generateArray, false)
 
 function pauseLoop() {
-	if (isRunning) {
+	if (myGlobal.isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
 		
@@ -63,7 +63,7 @@ function pauseLoop() {
 			btn.disabled = 'true';
 			})
 	}
-	isRunning = !isRunning;
+	myGlobal.isRunning = !myGlobal.isRunning;
 	mainLoop();
 }
 
