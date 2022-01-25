@@ -43,7 +43,8 @@ function generateArray() {
 	if (!isRunning) {
 		TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(TEST_ARRAY, cons.CTX);
-		selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, TEST_ARRAY), false)
+		
+		sortFunction(selectionSortButton, selectionSort, TEST_ARRAY)
 	}
 }
 
