@@ -118,7 +118,6 @@ function mainLoop() {
 
 
 //Main
-updateCanvas(TEST_ARRAY, cons.CTX);
 //Global Variales
 var myGlobal = {}
 myGlobal.isRunning = false
@@ -127,4 +126,6 @@ myGlobal.algoSelected = false;
 const ARRAY_LENGTH = 20
 myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
+
+updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 mainLoop();
