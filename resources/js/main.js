@@ -124,7 +124,8 @@ function mainLoop() {
 
 //Main
 updateCanvas(TEST_ARRAY, cons.CTX);
-let isRunning = false
-var generatorAlgo = null;
-var algoSelected = false;
+//Global Variales
+isRunning = false
+generatorAlgo = null;
+algoSelected = false;
 mainLoop();
