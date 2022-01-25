@@ -44,7 +44,7 @@ function updateSortListeners() {
 
 function generateArray() {
 	if (!isRunning) {
-		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+		TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(TEST_ARRAY, cons.CTX);
 		//updateSortListeners()
 	}
