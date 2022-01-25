@@ -37,16 +37,12 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 	}
 	
 }
-function updateSortListeners() {
-	selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, TEST_ARRAY), false)
-	bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
-}
+
 
 function generateArray() {
 	if (!isRunning) {
 		TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(TEST_ARRAY, cons.CTX);
-		updateSortListeners()
 	}
 }
 
