@@ -1,11 +1,6 @@
 import * as cons from './constants.js'
 import {bubbleSort, selectionSort} from './algorithms.js'
 
-const ARRAY_LENGTH = 20
-var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
-console.log(TEST_ARRAY)
-
-
 
 function drawArray(arr, context) {
 	context.fillStyle = '#343A40'
@@ -44,7 +39,7 @@ function generateArray() {
 		TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(TEST_ARRAY, cons.CTX);
 		
-		sortFunction(selectionSortButton, selectionSort, TEST_ARRAY)
+		sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
 	}
 }
 
@@ -76,7 +71,7 @@ const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
 function selectAlgo(algo, array) {
-	generatorAlgo = algo(array)
+	myGlobal.generatorAlgo = algo(array)
 }
 
 function sortFunction(buttonObj, algoFunction, arr,) {
@@ -98,18 +93,18 @@ let algorithmButtons = []
 
 const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
-bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
+bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, myGlobal.TEST_ARRAY), false)
 
 const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
-selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, TEST_ARRAY), false)
+selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY), false)
 
 
 function mainLoop() {	
 	function main() {
-		if (isRunning) {
-			if (generatorAlgo !== null) {
-				let val = generatorAlgo.next()
+		if (myGlobal.isRunning) {
+			if (myGlobal.generatorAlgo !== null) {
+				let val = myGlobal.generatorAlgo.next()
 				updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 				setTimeout( () => {
 					window.requestAnimationFrame(main);
@@ -125,7 +120,11 @@ function mainLoop() {
 //Main
 updateCanvas(TEST_ARRAY, cons.CTX);
 //Global Variales
-isRunning = false
-generatorAlgo = null;
-algoSelected = false;
+var myGlobal = {}
+myGlobal.isRunning = false
+myGlobal.generatorAlgo = null;
+myGlobal.algoSelected = false;
+const ARRAY_LENGTH = 20
+myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+console.log(myGlobal.TEST_ARRAY)
 mainLoop();
