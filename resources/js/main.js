@@ -37,17 +37,16 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 	}
 	
 }
-
+function updateSortListeners() {
+	selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, TEST_ARRAY), false)
+	bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
+}
 
 function generateArray() {
-	console.log("genArray")
 	if (!isRunning) {
-		console.log("!isRunning")
-		console.log(TEST_ARRAY)
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
-		console.log(TEST_ARRAY)
 		updateCanvas(TEST_ARRAY, cons.CTX);
-		bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
+		updateSortListeners
 	}
 }
 
@@ -105,23 +104,11 @@ let algorithmButtons = []
 
 const bubbleSortButton = document.getElementById('bubblesort')
 algorithmButtons.push(bubbleSortButton)
-//bubbleSortButton.addEventListener('click', (event) => {
-	//radioButton(bubbleSortButton)
-	//selectAlgo(bubbleSort, TEST_ARRAY)
-	//bubbleSortButton.classList.add('button-paused')
-	
-//},false)
-
 bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
 
 const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
-selectionSortButton.addEventListener('click', (event) => {
-	radioButton(selectionSortButton)
-	selectAlgo(selectionSort, TEST_ARRAY)
-	selectionSortButton.classList.add('button-paused')
-	
-},false)
+selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, TEST_ARRAY), false)
 
 
 function mainLoop() {	
