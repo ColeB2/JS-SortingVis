@@ -47,6 +47,7 @@ function generateArray() {
 		var TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		console.log(TEST_ARRAY)
 		updateCanvas(TEST_ARRAY, cons.CTX);
+		bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, TEST_ARRAY), false)
 	}
 }
 
