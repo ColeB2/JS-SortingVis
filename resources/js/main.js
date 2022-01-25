@@ -35,9 +35,9 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 
 
 function generateArray() {
-	if (!isRunning) {
-		TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
-		updateCanvas(TEST_ARRAY, cons.CTX);
+	if (!myGlobal.isRunning) {
+		myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		
 		sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
 	}
