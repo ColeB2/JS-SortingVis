@@ -40,7 +40,7 @@ function generateArray() {
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		
 		//sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
-		selectAlgo(myGlobal.generatorAlgo, myGlobal.TEST_ARRAY)
+		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 	}
 }
 
