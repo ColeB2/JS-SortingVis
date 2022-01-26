@@ -135,7 +135,6 @@ var myGlobal = {}
 myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
-myGlobal.delay = 1000
 const ARRAY_LENGTH = 20
 myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
