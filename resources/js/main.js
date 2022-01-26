@@ -39,7 +39,8 @@ function generateArray() {
 		myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		
-		sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
+		//sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
+		selectAlgo(myGlobal.generatorAlgo, myGlobal.TEST_ARRAY)
 	}
 }
 
@@ -76,7 +77,8 @@ function selectAlgo(algo, array) {
 
 function sortFunction(buttonObj, algoFunction, arr,) {
 	radioButton(buttonObj)
-	selectAlgo(algoFunction, arr)
+	myGlobal.algoSelected = algoFunction
+	selectAlgo(myGlobal.algoSelected, arr)
 	buttonObj.classList.add('button-paused')
 }
 
