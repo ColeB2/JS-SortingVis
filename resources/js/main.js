@@ -79,6 +79,16 @@ const delayOutput = document.getElementById('delayValue');
 delayOutput.innerHTML = delayRange.value;
 delayRange.addEventListener('input', gameDelay, false)
 
+function arraySize() {
+	sizeOutput.innerHTML = this.value;
+	myGlobal.arrayLength = this.value;	
+}
+
+const sizeRange = document.getElementById('sizeRange');
+const sizeOutput = document.getElementById('sizeValue');
+sizeOutput.innerHTML = sizeRange.value;
+sizeRange.addEventListener('input', arraySize, false)
+
 function selectAlgo(algo, array) {
 	if (algo) {
 	myGlobal.generatorAlgo = algo(array)
@@ -138,8 +148,8 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
-const ARRAY_LENGTH = 20
-myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
+myGlobal.arrayLength = 20
+myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
 
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
