@@ -77,7 +77,6 @@ function gameDelay() {
 const delayRange = document.getElementById('delayRange');
 const delayOutput = document.getElementById('delayValue');
 delayOutput.innerHTML = delayRange.value;
-myGlobal.delay = 300;
 delayRange.addEventListener('input', gameDelay, false)
 
 function selectAlgo(algo, array) {
@@ -136,6 +135,7 @@ var myGlobal = {}
 myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
+myGlobal.delay = delayRange.value;
 const ARRAY_LENGTH = 20
 myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
