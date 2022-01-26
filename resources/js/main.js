@@ -38,8 +38,6 @@ function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
-		
-		//sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY)
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 	}
 }
@@ -71,6 +69,16 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
+function gameDelay() {
+	delayOutput.innerHTML = this.value;
+	myGlobal.delay = this.value;	
+}
+
+const delayRange = document.getElementById('delayRange');
+const delayOutput = document.getElementById('delayValue');
+delayOutput.innerHTML = delayRange.value;
+delayRange.addEventListener('input', gameDelay, false)
+
 function selectAlgo(algo, array) {
 	myGlobal.generatorAlgo = algo(array)
 }
@@ -91,6 +99,8 @@ function radioButton(buttonCalling) {
 	})
 }
 
+
+//ALGORITHM BUTTONS
 let algorithmButtons = []
 
 const bubbleSortButton = document.getElementById('bubblesort')
@@ -110,7 +120,7 @@ function mainLoop() {
 				updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 				setTimeout( () => {
 					window.requestAnimationFrame(main);
-					}, 1000)	
+					}, myGlobal.delay)	
 			}
 			
 		}	
@@ -125,6 +135,7 @@ var myGlobal = {}
 myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
+myGlobal.delay = 1000
 const ARRAY_LENGTH = 20
 myGlobal.TEST_ARRAY = Array.from({length: ARRAY_LENGTH}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
