@@ -77,6 +77,7 @@ function gameDelay() {
 const delayRange = document.getElementById('delayRange');
 const delayOutput = document.getElementById('delayValue');
 delayOutput.innerHTML = delayRange.value;
+myGlobal.delay = delayRange.value;
 delayRange.addEventListener('input', gameDelay, false)
 
 function selectAlgo(algo, array) {
