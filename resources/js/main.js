@@ -80,7 +80,9 @@ delayOutput.innerHTML = delayRange.value;
 delayRange.addEventListener('input', gameDelay, false)
 
 function selectAlgo(algo, array) {
+	if (algo) {
 	myGlobal.generatorAlgo = algo(array)
+	}
 }
 
 function sortFunction(buttonObj, algoFunction, arr,) {
