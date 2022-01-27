@@ -16,7 +16,7 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 		context.fillStyle = '#89FB92'
 		arr2.map(function(element, index) {
 			context.fillRect(
-			    ((element * myGlobal.barWidth10),
+			    ((element * myGlobal.barWidth)+10),
 			    0, myGlobal.barWidth-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
