@@ -36,10 +36,11 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 
 function generateArray() {
 	if (!myGlobal.isRunning) {
+		myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
-		myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
+		
 	}
 }
 
