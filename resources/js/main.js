@@ -5,7 +5,7 @@ import {bubbleSort, selectionSort} from './algorithms.js'
 function drawArray(arr, context) {
 	context.fillStyle = '#343A40'
 	arr.map(function(element, index) {
-		context.fillRect( ((index * cons.BAR_WIDTH)+10), 0, cons.BAR_WIDTH-1, (2*element))
+		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
 	})
 }
 
@@ -16,8 +16,8 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 		context.fillStyle = '#89FB92'
 		arr2.map(function(element, index) {
 			context.fillRect(
-			    ((element * cons.BAR_WIDTH)+10),
-			    0, cons.BAR_WIDTH-1, (2*arr[element]))
+			    ((element * myGlobal.barWidth10),
+			    0, myGlobal.barWidth-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
 	}
@@ -25,8 +25,8 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 		context.fillStyle = '#CE050F'
 		arr2.map(function(element, index) {
 			context.fillRect(
-			    ((element * cons.BAR_WIDTH)+10),
-				0, cons.BAR_WIDTH-1, (2*arr[element]))
+			    ((element * myGlobal.barWidth)+10),
+				0, myGlobal.barWidth-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
 	}
@@ -39,6 +39,7 @@ function generateArray() {
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
+		myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
 	}
 }
 
@@ -81,7 +82,8 @@ delayRange.addEventListener('input', gameDelay, false)
 
 function arraySize() {
 	sizeOutput.innerHTML = this.value;
-	myGlobal.arrayLength = this.value;	
+	myGlobal.arrayLength = this.value;
+	
 }
 
 const sizeRange = document.getElementById('sizeRange');
@@ -149,6 +151,7 @@ myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
+myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
 
