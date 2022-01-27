@@ -150,7 +150,7 @@ myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
-myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
+myGlobal.barWidth = cons.CANVAS_WIDTH-20/myGlobal.arrayLength
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
 
