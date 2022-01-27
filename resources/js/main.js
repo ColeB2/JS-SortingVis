@@ -36,7 +36,7 @@ function updateCanvas(arr, context, choice=null, arr2=[]) {
 
 function generateArray() {
 	if (!myGlobal.isRunning) {
-		myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
+		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
@@ -150,7 +150,7 @@ myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
-myGlobal.barWidth = (cons.CANVAS_WIDTH/myGlobal.arrayLength)-1
+myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 console.log(myGlobal.TEST_ARRAY)
 
