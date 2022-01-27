@@ -84,7 +84,6 @@ delayRange.addEventListener('input', gameDelay, false)
 function arraySize() {
 	sizeOutput.innerHTML = this.value;
 	myGlobal.arrayLength = this.value;
-	myGlobal.barWidth = cons.CANVAS_WIDTH/myGlobal.arrayLength
 }
 
 const sizeRange = document.getElementById('sizeRange');
@@ -142,7 +141,6 @@ function mainLoop() {
 	}
 	window.requestAnimationFrame(main)	
 }
-
 
 //Main
 //Global Variales
