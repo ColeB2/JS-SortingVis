@@ -101,7 +101,7 @@ function sortFunction(buttonObj, algoFunction, arr,) {
 	radioButton(buttonObj)
 	myGlobal.algoSelected = algoFunction
 	selectAlgo(myGlobal.algoSelected, arr)
-	buttonObj.classList.add('button-paused')
+	if (buttonObj) {buttonObj.classList.add('button-paused')}
 }
 
 function radioButton(buttonCalling) {
@@ -143,7 +143,6 @@ function mainLoop() {
 					myGlobal.algoSelected = false;
 					myGlobal.isRunning = false;
 					sortFunction(null, null, null);
-					pauseLoop();
 				}
 				
 			}
