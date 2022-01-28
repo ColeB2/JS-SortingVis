@@ -131,6 +131,7 @@ function mainLoop() {
 		if (myGlobal.isRunning) {
 			if (myGlobal.generatorAlgo !== null) {
 				let val = myGlobal.generatorAlgo.next()
+				console.log(val)
 				updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
 				setTimeout( () => {
 					window.requestAnimationFrame(main);
