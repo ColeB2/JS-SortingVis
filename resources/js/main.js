@@ -130,7 +130,9 @@ function mainLoop() {
 	function main() {
 		if (myGlobal.isRunning) {
 			if (myGlobal.generatorAlgo !== null) {
-				let val = myGlobal.generatorAlgo.next()['value']
+				myGlobal.generatorAlgo.next()
+				let value = myGlobal.generatorAlgo['value']
+				let done = myGlobal.generatorAlgo['done']
 				console.log(val)
 				updateCanvas(val[0], cons.CTX, val[1], val[2])
 				setTimeout( () => {
