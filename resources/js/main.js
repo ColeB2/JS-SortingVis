@@ -133,8 +133,8 @@ function mainLoop() {
 				myGlobal.generatorAlgo.next()
 				let value = myGlobal.generatorAlgo['value']
 				let done = myGlobal.generatorAlgo['done']
-				console.log(val)
-				updateCanvas(val[0], cons.CTX, val[1], val[2])
+				console.log(value)
+				updateCanvas(value[0], cons.CTX, value[1], value[2])
 				setTimeout( () => {
 					window.requestAnimationFrame(main);
 					}, myGlobal.delay)	
