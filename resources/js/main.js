@@ -139,7 +139,9 @@ function mainLoop() {
 						window.requestAnimationFrame(main);
 						}, myGlobal.delay)	
 				} else {
-					myGlobal.generatorAlgo = null
+					myGlobal.generatorAlgo = null;
+					myGlobal.algoSelected = false;
+					myGlobal.isRunning = false;
 				}
 				
 			}
