@@ -130,9 +130,9 @@ function mainLoop() {
 	function main() {
 		if (myGlobal.isRunning) {
 			if (myGlobal.generatorAlgo !== null) {
-				let val = myGlobal.generatorAlgo.next()
+				let val = myGlobal.generatorAlgo.next()['value']
 				console.log(val)
-				updateCanvas(val['value'][0], cons.CTX, val['value'][1], val['value'][2])
+				updateCanvas(val[0], cons.CTX, val[1], val[2])
 				setTimeout( () => {
 					window.requestAnimationFrame(main);
 					}, myGlobal.delay)	
@@ -153,7 +153,5 @@ myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
-console.log(myGlobal.TEST_ARRAY)
-
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
 mainLoop();
