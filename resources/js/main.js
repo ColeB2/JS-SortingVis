@@ -134,8 +134,6 @@ function mainLoop() {
 				let val = algo_results['value']
 				let done = algo_results['done']
 				if (!done) {
-					console.log(val)
-					onsole.log(done)
 					updateCanvas(val[0], cons.CTX, val[1], val[2])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
