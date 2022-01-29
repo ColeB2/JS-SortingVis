@@ -37,3 +37,22 @@ export function* selectionSort(arr) {
 		yield [arr, "swap", [i, maxI]]
 	}
 }
+
+export function* insertionSort(arr) {
+	for (let i = 1; i <= arr.length; i++;); {
+		item = arr[i]
+		j = i - 1;
+		yield [arr, "compare", [i]]
+		
+		while (j >= 0 and item < array[j]) {
+			
+			let temp = arr[j+1]
+			arr[j+1] = arr[j]
+			arr[j] = temp
+			
+			
+			j-=1;
+		}
+		arr[j+1] = item
+	}
+}
