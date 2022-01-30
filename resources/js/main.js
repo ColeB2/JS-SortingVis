@@ -1,5 +1,5 @@
 import * as cons from './constants.js'
-import {bubbleSort, selectionSort} from './algorithms.js'
+import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
 function drawArray(arr, context) {
@@ -125,6 +125,9 @@ const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
 selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY), false)
 
+const insertionSortButton = document.getElementById('insertionsort')
+algorithmButtons.push(insertionSortButton)
+insertionSortButton.addEventListener('click', (event) => sortFunction(insertionSortButton, insertionSort, myGlobal.TEST_ARRAY), false)
 
 function mainLoop() {	
 	function main() {
