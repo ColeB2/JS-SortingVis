@@ -41,7 +41,7 @@ export function* selectionSort(arr) {
 export function* insertionSort(arr) {
 	for (let i = 1; i <= arr.length; i++); {
 		item = arr[i]
-		j = i - 1;
+		let j = i - 1;
 		yield [arr, "compare", [i]]
 		
 		while (j >= 0 and item < array[j]) {
