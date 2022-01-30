@@ -45,14 +45,17 @@ export function* insertionSort(arr) {
 		yield [arr, "compare", [i]]
 		
 		while (j >= 0 && item < arr[j]) {
+			yield [arr, "swap", [j, j + 1]]
 			
 			let temp = arr[j+1]
 			arr[j+1] = arr[j]
 			arr[j] = temp
 			
+			yield [arr, "swap", [j, j + 1]]
 			
 			j-=1;
 		}
 		arr[j+1] = item
+		yield [arr, "compare", [i]]
 	}
 }
