@@ -39,7 +39,7 @@ export function* selectionSort(arr) {
 }
 
 export function* insertionSort(arr) {
-	for (let i = 1; i <= arr.length; i++); {
+	for (let i = 1; i <= arr.length; i++) {
 		var item = arr[i]
 		var j = i - 1;
 		yield [arr, "compare", [i]]
