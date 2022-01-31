@@ -133,6 +133,8 @@ function mainLoop() {
 	function main() {
 		if (myGlobal.isRunning) {
 			if (myGlobal.generatorAlgo !== null) {
+				console.log(myGlobal.generatorAlgo)
+				console.log(myGlobal.algoSelected)
 				let algo_results = myGlobal.generatorAlgo.next()
 				console.log(algo_results)
 				let val = algo_results['value']
