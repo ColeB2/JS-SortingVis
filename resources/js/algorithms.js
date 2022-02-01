@@ -18,23 +18,23 @@ export function* bubbleSort(arr) {
 export function* selectionSort(arr) {
 	for (let i = arr.length-1; i >= 0; i--) {
 		var maxI = 0
-		yield [arr, "compare", [maxI]]
+		yield [arr, [maxI],[],[]]
 		
 		for (let j = 1; j <= i; j++) {
-			yield [arr, "compare", [maxI, j]]
+			yield [arr, [maxI, j],[],[]]
 			
 			if (arr[j] > arr[maxI]) {
 				var maxI = j
-				yield [arr, "compare", [maxI]]
+				yield [arr, [maxI],[],[]]
 			}
 		}
-		yield [arr, "swap", [i, maxI]]
+		yield [arr, [],[i, maxI],[]]
 		
 		let temp = arr[i]
 		arr[i] = arr[maxI]
 		arr[maxI] = temp
 		
-		yield [arr, "swap", [i, maxI]]
+		yield [arr, [],[i, maxI],[]]
 	}
 }
 

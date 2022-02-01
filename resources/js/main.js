@@ -2,17 +2,17 @@ import * as cons from './constants.js'
 import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
-function drawArray(arr, context, arr2=[], arr3=[], arr4=[]) {
+function drawArray(arr, context, compare=[], swap=[], arr2=[]) {
 	console.log(arr2)
 	
 	arr.map(function(element, index) {
 		console.log(element)
 		console.log(index)
-		if (arr2.includes(index)) {
+		if (compare.includes(index)) {
 			context.fillStyle = '#89FB92'
-		} else if (arr3.includes(index)) {
+		} else if (swap.includes(index)) {
 			context.fillStyle = '#CE050F'
-		} else if (arr4.includes(index)) {
+		} else if (arr2.includes(index)) {
 		} else {
 			context.fillStyle = '#343A40'
 		}
