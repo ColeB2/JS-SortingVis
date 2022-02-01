@@ -2,17 +2,25 @@ import * as cons from './constants.js'
 import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
-function drawArray(arr, context) {
+function drawArray(arr, context, arr2=[], arr3=[], arr4=[]) {
 	
 	arr.map(function(element, index) {
-		context.fillStyle = '#343A40'
+		if (arr2.includes(element)) {
+			context.fillStyle = '#89FB92'
+		} else if (arr3.includes(element)) {
+			context.fillStyle = '#CE050F'
+		} else if (arr4.includes(element)) {
+		} else {
+			context.fillStyle = '#343A40'
+		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
 	})
 }
 
-function updateCanvas(arr, context, choice=null, arr2=[], arrFocus=[]) {
+function updateCanvas(arr, context, arr2=[], arr3=[] arr4=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
-	drawArray(arr, context)
+	drawArray(arr, context, arr2, arr3, arr4)
+	/*
 	if (choice === "compare") {
 		context.fillStyle = '#89FB92'
 		arr2.map(function(element, index) {
@@ -30,7 +38,7 @@ function updateCanvas(arr, context, choice=null, arr2=[], arrFocus=[]) {
 				0, myGlobal.barWidth-1, (2*arr[element]))
 		})
 		context.fillStyle = '#343A40'
-	}
+	} */
 	
 }
 
@@ -138,7 +146,7 @@ function mainLoop() {
 				let val = algo_results['value']
 				let done = algo_results['done']
 				if (!done) {
-					updateCanvas(val[0], cons.CTX, val[1], val[2])
+					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
 						}, myGlobal.delay)	
