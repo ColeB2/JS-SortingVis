@@ -126,7 +126,7 @@ function mainLoop() {
 				let val = algo_results['value']
 				let done = algo_results['done']
 				if (!done) {
-					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3])
+					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
 						}, myGlobal.delay)	
