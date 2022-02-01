@@ -2,9 +2,8 @@ import * as cons from './constants.js'
 import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
-function drawArray(arr, context, compare=[], swap=[], arr2=[]) {
-	console.log(arr2)
-	
+function updateCanvas(arr, context, compare=[], swap=[], focusElem=[]) {
+	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		console.log(element)
 		console.log(index)
@@ -12,38 +11,13 @@ function drawArray(arr, context, compare=[], swap=[], arr2=[]) {
 			context.fillStyle = '#89FB92'
 		} else if (swap.includes(index)) {
 			context.fillStyle = '#CE050F'
-		} else if (arr2.includes(index)) {
+		} else if (focusElem.includes(index)) {
 			context.fillStyle = '#FFFF66'
 		} else {
 			context.fillStyle = '#343A40'
 		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
 	})
-}
-
-function updateCanvas(arr, context, arr2=[], arr3=[], arr4=[]) {
-	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
-	drawArray(arr, context, arr2, arr3, arr4)
-	/*
-	if (choice === "compare") {
-		context.fillStyle = '#89FB92'
-		arr2.map(function(element, index) {
-			context.fillRect(
-			    ((element * myGlobal.barWidth)+10),
-			    0, myGlobal.barWidth-1, (2*arr[element]))
-		})
-		context.fillStyle = '#343A40'
-	}
-	if (choice === "swap") {
-		context.fillStyle = '#CE050F'
-		arr2.map(function(element, index) {
-			context.fillRect(
-			    ((element * myGlobal.barWidth)+10),
-				0, myGlobal.barWidth-1, (2*arr[element]))
-		})
-		context.fillStyle = '#343A40'
-	} */
-	
 }
 
 
