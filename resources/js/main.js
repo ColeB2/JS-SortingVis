@@ -13,6 +13,7 @@ function drawArray(arr, context, compare=[], swap=[], arr2=[]) {
 		} else if (swap.includes(index)) {
 			context.fillStyle = '#CE050F'
 		} else if (arr2.includes(index)) {
+			context.fillStyle = '#FFFF66'
 		} else {
 			context.fillStyle = '#343A40'
 		}

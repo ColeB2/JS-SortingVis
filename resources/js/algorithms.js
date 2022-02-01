@@ -42,20 +42,20 @@ export function* insertionSort(arr) {
 	for (let i = 1; i <= arr.length; i++) {
 		var item = arr[i]
 		var j = i - 1;
-		yield [arr, "compare", [i]]
+		yield [arr, [i],[],[]]
 		
 		while (j >= 0 && item < arr[j]) {
-			yield [arr, "swap", [j, j + 1]]
+			yield [arr, [],[j, j+1],[]]
 			
 			let temp = arr[j+1]
 			arr[j+1] = arr[j]
 			arr[j] = temp
 			
-			yield [arr, "swap", [j, j + 1]]
+			yield [arr, [],[j, j+1],[]]
 			
 			j-=1;
 		}
 		arr[j+1] = item
-		yield [arr, "compare", [i]]
+		yield [arr, [i],[],[]]
 	}
 }
