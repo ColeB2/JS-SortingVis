@@ -3,13 +3,16 @@ import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
 function drawArray(arr, context, arr2=[], arr3=[], arr4=[]) {
+	console.log(arr2)
 	
 	arr.map(function(element, index) {
-		if (arr2.includes(element)) {
+		console.log(element)
+		console.log(index)
+		if (arr2.includes(index)) {
 			context.fillStyle = '#89FB92'
-		} else if (arr3.includes(element)) {
+		} else if (arr3.includes(index)) {
 			context.fillStyle = '#CE050F'
-		} else if (arr4.includes(element)) {
+		} else if (arr4.includes(index)) {
 		} else {
 			context.fillStyle = '#343A40'
 		}
