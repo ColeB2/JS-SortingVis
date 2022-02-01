@@ -2,14 +2,15 @@
 
 export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
+		let completed_arr = arr.slice(0,i)
 		for (let j = 0; j < i; j++) {
-			yield [arr, [j, j+1],[] ,[], arr.slice(0, i)]
+			yield [arr, [j, j+1],[] ,[], completed_arr]
 			if (arr[j] > arr[j+1]) {
-				yield [arr, [], [j, j+1], [], arr.slice(0, i)];
+				yield [arr, [], [j, j+1], [], completed_arr];
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield [arr, [], [j, j+1], [], arr.slice(0, i)];
+				yield [arr, [], [j, j+1], [], completed_arr];
 			}
 		}      		
 	}

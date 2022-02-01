@@ -3,6 +3,8 @@ import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) {
+	console.log(arr)
+	console.log(arr2)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(index)) {
