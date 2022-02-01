@@ -39,6 +39,7 @@ export function* selectionSort(arr) {
 }
 
 export function* insertionSort(arr) {
+	yield [arr, [],[],[0]]
 	for (let i = 1; i <= arr.length; i++) {
 		var item = arr[i]
 		var j = i - 1;
