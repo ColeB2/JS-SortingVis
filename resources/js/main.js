@@ -2,19 +2,19 @@ import * as cons from './constants.js'
 import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
-function updateCanvas(arr, context, compare=[], swap=[], focusElem=[]) {
+function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
-		console.log(element)
-		console.log(index)
 		if (compare.includes(index)) {
 			context.fillStyle = '#89FB92'
 		} else if (swap.includes(index)) {
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(index)) {
 			context.fillStyle = '#FFFF66'
-		} else {
+		} else if (arr2.includes(index)) {
 			context.fillStyle = '#343A40'
+		} else {
+			context.fillStyle = '#B4B4B4'
 		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
 	})
