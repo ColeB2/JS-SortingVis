@@ -2,7 +2,7 @@
 
 export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
-		let completed_arr = arr.slice(0,i)
+		let completed_arr = arr.slice(0,i+1)
 		for (let j = 0; j < i; j++) {
 			yield [arr, [j, j+1],[] ,[], completed_arr]
 			if (arr[j] > arr[j+1]) {
