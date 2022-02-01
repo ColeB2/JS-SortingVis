@@ -17,7 +17,7 @@ function drawArray(arr, context, arr2=[], arr3=[], arr4=[]) {
 	})
 }
 
-function updateCanvas(arr, context, arr2=[], arr3=[] arr4=[]) {
+function updateCanvas(arr, context, arr2=[], arr3=[], arr4=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context, arr2, arr3, arr4)
 	/*
