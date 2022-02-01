@@ -3,13 +3,14 @@ import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
 function drawArray(arr, context) {
-	context.fillStyle = '#343A40'
+	
 	arr.map(function(element, index) {
+		context.fillStyle = '#343A40'
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
 	})
 }
 
-function updateCanvas(arr, context, choice=null, arr2=[]) {
+function updateCanvas(arr, context, choice=null, arr2=[], arrFocus=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	drawArray(arr, context)
 	if (choice === "compare") {
