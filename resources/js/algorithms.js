@@ -45,6 +45,7 @@ export function* insertionSort(arr) {
 	for (let i = 1; i <= arr.length; i++) {
 		let arrayFocus = arr.slice(0,i)
 		var item = arr[i]
+		arrayFocus.push(item)
 		var j = i - 1;
 		yield [arr, [],[],[i], arrayFocus]
 		
@@ -62,7 +63,6 @@ export function* insertionSort(arr) {
 		}
 		arr[j+1] = item
 		
-		arrayFocus.push(arr[i])
 		yield [arr, [],[],[i], arrayFocus]
 	}
 }
