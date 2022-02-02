@@ -3,8 +3,6 @@ import {insertionSort, bubbleSort, selectionSort} from './algorithms.js'
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) {
-	console.log(arr)
-	console.log(arr2)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(index)) {
@@ -154,5 +152,5 @@ myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
-updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
+updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[] ,[myGlobal.TEST_ARRAY]);
 mainLoop();
