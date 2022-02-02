@@ -25,7 +25,7 @@ function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
-		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX);
+		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],[myGlobal.TEST_ARRAY]);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		
 	}
