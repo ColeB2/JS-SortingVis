@@ -61,6 +61,6 @@ export function* insertionSort(arr) {
 			j-=1;
 		}
 		arr[j+1] = item
-		yield [arr, [],[],[i], arrayFocus]
+		yield [arr, [],[],[i], arrayFocus.push(item)]
 	}
 }
