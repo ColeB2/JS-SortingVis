@@ -6,6 +6,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) 
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	console.log(arr)
 	console.log(arr2)
+	console.log(arr2.includes(arr[0]))
 	arr.map(function(element, index) {
 		if (compare.includes(index)) {
 			context.fillStyle = '#89FB92'
