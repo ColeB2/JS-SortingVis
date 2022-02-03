@@ -65,3 +65,60 @@ export function* insertionSort(arr) {
 		yield [arr, [],[],[i], arrayFocus]
 	}
 }
+
+export function* merge(fullArr, arr, left, middle, right) {
+	
+	var subArr1 = middle - left + 1
+	var subArr2 = right - middle
+	
+	var LeftArr = new Array(subArr1)
+	var RightArr = new Array(subArr2)
+	
+	//populate sub arrays
+	for (let i = 0; i < subArr1; i++) {
+		LeftArr[i] = arr[left+i]
+	}
+	for (let i = 0; i < right; i++) {
+		RightArr[i] = arr[middle + 1 + i] 
+	}
+	
+	
+	//Initial index left, right subarrays  and merged sub array
+	var i = 0
+	var j = 0
+	var k = left
+	
+	yield [[arr], [],[], [], fullArr]
+	while (i < subArr1 && j < subArr2) {
+		yield [[arr], [i, j],[], [], fullArr]
+		if (LeftArr[i] <= RightArr[j]) {
+			yield [[arr], [],[i, k], [], fullArr]
+			arr[k] = LeftArr[i]
+			yield [[arr], [],[i, k], [], fullArr]
+			i++;
+			
+		} else {
+			yield [[arr], [],[j, k], [], fullArr]
+			arr[k] = RightArr[j]
+			yield [[arr], [],[j, k], [], fullArr]
+			j++;
+		}
+		k++;
+	}
+	yield [[arr], [],[], [], fullArr]
+}
+
+export function* mergeSort(fullArr, arr, left=0, right=arr.length) {
+	//find middle
+	yield [fullArr, [],[],[],[]]
+	if (left >= right) {
+		return
+	} else {
+		var middle = left + parseInt((right-left)/2)
+		yield * mergeSort(fullArr, arr, middle)
+		yield * mergeSort(fullArr, arr, middle + 1, right)
+		yield * merge(fullArr, arr, left, middle, right)
+	} 
+	//divide in half repeatdy until 1 element each
+	//merge elements together
+}
