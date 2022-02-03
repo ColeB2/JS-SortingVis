@@ -127,7 +127,11 @@ export function* merge(fullArr, arr, left, middle, right) {
 	yield [displayArr, [],[], [], fullArr]
 }
 
-export function* mergeSort(fullArr, arr, left=0, right=arr.length) {
+export function* mergeSort(fullArr, arr, left=0, right=null) {
+	if (right === null) {
+		right=arr.length
+	}
+	
 	//find middle
 	yield [fullArr, [],[],[],[]]
 	if (left >= right) {
