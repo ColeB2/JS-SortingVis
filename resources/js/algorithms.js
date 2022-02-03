@@ -128,11 +128,11 @@ export function* merge(fullArr, arr, left, middle, right) {
 }
 
 export function* mergeSort(fullArr, arr=null, left=0, right=null) {
-	if (right === null) {
-		right = arr.length
-	}
 	if (arr === null) {
 		arr = fullArr
+	}
+	if (right === null) {
+		right = arr.length
 	}
 	
 	//find middle
