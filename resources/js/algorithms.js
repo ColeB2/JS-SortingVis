@@ -87,25 +87,44 @@ export function* merge(fullArr, arr, left, middle, right) {
 	var i = 0
 	var j = 0
 	var k = left
+	//-->Combine l and r sub array to replace arr for display purposes
+	var displayArr = []
+	displayArr.concat(LeftArr, RightArr)
 	
-	yield [[arr], [],[], [], fullArr]
+	yield [displayArr, [],[], [], fullArr]
 	while (i < subArr1 && j < subArr2) {
-		yield [[arr], [i, j],[], [], fullArr]
+		yield [displayArr, [i, j],[], [], fullArr]
 		if (LeftArr[i] <= RightArr[j]) {
-			yield [[arr], [],[i, k], [], fullArr]
+			yield [displayArr, [],[i, k], [], fullArr]
 			arr[k] = LeftArr[i]
-			yield [[arr], [],[i, k], [], fullArr]
+			yield [displayArr, [],[i, k], [], fullArr]
 			i++;
 			
 		} else {
-			yield [[arr], [],[j, k], [], fullArr]
+			yield [displayArr, [],[j, k], [], fullArr]
 			arr[k] = RightArr[j]
-			yield [[arr], [],[j, k], [], fullArr]
+			yield [displayArr, [],[j, k], [], fullArr]
 			j++;
 		}
 		k++;
 	}
-	yield [[arr], [],[], [], fullArr]
+	
+	//Copy remaining elements from i then j-
+	while (i < subArr1) {
+		yield [displayArr, [],[i, k], [], fullArr]
+		arr[k] = LeftArr(i)
+		yield [displayArr, [],[i, k], [], fullArr]
+		i++
+		k++
+	}
+	while (j < subArr2) {
+		yield [displayArr, [],[j, k], [], fullArr]
+		arr[k] = RightArr(j)
+		yield [displayArr, [],[j, k], [], fullArr]
+		j++
+		k++
+	}
+	yield [displayArr, [],[], [], fullArr]
 }
 
 export function* mergeSort(fullArr, arr, left=0, right=arr.length) {
@@ -121,4 +140,5 @@ export function* mergeSort(fullArr, arr, left=0, right=arr.length) {
 	} 
 	//divide in half repeatdy until 1 element each
 	//merge elements together
+	yield [fullArr, [],[j, k], []]
 }
