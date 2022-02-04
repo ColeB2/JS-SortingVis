@@ -67,6 +67,7 @@ export function* insertionSort(arr) {
 }
 
 export function* merge(fullArr, arr, left, middle, right) {
+	console.log("inside merge")
 	
 	var subArr1 = middle - left + 1
 	var subArr2 = right - middle
@@ -92,6 +93,8 @@ export function* merge(fullArr, arr, left, middle, right) {
 	displayArr.concat(LeftArr, RightArr)
 	
 	yield [displayArr, [],[], [], fullArr]
+	console.log("Display Array")
+	console.log(displayArr)
 	while (i < subArr1 && j < subArr2) {
 		yield [displayArr, [i, j],[], [], fullArr]
 		if (LeftArr[i] <= RightArr[j]) {
@@ -148,4 +151,8 @@ export function* mergeSort(fullArr, arr=null, left=0, right=null) {
 	//divide in half repeatdy until 1 element each
 	//merge elements together
 	yield [fullArr, [],[j, k], []]
+}
+
+export function* mergeSort2(arr) {
+	
 }
