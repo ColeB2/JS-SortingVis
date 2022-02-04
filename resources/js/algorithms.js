@@ -165,9 +165,9 @@ export function* mergeSort(arr) {
 			yield * mergeSortIn(left, middle)
 			yield * mergeSortIn((middle+1), right)
 			
-			var LeftSubArr = arr.slice(left, middle)
-			var leftN = LeftSubArr.length
-			var RightSubArr = arr.slice(middle, right)
+			var leftSubArr = arr.slice(left, middle)
+			var leftN = leftSubArr.length
+			var rightSubArr = arr.slice(middle, right)
 			var rightN = rightSubArr.length
 			
 			var i = 0
@@ -175,32 +175,32 @@ export function* mergeSort(arr) {
 			var k = left
 			
 			while (i < leftN && j < rightN) {
-				if (LeftArr[i] <= RightArr[j]) {
-					arr[k] = LeftArr[i]
+				if (leftSubArr[i] <= rightSubArr[j]) {
+					arr[k] = leftSubArr[i]
 					i++;
 				} else {
-					arr[k] = RightArr[j]
+					arr[k] = rightSubArr[j]
 					j++;
 				}
 				k++;
 			}
 			while (i < leftN && j < rightN) {
-				if (LeftArr[i] <= RightArr[j]) {
-					arr[k] = LeftArr[i]
+				if (leftSubArr[i] <= rightSubArr[j]) {
+					arr[k] = leftSubArr[i]
 					i++;
 				} else {
-					arr[k] = RightArr[j]
+					arr[k] = rightSubArr[j]
 					j++;
 				}
 				k++;
 			}
 			while (i < leftN) {
-				arr[k] = LeftArr[i]
+				arr[k] = leftSubArr[i]
 				i++;
 				k++;
 			}
 			while (j < rightN) {
-				arr[k] = RightArr[j]
+				arr[k] = rightSubArr[j]
 				j++;
 				k++;
 			}	
