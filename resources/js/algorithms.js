@@ -158,7 +158,7 @@ export function* mergeSort(arr) {
 	console.log("arr")
 	yield(arr)
 	function* mergeSortIn(left, right) {
-		if right > left {
+		if (right > left) {
 			var middle = parseInt((left + right) / 2)
 			
 			yield * mergeSortIn(left, middle)
