@@ -130,7 +130,7 @@ export function* merge(fullArr, arr, left, middle, right) {
 	yield [displayArr, [],[], [], fullArr]
 }
 
-export function* mergeSort(fullArr, arr=null, left=0, right=null) {
+export function* mergeSort1(fullArr, arr=null, left=0, right=null) {
 	if (arr === null) {
 		arr = fullArr
 	}
@@ -153,6 +153,59 @@ export function* mergeSort(fullArr, arr=null, left=0, right=null) {
 	yield [fullArr, [],[j, k], []]
 }
 
-export function* mergeSort2(arr) {
+export function* mergeSort(arr) {
+	console.log("Inside mergeSort")
+	console.log("arr")
+	yield(arr)
+	function* mergeSortIn(left, right) {
+		if right > left {
+			var middle = parseInt((left + right) / 2)
+			
+			yield * mergeSortIn(left, middle)
+			yield * mergeSortIn((middle+1), right)
+			
+			var LeftSubArr = arr.slice(left, middle)
+			var leftN = LeftSubArr.length
+			var RightSubArr = arr.slice(middle), right))
+			var rightN = rightSubArr.length
+			
+			var i = 0
+			var j = 0
+			var k = left
+			
+			while (i < leftN && j < rightN) {
+				if (LeftArr[i] <= RightArr[j]) {
+					arr[k] = LeftArr[i]
+					i++;
+				} else {
+					arr[k] = RightArr[j]
+					j++;
+				}
+				k++;
+			}
+			while (i < leftN && j < rightN) {
+				if (LeftArr[i] <= RightArr[j]) {
+					arr[k] = LeftArr[i]
+					i++;
+				} else {
+					arr[k] = RightArr[j]
+					j++;
+				}
+				k++;
+			}
+			while (i < leftN) {
+				arr[k] = LeftArr[i]
+				i++;
+				k++;
+			}
+			while (j < rightN) {
+				arr[k] = RightArr[j]
+				j++;
+				k++;
+			}	
+		}
+	yield * mergeSortIn
+	
+	}
 	
 }
