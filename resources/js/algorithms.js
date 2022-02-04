@@ -207,7 +207,7 @@ export function* mergeSort(arr) {
 		}
 	
 	}
-	yield* mergeSortIn
+	yield* mergeSortIn(0, arr.length)
 	yield [arr]
 	
 }
