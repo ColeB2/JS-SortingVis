@@ -127,6 +127,7 @@ function mainLoop() {
 				let algo_results = myGlobal.generatorAlgo.next()
 				let val = algo_results['value']
 				let done = algo_results['done']
+				console.log(algo_results)
 				if (!done) {
 					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
 					setTimeout( () => {
