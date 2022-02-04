@@ -166,7 +166,7 @@ export function* mergeSort(arr) {
 			
 			var LeftSubArr = arr.slice(left, middle)
 			var leftN = LeftSubArr.length
-			var RightSubArr = arr.slice(middle), right))
+			var RightSubArr = arr.slice(middle, right)
 			var rightN = rightSubArr.length
 			
 			var i = 0
