@@ -154,26 +154,14 @@ export function* mergeSort1(fullArr, arr=null, left=0, right=null) {
 }
 
 export function* mergeSort(arr) {
-	console.log("Inside mergeSort")
-	console.log(arr)
 	yield [arr]
 	function* mergeSortIn(left, right) {
 		if ((right-left) > 1) {
-			var middle = left + parseInt((right - left) / 2)
 			var middle = Math.ceil((left + right)/2)
-			
-			console.log("yield start vals (1st call, l, r, m)")
-			console.log(left, right, middle)
 			yield * mergeSortIn(left, middle)
-			console.log("right:  left,right, middle vals")
-			console.log(left, right, middle)
-			//middle vs middle +1 --> Works with middle, but not as expected
-			//both look @ (1 2 3 4 5) --> 1,2 then  4 5. Need to look @ 3 4
-			//testing slice values change middle +1? try with both merge call on mid+1
+
 			yield * mergeSortIn((middle), right)
 			
-			console.log("merging --> l, m , r values (used in slicing)")
-			console.log(left, middle, right)
 			var leftSubArr = arr.slice(left, middle)
 			var leftN = leftSubArr.length
 			var rightSubArr = arr.slice(middle, right)
@@ -182,8 +170,7 @@ export function* mergeSort(arr) {
 			var i = 0
 			var j = 0
 			var k = left
-			console.log("left right sub array and i j k")
-			console.log(leftSubArr, leftN, rightSubArr, rightN, i, j, k)
+
 			while (i < leftN && j < rightN) {
 				if (leftSubArr[i] <= rightSubArr[j]) {
 					arr[k] = leftSubArr[i]
@@ -214,14 +201,10 @@ export function* mergeSort(arr) {
 				j++;
 				k++;
 			}
-			console.log("after merge")
-			console.log(arr)
 		}
 	
 	}
-	console.log("Calling mergeSortIn")
 	yield* mergeSortIn(0, arr.length)
-	console.log(arr)
 	yield [arr]
 	
 }
