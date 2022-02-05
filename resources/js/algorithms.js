@@ -160,6 +160,7 @@ export function* mergeSort(arr) {
 	function* mergeSortIn(left, right) {
 		if ((right-left) > 1) {
 			var middle = left + parseInt((right - left) / 2)
+			var middle = Math.ceil(left + right)/2
 			
 			console.log("yield start vals (1st call, l, r, m)")
 			console.log(left, right, middle)
