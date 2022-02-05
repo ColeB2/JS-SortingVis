@@ -168,7 +168,8 @@ export function* mergeSort(arr) {
 			console.log(left, right)
 			yield * mergeSortIn((middle+1), right)
 			
-			console.log("merging")
+			console.log("merging --> l, m , r values (used in slicing)")
+			console.log(left, middle, right)
 			var leftSubArr = arr.slice(left, middle)
 			var leftN = leftSubArr.length
 			var rightSubArr = arr.slice(middle, right)
