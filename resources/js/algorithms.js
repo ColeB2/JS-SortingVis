@@ -164,9 +164,10 @@ export function* mergeSort(arr) {
 			console.log("yield start vals")
 			console.log(left, right)
 			yield * mergeSortIn(left, middle)
-			console.log("r side yields")
+			console.log("r")
 			yield * mergeSortIn((middle+1), right)
 			
+			console.log("merging")
 			var leftSubArr = arr.slice(left, middle)
 			var leftN = leftSubArr.length
 			var rightSubArr = arr.slice(middle, right)
@@ -205,11 +206,15 @@ export function* mergeSort(arr) {
 				arr[k] = rightSubArr[j]
 				j++;
 				k++;
-			}	
+			}
+			console.log("after merge")
+			console.log(arr)
 		}
 	
 	}
+	console.log("Calling mergeSortIn")
 	yield* mergeSortIn(0, arr.length)
+	console.log(arr)
 	yield [arr]
 	
 }
