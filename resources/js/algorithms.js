@@ -166,7 +166,7 @@ export function* mergeSort(arr) {
 			yield * mergeSortIn(left, middle)
 			console.log("right left,right vals")
 			console.log(left, right)
-			yield * mergeSortIn((middle), right)
+			yield * mergeSortIn((middle+1), right)
 			
 			console.log("merging --> l, m , r values (used in slicing)")
 			console.log(left, middle, right)
