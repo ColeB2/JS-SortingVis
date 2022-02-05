@@ -166,6 +166,8 @@ export function* mergeSort(arr) {
 			yield * mergeSortIn(left, middle)
 			console.log("right left,right vals")
 			console.log(left, right)
+			//middle vs middle +1 --> Works with middle, but not as expected
+			//both look @ (1 2 3 4 5) --> 1,2 then  4 5. Need to look @ 3 4
 			yield * mergeSortIn((middle), right)
 			
 			console.log("merging --> l, m , r values (used in slicing)")
