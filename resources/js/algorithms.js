@@ -161,8 +161,10 @@ export function* mergeSort(arr) {
 		if (right > left) {
 			var middle = left + parseInt((right - left) / 2)
 			
-			console.log("yield star vals")
+			console.log("yield start vals")
+			console.log(left, right)
 			yield * mergeSortIn(left, middle)
+			console.log("r side yields")
 			yield * mergeSortIn((middle+1), right)
 			
 			var leftSubArr = arr.slice(left, middle)
