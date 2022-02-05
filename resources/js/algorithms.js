@@ -159,7 +159,7 @@ export function* mergeSort(arr) {
 	yield [arr]
 	function* mergeSortIn(left, right) {
 		if (right > left) {
-			var middle = left + parseInt((left + right) / 2)
+			var middle = left + parseInt((right - left) / 2)
 			
 			console.log("yield star vals")
 			yield * mergeSortIn(left, middle)
