@@ -168,13 +168,14 @@ export function* mergeSort(arr) {
 			console.log(left, right)
 			//middle vs middle +1 --> Works with middle, but not as expected
 			//both look @ (1 2 3 4 5) --> 1,2 then  4 5. Need to look @ 3 4
-			yield * mergeSortIn((middle+1), right)
+			//testing slice values change middle +1? try with both merge call on mid+1
+			yield * mergeSortIn((middle), right)
 			
 			console.log("merging --> l, m , r values (used in slicing)")
 			console.log(left, middle, right)
-			var leftSubArr = arr.slice(left, middle+1)
+			var leftSubArr = arr.slice(left, middle)
 			var leftN = leftSubArr.length
-			var rightSubArr = arr.slice(middle+1, right)
+			var rightSubArr = arr.slice(middle, right)
 			var rightN = rightSubArr.length
 			
 			var i = 0
