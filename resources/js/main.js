@@ -20,6 +20,12 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) 
 	})
 }
 
+function _genArray(size) {
+	let mySet = new Set
+	while (mySet.size < size) {
+		mySet.add(Math.ceil(Math.random() * 200))	
+	}
+}
 
 function generateArray() {
 	if (!myGlobal.isRunning) {
