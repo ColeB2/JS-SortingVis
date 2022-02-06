@@ -171,8 +171,8 @@ export function* mergeSort(arr) {
 			var j = 0
 			var k = left
 			
-			var displayArr = leftSubArr.concat(rightSubASrr)
-			yield [displayArr, [], [], [], []]
+			var displayArr = leftSubArr.concat(rightSubArr)
+			yield [arr, [], [], [] ]
 			while (i < leftN && j < rightN) {
 				if (leftSubArr[i] <= rightSubArr[j]) {
 					arr[k] = leftSubArr[i]
