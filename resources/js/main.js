@@ -20,17 +20,16 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) 
 	})
 }
 
-function _genArray(size) {
-	let mySet = new Set
-	while (mySet.size < size) {
-		mySet.add(Math.ceil(Math.random() * 200))	
-	}
+function _genArray() {
+	return {Value: Math.ceil(Math.random() * 200)}
 }
 
 function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
-		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
+		//myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
+		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
+		console.log(myGlobal.TEST_ARRAY)
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		
