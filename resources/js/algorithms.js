@@ -69,6 +69,8 @@ export function* insertionSort(arr) {
 export function* mergeSort(arr) {
 	yield [arr]
 	function* mergeSortIn(left, right) {
+		console.log("initial l r")
+		console.log(left, right)
 		if ((right-left) > 1) {
 			var middle = Math.ceil((left + right)/2)
 			yield * mergeSortIn(left, middle)
@@ -86,6 +88,8 @@ export function* mergeSort(arr) {
 			
 			var displayArr = leftSubArr.concat(rightSubArr)
 			//yield [arr, [], [], [], displayArr]
+			console.log("before pass l r")
+			console.log(left, right)
 			yield [arr, [], [], [], [], [left, right]]
 			while (i < leftN && j < rightN) {
 				if (leftSubArr[i] <= rightSubArr[j]) {
