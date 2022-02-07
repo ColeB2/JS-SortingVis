@@ -2,7 +2,7 @@ import * as cons from './constants.js'
 import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.js'
 
 
-function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) {
+function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], arrInd=[null, null]) {
 	console.log(arr)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
@@ -15,6 +15,10 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) 
 			context.fillStyle = '#FFFF66'
 		} else if (arr2.includes(element)) {
 			context.fillStyle = '#343A40'
+		} else if (arrInd[0] !== null) {
+			if (index >= arrInd[0] && index <= arrInd[1]) {
+				context.fillStyle = '#343A40'
+			}
 		} else {
 			context.fillStyle = '#B4B4B4'
 		}
