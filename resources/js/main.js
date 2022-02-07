@@ -3,10 +3,9 @@ import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], arrInd=[null, null]) {
-	console.log(arr)
+	console.log(arrInd)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
-		console.log(element, index)
 		if (compare.includes(index)) {
 			context.fillStyle = '#89FB92'
 		} else if (swap.includes(index)) {
@@ -16,6 +15,8 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], 
 		} else if (arr2.includes(element)) {
 			context.fillStyle = '#343A40'
 		} else if (arrInd[0] !== null) {
+			console.log(element, index)
+			console.log(arrInd)
 			if (index >= arrInd[0] && index <= arrInd[1]) {
 				context.fillStyle = '#343A40'
 			}
