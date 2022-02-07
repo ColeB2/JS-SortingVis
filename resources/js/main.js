@@ -3,8 +3,10 @@ import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[]) {
+	console.log(arr)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
+		console.log(element, index)
 		if (compare.includes(index)) {
 			context.fillStyle = '#89FB92'
 		} else if (swap.includes(index)) {
