@@ -15,8 +15,6 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], 
 		} else if (arr2.includes(element)) {
 			context.fillStyle = '#343A40'
 		} else if (arrInd[0] !== null) {
-			console.log(element, index)
-			console.log(arrInd)
 			if (index >= arrInd[0] && index < arrInd[1]) {
 				context.fillStyle = '#343A40'
 			} else {
