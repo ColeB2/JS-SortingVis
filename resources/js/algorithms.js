@@ -41,26 +41,25 @@ export function* selectionSort(arr) {
 export function* insertionSort(arr) {
 	yield [arr, [],[],[0]]
 	for (let i = 1; i <= arr.length; i++) {
-		let arrayFocus = arr.slice(0,i+1)
 		var item = arr[i]
 		var j = i - 1;
-		yield [arr, [],[],[i], arrayFocus]
+		yield [arr, [],[],[i], [], [0,i+1]]
 		
 		while (j >= 0 && item < arr[j]) {
-			yield [arr, [j, j+1],[],[i], arrayFocus]
-			yield [arr, [],[j, j+1],[i], arrayFocus]
+			yield [arr, [j, j+1],[],[i], [], [0,i+1]]
+			yield [arr, [],[j, j+1],[i], [], [0,i+1]]
 			
 			let temp = arr[j+1]
 			arr[j+1] = arr[j]
 			arr[j] = temp
 			
-			yield [arr, [],[j, j+1],[i], arrayFocus]
+			yield [arr, [],[j, j+1],[i], [], [0,i+1]]
 			
 			j-=1;
 		}
 		arr[j+1] = item
 		
-		yield [arr, [],[],[i], arrayFocus]
+		yield [arr, [],[],[i], [], [0,i+1]]
 	}
 }
 
