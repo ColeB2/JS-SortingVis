@@ -2,7 +2,6 @@
 
 export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
-		let completed_arr = arr.slice(0,i+1)
 		for (let j = 0; j < i; j++) {
 			yield [arr, [j, j+1],[] ,[], [], [0, i+1]]
 			if (arr[j] > arr[j+1]) {
@@ -18,25 +17,24 @@ export function* bubbleSort(arr) {
 
 export function* selectionSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
-		let completed_arr = arr.slice(0,i+1)
 		var maxI = 0
-		yield [arr, [maxI],[],[], completed_arr]
+		yield [arr, [maxI],[],[], [], [0,i+1]]
 		
 		for (let j = 1; j <= i; j++) {
-			yield [arr, [maxI, j],[],[], completed_arr]
+			yield [arr, [maxI, j],[],[], [], [0,i+1]]
 			
 			if (arr[j] > arr[maxI]) {
 				var maxI = j
-				yield [arr, [maxI],[],[], completed_arr]
+				yield [arr, [maxI],[],[], [], [0,i+1]]
 			}
 		}
-		yield [arr, [],[i, maxI],[], completed_arr]
+		yield [arr, [],[i, maxI],[], [], [0,i+1]]
 		
 		let temp = arr[i]
 		arr[i] = arr[maxI]
 		arr[maxI] = temp
 		
-		yield [arr, [],[i, maxI],[], completed_arr]
+		yield [arr, [],[i, maxI],[], [], [0,i+1]]
 	}
 }
 
