@@ -2,7 +2,7 @@ import * as cons from './constants.js'
 import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.js'
 
 
-function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrInd=[null, null]) {
+function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrInd=[null, null], arrObj=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(index)) {
@@ -17,6 +17,8 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrInd=[n
 			} else {
 				context.fillStyle = '#B4B4B4'
 			}
+		} else if (arrObj.includes(element)){
+			context.fillStyle = '#CE050F'
 		} else {
 			console.log("hitting else")
 			context.fillStyle = '#B4B4B4'
@@ -139,7 +141,7 @@ function mainLoop() {
 				let done = algo_results['done']
 				console.log(algo_results)
 				if (!done) {
-					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
+					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4], val[5])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
 						}, myGlobal.delay)	
