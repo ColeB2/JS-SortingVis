@@ -32,7 +32,7 @@ function _genArray() {
 function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
-		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
+		//myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 		console.log(myGlobal.TEST_ARRAY)
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
@@ -166,6 +166,7 @@ myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
-myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
+//myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
+myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
 mainLoop();
