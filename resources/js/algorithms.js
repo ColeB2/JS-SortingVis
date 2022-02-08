@@ -25,7 +25,7 @@ export function* selectionSort(arr) {
 		for (let j = 1; j <= i; j++) {
 			yield [arr, [maxI, j],[],[], completed_arr]
 			
-			if (arr[j] > arr[maxI]) {
+			if (arr[j].Value > arr[maxI].Value) {
 				var maxI = j
 				yield [arr, [maxI],[],[], completed_arr]
 			}
