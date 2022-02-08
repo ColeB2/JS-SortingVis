@@ -2,7 +2,7 @@ import * as cons from './constants.js'
 import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.js'
 
 
-function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], arrInd=[null, null]) {
+function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrInd=[null, null]) {
 	console.log(arrInd)
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
@@ -12,8 +12,6 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], 
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(index)) {
 			context.fillStyle = '#FFFF66'
-		} else if (arr2.includes(element)) {
-			context.fillStyle = '#343A40'
 		} else if (arrInd[0] !== null) {
 			if (index >= arrInd[0] && index < arrInd[1]) {
 				context.fillStyle = '#343A40'
@@ -21,6 +19,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arr2=[], 
 				context.fillStyle = '#B4B4B4'
 			}
 		} else {
+			console.log("hitting else")
 			context.fillStyle = '#B4B4B4'
 		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element))
@@ -141,7 +140,7 @@ function mainLoop() {
 				let done = algo_results['done']
 				console.log(algo_results)
 				if (!done) {
-					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4], val[5])
+					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
 						}, myGlobal.delay)	
