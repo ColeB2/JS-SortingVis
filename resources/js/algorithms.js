@@ -48,7 +48,7 @@ export function* insertionSort(arr) {
 		var j = i - 1;
 		yield [arr, [],[],[i], arrayFocus]
 
-		while (j >= 0 && item < arr[j]) {
+		while (j >= 0 && item.Value < arr[j].Value) {
 			yield [arr, [j, j+1],[],[i], arrayFocus]
 			yield [arr, [],[j, j+1],[i], arrayFocus]
 
