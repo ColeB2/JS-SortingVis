@@ -11,14 +11,14 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrInd=[n
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(index)) {
 			context.fillStyle = '#FFFF66'
+		} else if (arrObj.includes(element)){
+			context.fillStyle = '#CE050F'
 		} else if (arrInd[0] !== null) {
 			if (index >= arrInd[0] && index < arrInd[1]) {
 				context.fillStyle = '#343A40'
 			} else {
 				context.fillStyle = '#B4B4B4'
 			}
-		} else if (arrObj.includes(element)){
-			context.fillStyle = '#CE050F'
 		} else {
 			console.log("hitting else")
 			context.fillStyle = '#B4B4B4'
