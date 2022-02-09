@@ -46,23 +46,23 @@ export function* insertionSort(arr) {
 		let arrayFocus = arr.slice(0,i+1)
 		var item = arr[i]
 		var j = i - 1;
-		yield [arr, [],[],[i], arrayFocus]
+		yield [arr, [],[],[arr[i]], arrayFocus]
 
 		while (j >= 0 && item.Value < arr[j].Value) {
-			yield [arr, [j, j+1],[],[i], arrayFocus]
-			yield [arr, [],[j, j+1],[i], arrayFocus]
+			yield [arr, [arr[j], arr[j+1]],[],[arr[i]], arrayFocus]
+			yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
 
 			let temp = arr[j+1]
 			arr[j+1] = arr[j]
 			arr[j] = temp
 
-			yield [arr, [],[j, j+1],[i], arrayFocus]
+			yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
 
 			j-=1;
 		}
 		arr[j+1] = item
 
-		yield [arr, [],[],[i], arrayFocus]
+		yield [arr, [],[],[arr[i]], arrayFocus]
 	}
 }
 
