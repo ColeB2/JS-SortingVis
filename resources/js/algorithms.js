@@ -4,13 +4,13 @@ export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		for (let j = 0; j < i; j++) {
 			let completed_arr = arr.slice(0, i+1)
-			yield [arr, [j, j+1],[] ,[], completed_arr];
+			yield [arr, [arr[j], arr[j+1]],[] ,[], completed_arr];
 			if (arr[j].Value > arr[j+1].Value) {
-				yield [arr, [], [j, j+1], [], completed_arr];
+			yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
-				yield [arr, [], [j, j+1], [], completed_arr];
+				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 			}
 		}      		
 	}

@@ -5,11 +5,11 @@ import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
-		if (compare.includes(index)) {
+		if (compare.includes(element)) {
 			context.fillStyle = '#89FB92'
-		} else if (swap.includes(index)) {
+		} else if (swap.includes(element)) {
 			context.fillStyle = '#CE050F'
-		} else if (focusElem.includes(index)) {
+		} else if (focusElem.includes(element)) {
 			context.fillStyle = '#FFFF66'
 		} else if (arrObj.includes(element)){
 			context.fillStyle = '#343A40'
