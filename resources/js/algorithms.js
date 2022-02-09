@@ -88,7 +88,7 @@ export function* mergeSort(arr) {
 			yield [arr, [], [], [], [leftSubArr, rightSubArr]]
 			while (i < leftN && j < rightN) {
 				yield [arr, [i, j], [], [k], [leftSubArr, rightSubArr]]
-				if (leftSubArr[i] <= rightSubArr[j]) {
+				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
 					yield [arr, [], [k,i], [], [leftSubArr, rightSubArr]]
 					arr[k] = leftSubArr[i]
 					yield [arr, [], [k,i], [], [leftSubArr, rightSubArr]]
@@ -102,7 +102,7 @@ export function* mergeSort(arr) {
 				k++;
 			}
 			while (i < leftN && j < rightN) {
-				if (leftSubArr[i] <= rightSubArr[j]) {
+				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
 					arr[k] = leftSubArr[i]
 					i++;
 				} else {
