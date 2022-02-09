@@ -90,6 +90,7 @@ export function* mergeSort(arr) {
 				yield [arr, [arr[i], arr[j]], [], [arr[k]], displayArr]
 				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
 					yield [arr, [], [arr[k],arr[i]], [], displayArr]
+					//val left subarray i = temp, and swap? do inplace?
 					arr[k] = leftSubArr[i]
 					yield [arr, [], [arr[k],arr[i]], [], displayArr]
 					i++;
