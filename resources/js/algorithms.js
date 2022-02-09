@@ -20,23 +20,23 @@ export function* selectionSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		let completed_arr = arr.slice(0, i+1)
 		var maxI = 0
-		yield [arr, [maxI],[],[], completed_arr]
+		yield [arr, [arr[maxI]],[],[], completed_arr]
 		
 		for (let j = 1; j <= i; j++) {
-			yield [arr, [maxI, j],[],[], completed_arr]
+			yield [arr, [arr[maxI], arr[j]],[],[], completed_arr]
 			
 			if (arr[j].Value > arr[maxI].Value) {
 				var maxI = j
-				yield [arr, [maxI],[],[], completed_arr]
+				yield [arr, [arr[maxI]],[],[], completed_arr]
 			}
 		}
-		yield [arr, [],[i, maxI],[], completed_arr]
+		yield [arr, [],[arr[i], arr[maxI]],[], completed_arr]
 		
 		let temp = arr[i]
 		arr[i] = arr[maxI]
 		arr[maxI] = temp
 		
-		yield [arr, [],[i, maxI],[], completed_arr]
+		yield [arr, [],[arr[i], arr[maxI]],[], completed_arr]
 	}
 }
 
