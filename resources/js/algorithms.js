@@ -94,8 +94,10 @@ export function* mergeSort(arr) {
 					//val left subarray i = temp, and swap? do inplace?
 					index = arr.indexOf(leftSubArr[i])
 					temp = arr[index]
+					console.log(arr, index, temp)
 					arr.splice(index, 1)
 					arr.splice[k, 0, leftSubArr[i]]
+					console.log(arr)
 					//arr[k] = leftSubArr[i]
 					yield [arr, [], [arr[k],leftSubArr[i]], [], displayArr]
 					i++;
