@@ -89,16 +89,16 @@ export function* mergeSort(arr) {
 			while (i < leftN && j < rightN) {
 				yield [arr, [leftSubArr[i], rightSubArr[j]], [], [arr[k]], displayArr]
 				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
-					yield [arr, [arr[k], arr[i]], [], [], displayArr]
-					yield [arr, [], [arr[k], arr[i]], [], displayArr]
+					yield [arr, [arr[k], leftSubArr[i]], [], [], displayArr]
+					yield [arr, [], [arr[k], leftSubArr[i]], [], displayArr]
 					//val left subarray i = temp, and swap? do inplace?
 					arr[k] = leftSubArr[i]
-					yield [arr, [], [arr[k],arr[i]], [], displayArr]
+					yield [arr, [], [arr[k],leftSubArr[i]], [], displayArr]
 					i++;
 				} else {
-					yield [arr, [], [arr[k],arr[j]], [], displayArr]
+					yield [arr, [], [arr[k],rightSubArr[j]], [], displayArr]
 					arr[k] = rightSubArr[j]
-					yield [arr, [], [arr[k],arr[j]], [], displayArr]
+					yield [arr, [], [arr[k],rightSubArr[j]], [], displayArr]
 					j++;
 				}
 				k++;
