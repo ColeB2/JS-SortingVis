@@ -92,11 +92,10 @@ export function* mergeSort(arr) {
 					yield [arr, [arr[k], leftSubArr[i]], [], [], displayArr]
 					yield [arr, [], [arr[k], leftSubArr[i]], [], displayArr]
 					//val left subarray i = temp, and swap? do inplace?
-					index = arr.indexOf(leftSubArr[i])
-					temp = arr[index]
-					console.log(arr, index, temp)
+					arr.splice(k, 0, leftSubArr[i])
+					index = arr.indexOf(leftSubArr[i], k+1)
 					arr.splice(index, 1)
-					arr.splice[k, 0, leftSubArr[i]]
+					
 					console.log(arr)
 					//arr[k] = leftSubArr[i]
 					yield [arr, [], [arr[k],leftSubArr[i]], [], displayArr]
@@ -104,10 +103,10 @@ export function* mergeSort(arr) {
 				} else {
 					yield [arr, [], [arr[k],rightSubArr[j]], [], displayArr]
 					//arr[k] = rightSubArr[j]
-					index = arr.indexOf(rightSubArr[j])
-					temp = arr[index]
+					arr.splice(k, 0, rightSubArr[j])
+					index = arr.indexOf(rightSubArr[j], k+1)
 					arr.splice(index, 1)
-					arr.splice[k, 0, rightSubArr[j]]
+					
 					yield [arr, [], [arr[k],rightSubArr[j]], [], displayArr]
 					j++;
 				}
