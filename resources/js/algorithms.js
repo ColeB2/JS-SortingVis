@@ -87,9 +87,10 @@ export function* mergeSort(arr) {
 			var displayArr = leftSubArr.concat(rightSubArr)
 			yield [arr, [], [], [], displayArr]
 			while (i < leftN && j < rightN) {
-				yield [arr, [arr[i], arr[j]], [], [arr[k]], displayArr]
+				yield [arr, [leftSubArr[i], leftSubArr[j]], [], [arr[k]], displayArr]
 				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
-					yield [arr, [], [arr[k],arr[i]], [], displayArr]
+					yield [arr, [arr[k], arr[i]], [], [], displayArr]
+					yield [arr, [], [arr[k], arr[i]], [], displayArr]
 					//val left subarray i = temp, and swap? do inplace?
 					arr[k] = leftSubArr[i]
 					yield [arr, [], [arr[k],arr[i]], [], displayArr]
