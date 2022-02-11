@@ -113,16 +113,6 @@ export function* mergeSort(arr) {
 				}
 				k++;
 			}
-			while (i < leftN && j < rightN) {
-				if (leftSubArr[i].Value <= rightSubArr[j].Value) {
-					arr[k] = leftSubArr[i]
-					i++;
-				} else {
-					arr[k] = rightSubArr[j]
-					j++;
-				}
-				k++;
-			}
 			while (i < leftN) {
 				arr[k] = leftSubArr[i]
 				i++;
