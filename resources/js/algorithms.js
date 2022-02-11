@@ -139,6 +139,9 @@ export function* heapSort(arr) {
 	for (let i = 0; i <= arr.length; i++) {
 		console.log("inside for")
 		console.log(i)
+		console.log(arr[i])
+		console.log(arr[parseInt((i-1)/2)])
+		console.log(arr[i] > arr[parseInt((i-1)/2)])
 		
 		if (arr[i] > arr[parseInt((i-1)/2)]) {
 			console.log("inside if")
