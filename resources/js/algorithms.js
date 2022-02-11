@@ -133,6 +133,7 @@ export function* mergeSort(arr) {
 }
 
 export function* heapSort(arr) {
+	console.log("inside heapSort")
 	console.log(arr)
 	//Build Heap,
 	for (let i = 0; i <= arr.length; i++) {
