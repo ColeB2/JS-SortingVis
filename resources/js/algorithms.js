@@ -153,7 +153,7 @@ export function* heapSort(arr) {
 				console.log("inside while")
 				console.log(j, arr)
 				
-				temp = arr[j]
+				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
 				arr[parseInt((j-1)/2)] = arr[j]
 				
