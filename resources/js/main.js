@@ -1,5 +1,5 @@
 import * as cons from './constants.js'
-import {bubbleSort, insertionSort, mergeSort, selectionSort} from './algorithms.js'
+import {bubbleSort, heapSort, insertionSort, mergeSort, selectionSort} from './algorithms.js'
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
@@ -125,6 +125,10 @@ insertionSortButton.addEventListener('click', (event) => sortFunction(insertionS
 const mergeSortButton = document.getElementById('mergesort')
 algorithmButtons.push(mergeSortButton)
 mergeSortButton.addEventListener('click', (event) => sortFunction(mergeSortButton, mergeSort, myGlobal.TEST_ARRAY), false)
+
+const heapSortButton = document.getElementById('heapsort')
+algorithmButtons.push(heapSortButton)
+heapSortButton.addEventListener('click', (event) => sortFunction(heapSortButton, heapSort, myGlobal.TEST_ARRAY), false)
 
 function mainLoop() {	
 	function main() {
