@@ -114,11 +114,13 @@ export function* mergeSort(arr) {
 				k++;
 			}
 			while (i < leftN) {
+				yield [arr, [],[], [arr[k]], displayArr]
 				arr[k] = leftSubArr[i]
 				i++;
 				k++;
 			}
 			while (j < rightN) {
+				yield [arr, [],[], [arr[k]], displayArr]
 				arr[k] = rightSubArr[j]
 				j++;
 				k++;
