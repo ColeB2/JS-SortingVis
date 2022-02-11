@@ -155,7 +155,7 @@ export function* heapSort(arr) {
 				
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
-				arr[parseInt((j-1)/2)] = arr[j]
+				arr[parseInt((j-1)/2)] = temp
 				
 				var j = parseInt((j-1)/2)
 				console.log(j, arr)
