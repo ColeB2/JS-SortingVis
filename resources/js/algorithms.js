@@ -136,7 +136,7 @@ export function* heapSort(arr) {
 	console.log("inside heapSort")
 	console.log(arr)
 	//Build Heap,
-	for (let i = 0; i <= arr.length; i++) {
+	for (let i = 0; i <= arr.length - 1; i++) {
 		console.log("inside for")
 		console.log(i)
 		console.log(arr[i])
