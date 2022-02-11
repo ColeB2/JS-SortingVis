@@ -137,13 +137,17 @@ export function* heapSort(arr) {
 	console.log(arr)
 	//Build Heap,
 	for (let i = 0; i <= arr.length; i++) {
+		console.log("inside for")
 		console.log(i)
+		
 		if (arr[i] > arr[parseInt((i-1)/2)]) {
+			console.log("inside if")
 			
 			let j = i
 			console.log(j)
 			//While object j is larger than its parent, swap em up.
 			while (arr[j] > arr[parseInt((j-1)/2)]) {
+				console.log("inside while")
 				console.log(j, arr)
 				
 				temp = arr[j]
