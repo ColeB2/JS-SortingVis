@@ -133,19 +133,24 @@ export function* mergeSort(arr) {
 }
 
 export function* heapSort(arr) {
+	console.log(arr)
 	//Build Heap,
 	for (let i = 0; i <= arr.length; i++) {
+		console.log(i)
 		if (arr[i] > arr[parseInt((i-1)/2)]) {
-			let j = i
 			
+			let j = i
+			console.log(j)
 			//While object j is larger than its parent, swap em up.
 			while (arr[j] > arr[parseInt((j-1)/2)]) {
+				console.log(j, arr)
 				
 				temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
 				arr[parseInt((j-1)/2)] = arr[j]
 				
 				let j = parseInt((j-1)/2)
+				console.log(j, arr)
 				
 				
 				
@@ -154,6 +159,7 @@ export function* heapSort(arr) {
 		
 	}
 	yield [arr]
+	console.log(arr)
 	
 	//Sort
 	
