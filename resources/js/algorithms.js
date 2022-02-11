@@ -143,13 +143,13 @@ export function* heapSort(arr) {
 		console.log(arr[parseInt((i-1)/2)])
 		console.log(arr[i] > arr[parseInt((i-1)/2)])
 		
-		if (arr[i] > arr[parseInt((i-1)/2)]) {
+		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
 			console.log("inside if")
 			
 			let j = i
 			console.log(j)
 			//While object j is larger than its parent, swap em up.
-			while (arr[j] > arr[parseInt((j-1)/2)]) {
+			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
 				console.log("inside while")
 				console.log(j, arr)
 				
