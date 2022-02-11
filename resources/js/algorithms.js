@@ -130,5 +130,31 @@ export function* mergeSort(arr) {
 	}
 	yield* mergeSortIn(0, arr.length)
 	yield [arr]
+}
+
+export function* heapSort(arr) {
+	//Build Heap,
+	for (let i = 0; i <= arr.length; i++) {
+		if (arr[i] > arr[parseInt((i-1)/2)]) {
+			let j = i
+			
+			//While object j is larger than its parent, swap em up.
+			while (arr[j] > arr[parseInt((j-1)/2)]) {
+				
+				temp = arr[j]
+				arr[j] = arr[parseInt((j-1)/2)]
+				arr[parseInt((j-1)/2)] = arr[j]
+				
+				let j = parseInt((j-1)/2)
+				
+				
+				
+			}
+		}
+		
+	}
+	yield [arr]
+	
+	//Sort
 	
 }
