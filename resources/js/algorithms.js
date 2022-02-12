@@ -157,7 +157,7 @@ export function* heapSort(arr) {
 		var j = 0
 		var index = 0
 		
-		while (True) {
+		while (true) {
 			index = 2 * j + 1
 			
 			if (index < (i-1) && arr[index] < arr[index + 1]) {
