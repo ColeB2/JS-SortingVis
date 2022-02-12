@@ -160,10 +160,10 @@ export function* heapSort(arr) {
 		while (true) {
 			index = 2 * j + 1
 			
-			if (index < (i-1) && arr[index] < arr[index + 1]) {
+			if (index < (i - 1) && arr[index] < arr[index + 1]) {
 				index++;
 			}
-			if (index < 1 && arr[j] < arr[index]) {
+			if (index < i && arr[j] < arr[index]) {
 				let temp = arr[j]
 				arr[j] = arr[index]
 				arr[index] = temp
