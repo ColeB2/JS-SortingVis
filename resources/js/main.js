@@ -14,7 +14,6 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 		} else if (arrObj.includes(element)){
 			context.fillStyle = '#343A40'
 		} else {
-			console.log("hitting else")
 			context.fillStyle = '#B4B4B4'
 		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element.Value))
@@ -28,7 +27,6 @@ function _genArray() {
 function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
-		//myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 		console.log(myGlobal.TEST_ARRAY)
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
@@ -137,7 +135,6 @@ function mainLoop() {
 				let algo_results = myGlobal.generatorAlgo.next()
 				let val = algo_results['value']
 				let done = algo_results['done']
-				console.log(algo_results)
 				if (!done) {
 					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
 					setTimeout( () => {
@@ -166,7 +163,6 @@ myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
-//myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => Math.ceil(Math.random() * 200));
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
 mainLoop();
