@@ -150,9 +150,9 @@ export function* heapSort(arr) {
 	yield [arr]
 	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
 	for (let i = arr.length-1; i > 0; i--) {
-		let temp = arr[0]
-		arr[0] = arr[i]
-		arr[i] = temp
+		let temp = arr[i]
+		arr[i] = arr[0]
+		arr[0] = temp
 		
 		var j = 0
 		var index = 0
