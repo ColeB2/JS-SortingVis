@@ -136,23 +136,46 @@ export function* heapSort(arr) {
 	//Build Heap,
 	for (let i = 0; i <= arr.length - 1; i++) {		
 		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
-			console.log("inside if")
-			
 			var j = i
 			//While object j is larger than its parent, swap em up.
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
 				arr[parseInt((j-1)/2)] = temp
-				var j = parseInt((j-1)/2)
-				
-				
-				
+				var j = parseInt((j-1)/2)	
 			}
 		}
 		
 	}
 	yield [arr]
-	//Sort
+	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
+	for (let i = arr.length-1; i > 0; i--;) {
+		let temp = arr[0]
+		arr[0] = arr[i]
+		arr[i] = temp
+		
+		var j = 0
+		var index = 0
+		
+		while (True) {
+			index = 2 * j + 1
+			
+			if (index < (i-1) && arr[index] < arr[index + 1]) {
+				index++;
+			}
+			if (index < 1 && arr[j] < arr[index]) {
+				let temp = arr[j]
+				arr[j] = arr[index]
+				arr[index] = temp
+			}
+			
+			var j = index
+			if (index >= i) {
+				break
+			} 
+			
+		}
+	}
+	yield [arr]
 	
 }
