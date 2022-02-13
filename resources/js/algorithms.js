@@ -141,7 +141,7 @@ export function* heapSort(arr) {
 			var j = i
 			//While object j is larger than its parent, swap em up.
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				console.log(j, arr[j].Value, ((j-1)/2), arr[parseInt((j-1)/2)].Value)
+				console.log(j, arr[j].Value, (parseInt((j-1)/2)), arr[parseInt((j-1)/2)].Value)
 				yield [arr, [arr[j], arr[(j-1)/2]], [], [], arr]
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
