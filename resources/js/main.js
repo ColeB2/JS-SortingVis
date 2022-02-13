@@ -4,6 +4,8 @@ import {bubbleSort, heapSort, insertionSort, mergeSort, selectionSort} from './a
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
+	console.log(arr)
+	console.log(compare, swap, focusElem)
 	arr.map(function(element, index) {
 		if (compare.includes(element)) {
 			context.fillStyle = '#89FB92'
