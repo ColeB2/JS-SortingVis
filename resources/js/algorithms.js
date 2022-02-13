@@ -134,30 +134,30 @@ export function* mergeSort(arr) {
 
 export function* heapSort(arr) {
 	//Build Heap,
-	console.log(arr)
-	for (let i = 0; i < arr.length; i++) {		
+	yield [arr]
+	for (let i = 0; i < arr.length; i++) {
+		yield [arr, [arr[i], arr[(i-1)/2]], [], [], arr]
 		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
 			var j = i
 			//While object j is larger than its parent, swap em up.
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				console.log(j)
+				yield [arr, [arr[j], arr[(j-1)/2]], [], [], arr]
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
 				arr[parseInt((j-1)/2)] = temp
+				yield [arr, [], [arr[j], arr[(j-1)/2]], [], arr]
+				
 				j = parseInt((j-1)/2)	
 			}
 		}
 		
 	}
-	console.log(arr)
-	yield [arr]
+	yield [arr, [], [], [], arr]
 	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
 	for (let i = arr.length-1; i > 0; i--) {
-		console.log(arr)
 		let temp = arr[i]
 		arr[i] = arr[0]
 		arr[0] = temp
-		console.log(arr)
 		
 		var j = 0
 		var index = 0
