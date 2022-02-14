@@ -173,7 +173,7 @@ export function* heapSort(arr) {
 		//Heap Maintaining
 		while (true) {
 			index = 2 * j + 1
-			yield [arr, [arr[index], arr[index+1]], [], [], completed_arr]
+			yield [arr, [arr[index], arr[index+1]], [], [arr[j]], completed_arr]
 			if (index < (i - 1) && arr[index].Value < arr[index + 1].Value) {
 				index++;
 			}
