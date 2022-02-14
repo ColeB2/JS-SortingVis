@@ -156,23 +156,32 @@ export function* heapSort(arr) {
 	yield [arr, [], [], [], arr]
 	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
 	for (let i = arr.length-1; i > 0; i--) {
+		completed_arr = arr.slice(0, i+1)
+		
+		yield [arr, [], [arr[i], arr[0]], [], completed_arr]
 		let temp = arr[i]
 		arr[i] = arr[0]
 		arr[0] = temp
+		yield [arr, [], [arr[i], arr[0]], [], completed_arr]
 		
 		var j = 0
 		var index = 0
 		
+		
+		//Heap Maintaining
 		while (true) {
 			index = 2 * j + 1
-			
+			yield [arr, [arr[index], arr[index+1]], [], [], completed_arr]
 			if (index < (i - 1) && arr[index].Value < arr[index + 1].Value) {
 				index++;
 			}
+			yield [arr, [arr[j], arr[index]], [], [], completed_arr]
 			if (index < i && arr[j].Value < arr[index].Value) {
+				yield [arr, [], [arr[j], arr[index]], [], completed_arr]
 				let temp = arr[j]
 				arr[j] = arr[index]
 				arr[index] = temp
+				yield [arr, [], [arr[j], arr[index]], [], completed_arr]
 			}
 			
 			var j = index
@@ -182,6 +191,5 @@ export function* heapSort(arr) {
 			
 		}
 	}
-	yield [arr]
-	
+	yield [arr]	
 }
