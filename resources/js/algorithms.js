@@ -156,7 +156,7 @@ export function* heapSort(arr) {
 	yield [arr, [], [], [], arr]
 	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
 	for (let i = arr.length-1; i > 0; i--) {
-		completed_arr = arr.slice(0, i+1)
+		let completed_arr = arr.slice(0, i+1)
 		
 		yield [arr, [], [arr[i], arr[0]], [], completed_arr]
 		let temp = arr[i]
