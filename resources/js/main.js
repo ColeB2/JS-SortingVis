@@ -7,11 +7,11 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 	console.log(arr)
 	console.log(compare, swap, focusElem)
 	arr.map(function(element, index) {
-		if (compare.includes(element)) {
+		if (compare.includes(element) && !arrObj.includes(element)) {
 			context.fillStyle = '#89FB92'
-		} else if (swap.includes(element)) {
+		} else if (swap.includes(element) && !arrObj.includes(element)) {
 			context.fillStyle = '#CE050F'
-		} else if (focusElem.includes(element)) {
+		} else if (focusElem.includes(element) && !arrObj.includes(element)) {
 			context.fillStyle = '#FFFF66'
 		} else if (arrObj.includes(element)){
 			context.fillStyle = '#343A40'
