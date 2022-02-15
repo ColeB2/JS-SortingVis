@@ -64,6 +64,7 @@ export function* insertionSort(arr) {
 
 		yield [arr, [],[],[arr[i]], arrayFocus]
 	}
+	yield [arr]
 }
 
 export function* mergeSort(arr) {
