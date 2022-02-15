@@ -184,8 +184,8 @@ export function* heapSort(arr) {
 			}
 			
 			let compare_arr2 = []
-			completed_arr.includes(arr[index])? compare_arr.push(arr[index]) : null
-			completed_arr.includes(arr[j])? compare_arr.push(arr[j]) : null
+			completed_arr.includes(arr[index])? compare_arr2.push(arr[index]) : null
+			completed_arr.includes(arr[j])? compare_arr2.push(arr[j]) : null
 			
 			yield [arr, compare_arr2, [], [], completed_arr]
 			if (index < i && arr[j].Value < arr[index].Value) {
