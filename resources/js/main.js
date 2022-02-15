@@ -7,9 +7,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 	console.log(arr)
 	console.log(compare, swap, focusElem)
 	arr.map(function(element, index) {
-		if (arrObj.includes(element)) {
-			context.fillStyle = '#343A40'
-		} else if (compare.includes(element)) {
+		if (compare.includes(element)) {
 			context.fillStyle = '#89FB92'
 		} else if (swap.includes(element)) {
 			context.fillStyle = '#CE050F'
