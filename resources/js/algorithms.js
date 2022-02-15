@@ -173,7 +173,12 @@ export function* heapSort(arr) {
 		//Heap Maintaining
 		while (true) {
 			index = 2 * j + 1
-			yield [arr, [arr[index], arr[index+1]], [], [arr[j]], completed_arr]
+			
+			let compare_arr = []
+			completed_arr.includes(arr[index])? compare_arr.push(arr[index]) : null
+			completed_arr.includes(arr[index+1])? compare_arr.push(arr[index+1]) : null
+			
+			yield [arr, compare_arr, [], [arr[j]], completed_arr]
 			if (index < (i - 1) && arr[index].Value < arr[index + 1].Value) {
 				index++;
 			}
