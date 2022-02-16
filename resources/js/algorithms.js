@@ -206,3 +206,40 @@ export function* heapSort(arr) {
 	}
 	yield [arr]	
 }
+
+
+export function* shellSort(arr) {
+	let n = arr.length
+	let gap = parseInt(n / 2)
+	
+	while (gap > 0) {
+		let i = 0
+		let j = gap
+		
+		while (j < n) {
+			if (arr[i].Value > arr[j].Value) {
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+				
+			}
+			i++;
+			j++;
+			
+			let k = i;
+			while (k - gap > -1) {
+				if (arr[k - gap].Value > arr[k].Value) {
+					let temp = arr[k-gap]
+					arr[k-gap] = arr[k]
+					arr[k] = temp
+					
+				}
+				k--;
+			}
+		}
+		
+		
+		gap = parseInt(gap/2)
+	}
+	yield [arr]
+}

@@ -118,6 +118,10 @@ const selectionSortButton = document.getElementById('selectionsort')
 algorithmButtons.push(selectionSortButton)
 selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY), false)
 
+const shellSortButton = document.getElementById('shellsort')
+algorithmButtons.push(shellSortButton)
+shellSortButton.addEventListener('click', (event) => sortFunction(shellSortButton, shellSort, myGlobal.TEST_ARRAY), false)
+
 const insertionSortButton = document.getElementById('insertionsort')
 algorithmButtons.push(insertionSortButton)
 insertionSortButton.addEventListener('click', (event) => sortFunction(insertionSortButton, insertionSort, myGlobal.TEST_ARRAY), false)
