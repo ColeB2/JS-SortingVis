@@ -213,25 +213,35 @@ export function* shellSort(arr) {
 	let gap = parseInt(n / 2)
 	
 	while (gap > 0) {
+		yield [arr]
 		let i = 0
 		let j = gap
-		
+		yield [arr, [],[],[], arr]
 		while (j < n) {
+			yield [arr, [arr[i], arr[j]],[],[], arr]
 			if (arr[i].Value > arr[j].Value) {
+				yield [arr, [],[arr[i], arr[j]],[], arr]
 				let temp = arr[i]
 				arr[i] = arr[j]
 				arr[j] = temp
+				yield [arr, [],[arr[i], arr[j]],[], arr]
 				
 			}
 			i++;
 			j++;
 			
+			
+			//Checking behind i when i gets big or the gap is small
 			let k = i;
+			
 			while (k - gap > -1) {
+				yield [arr, [arr[k-gap], arr[k]], [], [], arr]
 				if (arr[k - gap].Value > arr[k].Value) {
+					yield [arr, [],[arr[k-gap], arr[k]],[], arr]
 					let temp = arr[k-gap]
 					arr[k-gap] = arr[k]
 					arr[k] = temp
+					yield [arr, [],[arr[k-gap], arr[k]],[], arr]
 					
 				}
 				k--;
