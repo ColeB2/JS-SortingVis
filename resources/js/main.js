@@ -1,5 +1,5 @@
 import * as cons from './constants.js'
-import {bubbleSort, heapSort, insertionSort, mergeSort, selectionSort shellSort} from './algorithms.js'
+import {bubbleSort, heapSort, insertionSort, mergeSort, selectionSort, shellSort} from './algorithms.js'
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
