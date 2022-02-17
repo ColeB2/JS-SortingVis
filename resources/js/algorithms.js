@@ -264,7 +264,7 @@ export function* shellSort(arr) {
 			let temp = arr[i]
 			let j
 			
-			for (j = i; j >= gap && arr[j-gap] > temp; j -= gap) {
+			for (j = i; j >= gap && arr[j-gap].Value > temp.Value; j -= gap) {
 				arr[j] = arr[j-gap]
 			}
 			arr[j] = temp
