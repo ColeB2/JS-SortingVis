@@ -258,18 +258,26 @@ export function* shellSort(arr) {
 	
 	let gap = n >> 1
 	
-	for (let gap = n >> 1; gap > 0; gap = gap >> 1) {
+	while (gap > 0) {
 		
-		for (let i = gap; i < n; i++) {
-			let temp = arr[i]
-			let j
+		for (let i = 0; i < gap; i++) {
 			
-			for (j = i; j >= gap && arr[j-gap].Value > temp.Value; j -= gap) {
-				arr[j] = arr[j-gap]
+			for (let j = i+gap; j < n; j = j + gap) {
+				let current_value = arr[j]
+				let position = j
+				
+				let swap = false;
+				
+				while (position >= gap && arr[position-gap].Value > current_value.Value) {
+					let temp = arr[position-gap]
+					arr[position-gap] = arr[position]
+					arr[position] = temp
+					
+				}
+				
 			}
-			arr[j] = temp
 		}
-		
+		gap = gap >> 1
 	}
 	yield [arr]
 }
