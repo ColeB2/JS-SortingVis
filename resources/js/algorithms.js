@@ -262,7 +262,7 @@ export function* shellSort(arr) {
 		
 		for (let i = 0; i < gap; i++) {
 			
-			for (let j = i+gap; j < n; j = j + gap) {
+			for (let j = i+gap; j < n; j += gap) {
 				let current_value = arr[j]
 				let position = j
 				
