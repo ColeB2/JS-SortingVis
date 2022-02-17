@@ -233,7 +233,7 @@ export function* shellSort(arr) {
 			//Checking behind i when i gets big or the gap is small
 			let k = i;
 			
-			while (k - gap > -1 && arr[k-gap].Value > arr[k].Value) {
+			while (k - gap > -1) {
 				yield [arr, [arr[k-gap], arr[k]], [], [], arr]
 				if (arr[k - gap].Value > arr[k].Value) {
 					yield [arr, [],[arr[k-gap], arr[k]],[], arr]
