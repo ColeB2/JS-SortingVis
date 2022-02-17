@@ -254,7 +254,7 @@ export function* shellSort2(arr) {
 }
 
 export function* shellSort(arr) {
-	n = arr.length
+	let n = arr.length
 	
 	let gap = n >> 1
 	
