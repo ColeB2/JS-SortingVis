@@ -268,11 +268,16 @@ export function* shellSort(arr) {
 				
 				let swap = false;
 				
+				yield [arr, [arr[position-gap], current_value],[],[] arr]
 				while (position >= gap && arr[position-gap].Value > current_value.Value) {
+					yield [arr, [],[arr[position-gap], arr[position]],[],arr]
 					let temp = arr[position-gap]
 					arr[position-gap] = arr[position]
 					arr[position] = temp
+					yield [arr, [],[arr[position-gap], arr[position]],[],arr]
+					
 					position -= gap
+					yield [arr, [arr[position-gap], arr[position]],[],[], arr]
 					
 				}
 				
