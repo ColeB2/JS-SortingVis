@@ -208,7 +208,7 @@ export function* heapSort(arr) {
 }
 
 
-export function* shellSort(arr) {
+export function* shellSort2(arr) {
 	let n = arr.length
 	let gap = parseInt(n / 2)
 	yield [arr, [], [], [], arr]
@@ -251,4 +251,33 @@ export function* shellSort(arr) {
 		gap = parseInt(gap/2)
 	}
 	yield [arr, [], [], [], arr]
+}
+
+export function* shellSort(arr) {
+	n = arr.length
+	
+	let gap = n >> 1
+	
+	while (gap > 0) {
+		
+		for (let i = 0; i < gap; i++) {
+			
+			for (let j = i+gap; j < n; j = j + gap) {
+				let current_value = arr[j]
+				let position = j
+				
+				let swap = false;
+				
+				while (position >= gap && arr[position-gap] > current_value) {
+					let temp = arr[position-gap]
+					arr[position-gap] = arr[position]
+					arr[position] = temp
+					
+				}
+				
+			}
+		}
+		gap = gap >> 1
+	}
+	yield [arr]
 }
