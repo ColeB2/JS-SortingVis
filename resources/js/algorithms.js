@@ -262,8 +262,8 @@ export function* shellSort(arr) {
 		
 		for (let i = 0; i < gap; i++) {
 			let displayArr = []
-			for (let index = i; i < n; i += gap) {
-				displayArr.push(arr[i])	
+			for (let index = i; index < n; index += gap) {
+				displayArr.push(arr[index])	
 			} 
 			for (let j = i+gap; j < n; j += gap) {
 				let current_value = arr[j]
@@ -277,7 +277,7 @@ export function* shellSort(arr) {
 					let temp = arr[position-gap]
 					arr[position-gap] = arr[position]
 					arr[position] = temp
-					yield [arr, [],[arr[position-gap], arr[position]],[],displayArr]
+					yield [arr, [],[arr[position-gap], arr[position]],[], displayArr]
 					
 					position -= gap
 					yield [arr, [arr[position-gap], arr[position]],[],[], displayArr]
