@@ -2,18 +2,24 @@
 
 export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
+		let swap = false;
 		for (let j = 0; j < i; j++) {
 			let completed_arr = arr.slice(0, i+1)
 			yield [arr, [arr[j], arr[j+1]],[] ,[], completed_arr];
 			if (arr[j].Value > arr[j+1].Value) {
-			yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
+				swap = true
+				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 				let temp = arr[j]
 				arr[j] = arr[j+1]
 				arr[j+1] = temp
 				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 			}
-		}      		
+		}
+		if (swap === false) {
+			break
+		}
 	}
+	yield [arr]
 }
 
 export function* selectionSort(arr) {
@@ -38,6 +44,7 @@ export function* selectionSort(arr) {
 		
 		yield [arr, [],[arr[i], arr[maxI]],[], completed_arr]
 	}
+	yield [arr]
 }
 
 export function* insertionSort(arr) {
@@ -207,51 +214,6 @@ export function* heapSort(arr) {
 	yield [arr]	
 }
 
-
-export function* shellSort2(arr) {
-	let n = arr.length
-	let gap = parseInt(n / 2)
-	yield [arr, [], [], [], arr]
-	while (gap > 0) {
-		let i = 0
-		let j = gap
-		yield [arr, [],[],[], arr]
-		while (j < n) {
-			yield [arr, [arr[i], arr[j]],[],[], arr]
-			if (arr[i].Value > arr[j].Value) {
-				yield [arr, [],[arr[i], arr[j]],[], arr]
-				let temp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = temp
-				yield [arr, [],[arr[i], arr[j]],[], arr]
-				
-			}
-			i++;
-			j++;
-			
-			
-			//Checking behind i when i gets big or the gap is small
-			let k = i;
-			
-			while (k - gap > -1) {
-				yield [arr, [arr[k-gap], arr[k]], [], [], arr]
-				if (arr[k - gap].Value > arr[k].Value) {
-					yield [arr, [],[arr[k-gap], arr[k]],[], arr]
-					let temp = arr[k-gap]
-					arr[k-gap] = arr[k]
-					arr[k] = temp
-					yield [arr, [],[arr[k-gap], arr[k]],[], arr]
-					
-				}
-				k--;
-			}
-		}
-		
-		
-		gap = parseInt(gap/2)
-	}
-	yield [arr, [], [], [], arr]
-}
 
 export function* shellSort(arr) {
 	let n = arr.length
