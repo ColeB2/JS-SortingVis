@@ -255,7 +255,7 @@ export function* shellSort2(arr) {
 export function* shellSort(arr) {
 	let n = arr.length
 	
-	sedgewickGap = [41,19,5,1]
+	let sedgewickGap = [41,19,5,1]
 	let gap = 0
 	for (let gapI = 0; gap < sedgewickGap.length-1; gapI++) {
 		if (sedgewickGap[gapI] < n) {
