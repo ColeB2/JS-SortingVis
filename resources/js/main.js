@@ -4,8 +4,6 @@ import {bubbleSort, heapSort, insertionSort, mergeSort, selectionSort, shellSort
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
-	console.log(arr)
-	console.log(compare, swap, focusElem)
 	arr.map(function(element, index) {
 		if (compare.includes(element)) {
 			context.fillStyle = '#89FB92'
@@ -30,7 +28,6 @@ function generateArray() {
 	if (!myGlobal.isRunning) {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
-		console.log(myGlobal.TEST_ARRAY)
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		
