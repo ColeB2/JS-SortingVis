@@ -143,12 +143,13 @@ export function* heapSort(arr) {
 	//Build Heap,
 	yield [arr]
 	for (let i = 0; i < arr.length; i++) {
-		yield [arr, [], [], [arr[i]], arr]
+		yield [arr, [arr[parseInt((i-1)/2)]], [], [arr[i]], arr]
 		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
 			var j = i
 			//While object j is larger than its parent, swap em up.
+			yield [arr, [arr[i], arr[parseInt((i-1)/2)]], [], [], arr]
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				yield [arr, [arr[j], arr[parseInt((j-1)/2)]], [], [], arr]
+				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], arr]
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
 				arr[parseInt((j-1)/2)] = temp
