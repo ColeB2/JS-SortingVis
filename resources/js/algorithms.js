@@ -105,7 +105,6 @@ export function* mergeSort(arr) {
 					let index = arr.indexOf(leftSubArr[i], k+1)
 					arr.splice(index, 1)
 					
-					console.log(arr)
 					//arr[k] = leftSubArr[i]
 					yield [arr, [], [arr[k],leftSubArr[i]], [], displayArr]
 					i++;
@@ -149,7 +148,6 @@ export function* heapSort(arr) {
 			var j = i
 			//While object j is larger than its parent, swap em up.
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				console.log(j, arr[j].Value, (parseInt((j-1)/2)), arr[parseInt((j-1)/2)].Value)
 				yield [arr, [arr[j], arr[parseInt((j-1)/2)]], [], [], arr]
 				let temp = arr[j]
 				arr[j] = arr[parseInt((j-1)/2)]
