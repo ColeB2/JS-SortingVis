@@ -214,7 +214,7 @@ export function* heapSort(arr) {
 }
 
 
-export function* shellSort(arr) {
+export function* shellSort2(arr) {
 	let n = arr.length
 	
 	let gap = n >> 1
@@ -248,6 +248,52 @@ export function* shellSort(arr) {
 			}
 		}
 		gap = gap >> 1
+	}
+	yield [arr]
+}
+
+export function* shellSort(arr) {
+	let n = arr.length
+	
+	sedgewickGap = [41,19,5,1]
+	let gap = 0
+	for (let gapI = 0; gap < sedgewickGap.length-1; gapI++) {
+		if (sedgewickGap[gapI] < n) {
+			gap = gapI
+			break
+		}
+	}
+	
+	while (gap <= sedgewickGap.length) {
+		let gapValue = sedgewickGap[gap]
+		
+		for (let i = 0; i < gapValue; i++) {
+			let displayArr = []
+			for (let index = i; index < n; index += gapValue) {
+				displayArr.push(arr[index])	
+			} 
+			for (let j = i+gap; j < n; j += gapValue) {
+				let current_value = arr[j]
+				let position = j
+				
+				let swap = false
+				
+				yield [arr, [arr[position-gapValue], arr[j]], [], [], displayArr]
+				while (position >= gapValue && arr[position-gapValue].Value > current_value.Value) {
+					yield [arr, [],[arr[position-gapValue], arr[position]],[],displayArr]
+					let temp = arr[position-gapValue]
+					arr[position-gapValue] = arr[position]
+					arr[position] = temp
+					yield [arr, [],[arr[position-gapValue], arr[position]],[], displayArr]
+					
+					position -= gapValue
+					yield [arr, [arr[position-gapValue], arr[position]],[],[], displayArr]
+					
+				}
+				
+			}
+		}
+		gap++;
 	}
 	yield [arr]
 }
