@@ -303,7 +303,7 @@ function* quickSortHelper(arr, left, right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
 		
-		for (let j = low; j < high; j++) {
+		for (let j = left; j < high; j++) {
 			if (arr[j].Value < pivot.Value) {
 				i++
 				let temp = arr[i]
