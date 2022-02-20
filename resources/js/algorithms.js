@@ -326,6 +326,6 @@ function* quickSortHelper(arr, left, right) {
 
 export function* quickSort(arr) {
 	let n = arr.length
-	yield from quickSortHelper(arr, left, right)
+	yield* quickSortHelper(arr, left, right)
 	yield [arr]
 }
