@@ -297,3 +297,35 @@ export function* shellSort(arr) {
 	}
 	yield [arr]
 }
+
+function* quickSortHelper(arr, left, right) {
+	if (left < right) {
+		let i = left - 1
+		let pivot = arr[right] // last element as pivot
+		
+		for (let j = low; j < high; j++) {
+			if (arr[j].Value < pivot.Value) {
+				i++l
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+			}
+		}
+		let temp = arr[i+1]
+			arr[i+1] = arr[high]
+			arr[high] = arr[i+1]
+			
+		let pivot_index = i + 1
+		
+		yield* quickSortHelper(arr, left, pivot_index)
+		yield* quickSortHelper(arr, pivot_index, right)
+		
+	}
+	
+}
+
+export function* quickSort(arr) {
+	let n = arr.length
+	yield from quickSortHelper(arr, left, right)
+	yield [arr]
+}
