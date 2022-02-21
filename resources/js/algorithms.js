@@ -320,6 +320,7 @@ function* quickSortHelper(arr, left, right) {
 		}
 		console.log("after for loop i")
 		console.log(i)
+		console.log(i+1, right)
 		yield [arr, [],[arr[i+1], arr[right]],[],arr]
 		let temp = arr[i+1]
 		arr[i+1] = arr[right]
