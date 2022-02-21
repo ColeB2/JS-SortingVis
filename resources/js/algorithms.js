@@ -305,7 +305,8 @@ function* quickSortHelper(arr, left, right) {
 		
 		for (let j = left; j <= right - 1; j++) {
 			if (arr[j].Value < pivot.Value) {
-				i++
+				i++;
+				console.log(i, arr[i])
 				let temp = arr[i]
 				arr[i] = arr[j]
 				arr[j] = temp
