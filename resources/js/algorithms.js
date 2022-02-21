@@ -299,10 +299,12 @@ export function* shellSort(arr) {
 }
 
 function* quickSortHelper(arr, left, right) {
+	console.log(arr, left, right)
 	if (left < right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
 		
+		console.log(i, pivot)
 		for (let j = left; j <= right - 1; j++) {
 			if (arr[j].Value < pivot.Value) {
 				i++;
@@ -327,7 +329,9 @@ function* quickSortHelper(arr, left, right) {
 }
 
 export function* quickSort(arr) {
+	
 	let n = arr.length
+	console.log(arr, n)
 	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
 }
