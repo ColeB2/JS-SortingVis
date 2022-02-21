@@ -331,6 +331,7 @@ function* quickSortHelper(arr, left, right) {
 export function* quickSort(arr) {
 	
 	let n = arr.length
+	console.log("initial logs")
 	console.log(arr, n)
 	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
