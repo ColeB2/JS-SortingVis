@@ -334,6 +334,7 @@ export function* quickSort(arr) {
 	console.log("initial logs")
 	console.log(arr.slice())
 	console.log(arr, n)
+	yield [arr, [],[],[], arr]
 	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
 }
