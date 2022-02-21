@@ -306,19 +306,25 @@ function* quickSortHelper(arr, left, right) {
 		
 		console.log(i, right, pivot)
 		for (let j = left; j <= right - 1; j++) {
-			if (arr[j].Value < arr[right].Value) {
+			yield [arr, [arr[j], pivot], [], [], arr]
+			if (arr[j].Value < pivot.Value) {
 				i++;
 				console.log(i, arr[i])
+				
+				yield [arr, [],[arr[i], arr[j]],[],arr]
 				let temp = arr[i]
 				arr[i] = arr[j]
 				arr[j] = temp
+				yield [arr, [],[arr[i], arr[j]],[],arr]
 			}
 		}
 		console.log("after for loop i")
 		console.log(i)
+		yield [arr, [],[arr[i+1], arr[right]],[],arr]
 		let temp = arr[i+1]
-			arr[i+1] = arr[right]
-			arr[right] = arr[i+1]
+		arr[i+1] = arr[right]
+		arr[right] = arr[i+1]
+		yield [arr, [],[arr[i+1], arr[right]],[],arr]
 			
 		let pivot_index = i + 1
 		
