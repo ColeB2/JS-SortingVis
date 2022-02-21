@@ -317,8 +317,8 @@ function* quickSortHelper(arr, left, right) {
 			
 		let pivot_index = i + 1
 		
-		yield* quickSortHelper(arr, left, pivot_index)
-		yield* quickSortHelper(arr, pivot_index, right)
+		yield* quickSortHelper(arr, left, pivot_index-1)
+		yield* quickSortHelper(arr, pivot_index+1, right)
 		
 	}
 	
