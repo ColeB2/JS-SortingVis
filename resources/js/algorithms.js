@@ -320,11 +320,13 @@ function* quickSortHelper(arr, left, right) {
 			}
 		}
 		
-		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		let temp = arr[i+1]
-		arr[i+1] = arr[right]
-		arr[right] = temp
-		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+		if (i+1 != right) {
+			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+			let temp = arr[i+1]
+			arr[i+1] = arr[right]
+			arr[right] = temp
+			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+		}
 			
 		let pivot_index = i + 1
 		
