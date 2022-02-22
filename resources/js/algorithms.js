@@ -299,28 +299,29 @@ export function* shellSort(arr) {
 }
 
 function* quickSortHelper(arr, left, right) {
+	let displayArr = arr.slice(left, right)
 	if (left < right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
-		yield [arr, [],[], [pivot, arr[i]], arr]
+		yield [arr, [],[], [pivot, arr[i]], displayArr]
 		for (let j = left; j < right; j++) {
-			yield [arr, [arr[j], pivot], [], [arr[i]], arr]
+			yield [arr, [arr[j], pivot], [], [arr[i]], displayArr]
 			if (arr[j].Value < pivot.Value) {
 				i++;
 				
-				yield [arr, [],[arr[i], arr[j]],[pivot],arr]
+				yield [arr, [],[arr[i], arr[j]],[pivot],displayArr]
 				let temp = arr[i]
 				arr[i] = arr[j]
 				arr[j] = temp
-				yield [arr, [],[arr[i], arr[j]],[pivot],arr]
+				yield [arr, [],[arr[i], arr[j]],[pivot],displayArr]
 			}
 		}
 		
-		yield [arr, [],[arr[i+1], arr[right]],[],arr]
+		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 		let temp = arr[i+1]
 		arr[i+1] = arr[right]
 		arr[right] = temp
-		yield [arr, [],[arr[i+1], arr[right]],[],arr]
+		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 			
 		let pivot_index = i + 1
 		
