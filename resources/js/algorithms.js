@@ -299,17 +299,14 @@ export function* shellSort(arr) {
 }
 
 function* quickSortHelper(arr, left, right) {
-	console.log(arr, left, right)
 	if (left < right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
 		
-		console.log(i, right, pivot)
 		for (let j = left; j <= right - 1; j++) {
 			yield [arr, [arr[j], pivot], [], [], arr]
 			if (arr[j].Value < pivot.Value) {
 				i++;
-				console.log(i, arr[i])
 				
 				yield [arr, [],[arr[i], arr[j]],[],arr]
 				let temp = arr[i]
@@ -318,9 +315,7 @@ function* quickSortHelper(arr, left, right) {
 				yield [arr, [],[arr[i], arr[j]],[],arr]
 			}
 		}
-		console.log("after for loop i")
-		console.log(i)
-		console.log(i+1, right)
+		
 		yield [arr, [],[arr[i+1], arr[right]],[],arr]
 		let temp = arr[i+1]
 		arr[i+1] = arr[right]
@@ -329,9 +324,7 @@ function* quickSortHelper(arr, left, right) {
 			
 		let pivot_index = i + 1
 		
-		console.log("first left side call")
 		yield* quickSortHelper(arr, left, pivot_index-1)
-		console.log("second right side call")
 		yield* quickSortHelper(arr, pivot_index+1, right)
 		
 	}	
@@ -340,9 +333,6 @@ function* quickSortHelper(arr, left, right) {
 export function* quickSort(arr) {
 	
 	let n = arr.length
-	console.log("initial logs")
-	console.log(arr.slice())
-	console.log(arr, n)
 	yield [arr, [],[],[], arr]
 	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
