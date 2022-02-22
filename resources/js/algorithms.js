@@ -299,7 +299,7 @@ export function* shellSort(arr) {
 }
 
 function* quickSortHelper(arr, left, right) {
-	let displayArr = arr.slice(left, right)
+	let displayArr = arr.slice(left, right+1)
 	if (left < right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
