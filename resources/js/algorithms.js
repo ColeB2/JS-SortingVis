@@ -302,9 +302,9 @@ function* quickSortHelper(arr, left, right) {
 	if (left < right) {
 		let i = left - 1
 		let pivot = arr[right] // last element as pivot
-		yield [arr, [],[], [pivot], arr]
+		yield [arr, [],[], [pivot, arr[i]], arr]
 		for (let j = left; j < right; j++) {
-			yield [arr, [arr[j], pivot], [], [], arr]
+			yield [arr, [arr[j], pivot], [], [arr[i]], arr]
 			if (arr[j].Value < pivot.Value) {
 				i++;
 				
