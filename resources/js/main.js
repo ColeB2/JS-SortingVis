@@ -139,10 +139,24 @@ const quickSortButton = document.getElementById('quicksort')
 algorithmButtons.push(quickSortButton)
 quickSortButton.addEventListener('click', (event) => sortFunction(quickSortButton, quickSort, myGlobal.TEST_ARRAY), false)
 
+const algoDict = {
+	"bubblesort": bubbleSort,
+	"selectionsort": selectionSort,
+	"shellsort": shellSort,
+	"insertionsort": insertionSort,
+	"mergesort": mergeSort,
+	"heapsort": heapSort,
+	"quicksort": quickSort
+	} 
+
+function algoSelector(string_value) {
+	
+	
+}
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
-	myGlobal.algoSelected = algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value
+	myGlobal.algoSelected = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
 	selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 }
 
