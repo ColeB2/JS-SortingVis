@@ -56,6 +56,7 @@ function pauseLoop() {
 			btn.disabled = 'true';
 			})
 		alert(algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value)
+		algorithmSelectFunction()
 	}
 	myGlobal.isRunning = !myGlobal.isRunning;
 	mainLoop();
@@ -140,8 +141,9 @@ quickSortButton.addEventListener('click', (event) => sortFunction(quickSortButto
 
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
-function algorithmSelectFunction(selectedOption) {
-	alert(algorithmSelectMenu)
+function algorithmSelectFunction() {
+	myGlobal.algoSelected = algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value
+	selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 }
 
 function mainLoop() {	
