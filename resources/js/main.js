@@ -42,20 +42,13 @@ function pauseLoop() {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
 		
-		algorithmButtons.forEach((btn) => {
-			btn.removeAttribute("disabled")
-		})
+
 		
-		alert(algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value)
 
 	} else {
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')
 		
-		algorithmButtons.forEach((btn) => {
-			btn.disabled = 'true';
-			})
-		alert(algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value)
 		algorithmSelectFunction()
 	}
 	myGlobal.isRunning = !myGlobal.isRunning;
@@ -91,54 +84,6 @@ function selectAlgo(algo, array) {
 	}
 }
 
-function sortFunction(buttonObj, algoFunction, arr,) {
-	radioButton(buttonObj)
-	myGlobal.algoSelected = algoFunction
-	selectAlgo(myGlobal.algoSelected, arr)
-	if (buttonObj) {buttonObj.classList.add('button-paused')}
-}
-
-function radioButton(buttonCalling) {
-	algorithmButtons.forEach((btn) => {
-		if (buttonCalling != btn) {
-			btn.classList.remove('button-paused')
-			btn.removeAttribute("disabled")
-		}
-	})
-}
-
-
-//ALGORITHM BUTTONS
-let algorithmButtons = []
-
-const bubbleSortButton = document.getElementById('bubblesort')
-algorithmButtons.push(bubbleSortButton)
-bubbleSortButton.addEventListener('click', (event) => sortFunction(bubbleSortButton, bubbleSort, myGlobal.TEST_ARRAY), false)
-
-const selectionSortButton = document.getElementById('selectionsort')
-algorithmButtons.push(selectionSortButton)
-selectionSortButton.addEventListener('click', (event) => sortFunction(selectionSortButton, selectionSort, myGlobal.TEST_ARRAY), false)
-
-const shellSortButton = document.getElementById('shellsort')
-algorithmButtons.push(shellSortButton)
-shellSortButton.addEventListener('click', (event) => sortFunction(shellSortButton, shellSort, myGlobal.TEST_ARRAY), false)
-
-const insertionSortButton = document.getElementById('insertionsort')
-algorithmButtons.push(insertionSortButton)
-insertionSortButton.addEventListener('click', (event) => sortFunction(insertionSortButton, insertionSort, myGlobal.TEST_ARRAY), false)
-
-const mergeSortButton = document.getElementById('mergesort')
-algorithmButtons.push(mergeSortButton)
-mergeSortButton.addEventListener('click', (event) => sortFunction(mergeSortButton, mergeSort, myGlobal.TEST_ARRAY), false)
-
-const heapSortButton = document.getElementById('heapsort')
-algorithmButtons.push(heapSortButton)
-heapSortButton.addEventListener('click', (event) => sortFunction(heapSortButton, heapSort, myGlobal.TEST_ARRAY), false)
-
-const quickSortButton = document.getElementById('quicksort')
-algorithmButtons.push(quickSortButton)
-quickSortButton.addEventListener('click', (event) => sortFunction(quickSortButton, quickSort, myGlobal.TEST_ARRAY), false)
-
 const algoDict = {
 	"bubblesort": bubbleSort,
 	"selectionsort": selectionSort,
@@ -148,11 +93,6 @@ const algoDict = {
 	"heapsort": heapSort,
 	"quicksort": quickSort
 	} 
-
-function algoSelector(string_value) {
-	
-	
-}
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
