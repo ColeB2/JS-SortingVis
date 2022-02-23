@@ -45,6 +45,8 @@ function pauseLoop() {
 		algorithmButtons.forEach((btn) => {
 			btn.removeAttribute("disabled")
 		})
+		
+		alert(algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value)
 
 	} else {
 		pauseButton.innerText = 'Pause';
@@ -134,6 +136,12 @@ heapSortButton.addEventListener('click', (event) => sortFunction(heapSortButton,
 const quickSortButton = document.getElementById('quicksort')
 algorithmButtons.push(quickSortButton)
 quickSortButton.addEventListener('click', (event) => sortFunction(quickSortButton, quickSort, myGlobal.TEST_ARRAY), false)
+
+
+const algorithmSelectMenu = document.getElementById('algorithm-menu')
+function algorithmSelectFunction(selectedOption) {
+	alert(algorithmSelectMenu)
+}
 
 function mainLoop() {	
 	function main() {
