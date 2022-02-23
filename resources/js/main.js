@@ -55,6 +55,7 @@ function pauseLoop() {
 		algorithmButtons.forEach((btn) => {
 			btn.disabled = 'true';
 			})
+		alert(algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value)
 	}
 	myGlobal.isRunning = !myGlobal.isRunning;
 	mainLoop();
