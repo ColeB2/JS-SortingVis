@@ -42,6 +42,8 @@ body {
 }
 
 #algorithm-menu-div {
+	width: 100%;
+	text-align: center;
 }
 
 #algorithm-menu {
