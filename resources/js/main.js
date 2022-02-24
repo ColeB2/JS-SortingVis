@@ -119,7 +119,6 @@ function mainLoop() {
 					myGlobal.generatorAlgo = null;
 					myGlobal.algoSelected = false;
 					pauseLoop();
-					sortFunction(null, null, null);
 				}
 				
 			}
