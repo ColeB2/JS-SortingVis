@@ -96,7 +96,7 @@ const algoDict = {
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
-	if (myGlobal.algoSelected !== false) {
+	if (myGlobal.algoSelected === false) {
 		myGlobal.algoSelected = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)	
 	}
