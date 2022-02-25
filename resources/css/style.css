@@ -55,12 +55,14 @@ body {
 	transition-duration: 0.4s;
 	cursor: pointer;
 }
+#algorithm-menu:hover {
+	background-color: #343A40;
+    color: white;	
+	
+}
 
 .algo-menu-option {
-	text-align: center;
 }
-/* Testing Algo Button Dropdown */
-
 
 .button {
 	background-color: white;
@@ -112,6 +114,7 @@ body {
   transition: opacity .2s;
   border-radius: 4px;
   margin-top: 25px;
+  cursor: pointer;
 }
 
 /* Mouse-over effects */
