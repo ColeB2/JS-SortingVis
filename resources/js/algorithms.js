@@ -70,7 +70,7 @@ export function* insertionSort(arr) {
 			j-=1;
 		}
 		let copyArr = arr.slice(j+1, i)
-		yield [arr, [], [arr[j+1], item], [copyArr], arrayFocus]
+		yield [arr, [], [arr[j+1], item], copyArr, arrayFocus]
 		
 		arr.splice(i,1)
 		
@@ -80,7 +80,7 @@ export function* insertionSort(arr) {
 					
 		//arr[j+1] = item
 
-		yield [arr, [],[arr[j+1], item],[copyArr], arrayFocus]
+		yield [arr, [],[arr[j+1], item], copyArr, arrayFocus]
 	}
 	yield [arr]
 }
