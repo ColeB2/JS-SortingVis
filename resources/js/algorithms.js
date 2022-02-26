@@ -65,7 +65,7 @@ export function* insertionSort(arr) {
 
 			//yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
 			
-			yield [arr, [arr[j], item], [], [arr[i]], arrayFocus]
+			yield [arr, [arr[j], item], [], [], arrayFocus]
 
 			j-=1;
 		}
@@ -78,7 +78,7 @@ export function* insertionSort(arr) {
 					
 		//arr[j+1] = item
 
-		yield [arr, [],[],[arr[i]], arrayFocus]
+		yield [arr, [],[arr[j+1]],[arr[i]], arrayFocus]
 	}
 	yield [arr]
 }
