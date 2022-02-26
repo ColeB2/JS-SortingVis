@@ -56,18 +56,25 @@ export function* insertionSort(arr) {
 		yield [arr, [],[],[arr[i]], arrayFocus]
 
 		while (j >= 0 && item.Value < arr[j].Value) {
-			yield [arr, [arr[j], arr[j+1]],[],[arr[i]], arrayFocus]
-			yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
+			//yield [arr, [arr[j], arr[j+1]],[],[arr[i]], arrayFocus]
+			//yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
 
-			let temp = arr[j+1]
-			arr[j+1] = arr[j]
-			arr[j] = temp
+			//let temp = arr[j+1]
+			//arr[j+1] = arr[j]
+			//arr[j] = temp
 
-			yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
+			//yield [arr, [],[arr[j], arr[j+1]],[arr[i]], arrayFocus]
+			
+			yield [arr, [arr[j], item], [], [arr[i]], arrayFocus]
 
 			j-=1;
 		}
-		arr[j+1] = item
+		
+		yield [arr, [], [arr[j+1], item], [], arrayFocus]
+		arr.splice(i)
+		arr.splice(j+1, 0, item)
+					
+		//arr[j+1] = item
 
 		yield [arr, [],[],[arr[i]], arrayFocus]
 	}
