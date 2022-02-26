@@ -71,7 +71,7 @@ export function* insertionSort(arr) {
 		}
 		
 		yield [arr, [], [arr[j+1], item], [], arrayFocus]
-		arr.splice(i)
+		arr.splice(i,1)
 		console.log(arr)
 		arr.splice(j+1, 0, item)
 		console.log(arr)
