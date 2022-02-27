@@ -278,7 +278,9 @@ export function* shellSort(arr) {
 		}
 	}
 	
-	sedgewickGap.forEach((gapValue) => {
+	while (gap <= sedgewickGap.length) {
+		let gapValue = sedgewickGap[gap]
+		
 		for (let i = 0; i < gapValue; i++) {
 			let displayArr = []
 			for (let index = i; index < n; index += gapValue) {
@@ -305,7 +307,8 @@ export function* shellSort(arr) {
 				
 			}
 		}
-	})
+		gap++;
+	}
 	yield [arr]
 }
 
