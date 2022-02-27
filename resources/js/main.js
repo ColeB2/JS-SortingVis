@@ -41,14 +41,9 @@ function pauseLoop() {
 	if (myGlobal.isRunning) {
 		pauseButton.innerText = 'Start';
 		pauseButton.classList.remove('button-paused')
-		
-
-		
-
 	} else {
 		pauseButton.innerText = 'Pause';
 		pauseButton.classList.add('button-paused')
-		
 		algorithmSelectFunction()
 	}
 	myGlobal.isRunning = !myGlobal.isRunning;
