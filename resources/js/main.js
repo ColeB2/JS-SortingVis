@@ -74,7 +74,8 @@ sizeOutput.innerHTML = sizeRange.value;
 sizeRange.addEventListener('input', arraySize, false)
 
 
-function colorChoice() {
+function colorChoice(event) {
+	console.log(event)
 	myGlobal.compareColor = this.value
 }
 
