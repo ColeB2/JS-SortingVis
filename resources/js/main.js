@@ -6,7 +6,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(element)) {
-			context.fillStyle = '#89FB92'
+			context.fillStyle = myGlobal.compareColor
 		} else if (swap.includes(element)) {
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(element)) {
@@ -80,6 +80,7 @@ function colorChoice() {
 
 const compareColor = document.getElementById('compareColor')
 compareColor.addEventListener('input', colorChoice, false)
+myGlobal.compareColor = compareColor.value
 
 function selectAlgo(algo, array) {
 	if (algo) {
