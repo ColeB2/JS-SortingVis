@@ -73,6 +73,9 @@ const sizeOutput = document.getElementById('sizeValue');
 sizeOutput.innerHTML = sizeRange.value;
 sizeRange.addEventListener('input', arraySize, false)
 
+myGlobal.compareColor = document.getElementById('compareColour')
+myGlobal.compareColor.addEventListener('input')
+
 function selectAlgo(algo, array) {
 	if (algo) {
 	myGlobal.generatorAlgo = algo(array)
