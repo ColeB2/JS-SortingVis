@@ -36,6 +36,7 @@ body {
 	text-align: center;
 }
 
+
 #algorithm-buttons {
 	width: 100%;
 	text-align: center;
@@ -92,6 +93,11 @@ body {
 
 
 .generation-container {
+	width: 100%;
+	text-align: center;
+}
+
+.colorcontainer {
 	width: 100%;
 	text-align: center;
 }
