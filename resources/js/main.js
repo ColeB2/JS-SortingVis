@@ -80,7 +80,7 @@ function colorChoice() {
 
 const compareColor = document.getElementById('compareColor')
 compareColor.addEventListener('input', colorChoice, false)
-myGlobal.compareColor = compareColor.value
+
 
 function selectAlgo(algo, array) {
 	if (algo) {
@@ -139,6 +139,7 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
+myGlobal.compareColor = compareColor.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
