@@ -77,6 +77,7 @@ sizeRange.addEventListener('input', arraySize, false)
 function colorChoice(event) {
 	console.log(event)
 	console.log(event.target)
+	console.log(event.target.id)
 	myGlobal.compareColor = this.value
 }
 
