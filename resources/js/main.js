@@ -6,7 +6,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(element)) {
-			context.fillStyle = myGlobal.compareColor
+			context.fillStyle = myGlobal.colors["compareColor"]
 		} else if (swap.includes(element)) {
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(element)) {
@@ -146,6 +146,7 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
+myGlobal.colors = {"compareColor": compareColor.value}
 myGlobal.compareColor = compareColor.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
