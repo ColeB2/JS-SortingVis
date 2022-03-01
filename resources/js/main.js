@@ -6,7 +6,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 	context.clearRect(0, 0, cons.CANVAS_WIDTH, cons.CANVAS_HEIGHT);
 	arr.map(function(element, index) {
 		if (compare.includes(element)) {
-			context.fillStyle = compareColor
+			context.fillStyle = myGlobal.compareColor
 		} else if (swap.includes(element)) {
 			context.fillStyle = '#CE050F'
 		} else if (focusElem.includes(element)) {
@@ -74,9 +74,7 @@ sizeOutput.innerHTML = sizeRange.value;
 sizeRange.addEventListener('input', arraySize, false)
 
 
-const colorDict = {
-	"compareColor": myGlobal.compareColor
-}
+
 
 function colorChoice(colorToChange) {
 	console.log(event)
