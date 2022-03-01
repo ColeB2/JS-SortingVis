@@ -76,17 +76,17 @@ sizeRange.addEventListener('input', arraySize, false)
 
 
 
-function colorChoice(colorToChange) {
+function colorChoice(event) {
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.id)
 	//colorDict[event.target.id.toString()] = this.value
 	console.log(colorToChange)
-	colorToChange = this.value
+	myGlobal.colors[event.target.id.toString()] = this.value
 }
 
 const compareColor = document.getElementById('compareColor')
-compareColor.addEventListener('input', (event) => colorChoice(myGlobal.colors), false)
+compareColor.addEventListener('input', colorChoice, false)
 
 
 function selectAlgo(algo, array) {
