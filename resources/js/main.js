@@ -8,13 +8,13 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 		if (compare.includes(element)) {
 			context.fillStyle = myGlobal.colors["compareColor"]
 		} else if (swap.includes(element)) {
-			context.fillStyle = '#CE050F'
+			context.fillStyle = myGlobal.colors["swapColor"]
 		} else if (focusElem.includes(element)) {
-			context.fillStyle = '#FFFF66'
+			context.fillStyle = myGlobal.colors["tertiaryColor"]
 		} else if (arrObj.includes(element)){
-			context.fillStyle = '#343A40'
+			context.fillStyle = myGlobal.colors["arrayFocusColor"]
 		} else {
-			context.fillStyle = '#B4B4B4'
+			context.fillStyle = myGlobal.colors["arrayColor"]
 		}
 		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element.Value))
 	})
