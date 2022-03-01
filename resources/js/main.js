@@ -74,11 +74,16 @@ sizeOutput.innerHTML = sizeRange.value;
 sizeRange.addEventListener('input', arraySize, false)
 
 
+const colorDict = {
+	"compareColor": myGlobal.compareColor
+}
+
 function colorChoice(event) {
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.id)
-	myGlobal.event.target.id = this.value
+	colorDict[event.target.id.toString()] = this.value
+	//myGlobal.event.target.id = this.value
 }
 
 const compareColor = document.getElementById('compareColor')
