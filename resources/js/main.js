@@ -80,6 +80,7 @@ function colorChoice(event) {
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.id)
+	console.log(event.target.id.toString())
 	//colorDict[event.target.id.toString()] = this.value
 	//console.log(colorToChange)
 	myGlobal.colors[event.target.id.toString()] = this.value
