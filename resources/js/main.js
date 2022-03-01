@@ -86,7 +86,7 @@ function colorChoice(colorToChange) {
 }
 
 const compareColor = document.getElementById('compareColor')
-compareColor.addEventListener('input', (event) => colorChoice(myGlobal.compareColor), false)
+compareColor.addEventListener('input', (event) => colorChoice(myGlobal.colors), false)
 
 
 function selectAlgo(algo, array) {
