@@ -77,17 +77,26 @@ sizeRange.addEventListener('input', arraySize, false)
 
 
 function colorChoice(event) {
-	console.log(event)
-	console.log(event.target)
-	console.log(event.target.id)
-	console.log(event.target.id.toString())
-	//colorDict[event.target.id.toString()] = this.value
-	//console.log(colorToChange)
 	myGlobal.colors[event.target.id.toString()] = this.value
 }
 
 const compareColor = document.getElementById('compareColor')
 compareColor.addEventListener('input', colorChoice, false)
+
+const swapColor = document.getElementById('swapColor')
+swapColor.addEventListener('input', colorChoice, false)
+
+
+const tertiaryColor = document.getElementById('tertiaryColor')
+tertiaryColor.addEventListener('input', colorChoice, false)
+
+
+const arrayFocusColor = document.getElementById('arrayFocusColor')
+arrayFocusColor.addEventListener('input', colorChoice, false)
+
+
+const arrayColor = document.getElementById('arrayColor')
+arrayColor.addEventListener('input', colorChoice, false)
 
 
 function selectAlgo(algo, array) {
@@ -147,7 +156,13 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
-myGlobal.colors = {"compareColor": compareColor.value}
+myGlobal.colors = {
+	"compareColor": compareColor.value,
+	"swapColor": swapColor.value,
+	"tertiaryColor": tertiaryColor.value,
+	"arrayFocusColor": arrayFocusColor.value,
+	"arrayColor": arrayColor.value,
+}
 myGlobal.compareColor = compareColor.value;
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
