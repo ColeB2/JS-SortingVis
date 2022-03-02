@@ -102,7 +102,7 @@ function createSliders() {
 		newSliderOutput.innerHTML = newSliderRange.value;
 		newSliderRange.addEventListener(
 		    'input',
-		    function(event){changeSlider(newSliderRange.value, newSliderOutput, sliders[key]["globalVar"])}
+		    function(event){changeSlider(newSliderRange.value, newSliderOutput, sliders[key]["globalVar"])},
 			false)
 		
 	}
