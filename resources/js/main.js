@@ -85,7 +85,7 @@ function createColorSelects() {
 	colorSelects.forEach((color) => {
 		newSelect = document.getElementById(color)
 		newSelect.addEventListener('input', colorChoice, false)
-		myGlobal.colors[color] = newSelect.value()
+		myGlobal.colors[color] = newSelect.value
 	})
 }
 
