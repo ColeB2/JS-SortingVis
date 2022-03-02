@@ -79,12 +79,12 @@ pauseButton.addEventListener('click', pauseLoop, false)
 const sliders = {
 	"sizeRange": {
 		"function": arraySize, 
-		"htmlOutput": "sizeValue"
+		"htmlOutput": "sizeValue",
 		"globalVar": myGlobal.arrayLength
 		}
 	"delayRange": {
 		"function": gameDelay,
-		"htmlOutput": "delayValue"
+		"htmlOutput": "delayValue",
 		"globalVar": myGlobal.delay
 	}
 }
