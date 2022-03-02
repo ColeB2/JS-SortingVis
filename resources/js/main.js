@@ -78,12 +78,12 @@ sizeRange.addEventListener('input', arraySize, false)
 
 // const sliders = {
 	// "sizeRange": {
-		"function": arraySize, 
+		// //"function": arraySize, 
 		// "htmlOutput": "sizeValue",
 		// "globalVar": myGlobal.arrayLength
 		// },
 	// "delayRange": {
-		"function": gameDelay,
+		// //"function": gameDelay,
 		// "htmlOutput": "delayValue",
 		// "globalVar": myGlobal.delay
 	// }
