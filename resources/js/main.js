@@ -80,23 +80,31 @@ function colorChoice(event) {
 	myGlobal.colors[event.target.id.toString()] = this.value
 }
 
-const compareColor = document.getElementById('compareColor')
-compareColor.addEventListener('input', colorChoice, false)
+const colorSelects = ["compareColor", "swapColor", "tertiaryColor", "arrayFocusColor", "arrayColor"]
+function createColorSelects() {
+	colorSelects.forEach((color) => {
+		newSelect = document.getElementById()
+		newSelect.addEventListener('input', colorChoice, false)
+	})
+}
 
-const swapColor = document.getElementById('swapColor')
-swapColor.addEventListener('input', colorChoice, false)
+// const compareColor = document.getElementById('compareColor')
+// compareColor.addEventListener('input', colorChoice, false)
+
+// const swapColor = document.getElementById('swapColor')
+// swapColor.addEventListener('input', colorChoice, false)
 
 
-const tertiaryColor = document.getElementById('tertiaryColor')
-tertiaryColor.addEventListener('input', colorChoice, false)
+// const tertiaryColor = document.getElementById('tertiaryColor')
+// tertiaryColor.addEventListener('input', colorChoice, false)
 
 
-const arrayFocusColor = document.getElementById('arrayFocusColor')
-arrayFocusColor.addEventListener('input', colorChoice, false)
+// const arrayFocusColor = document.getElementById('arrayFocusColor')
+// arrayFocusColor.addEventListener('input', colorChoice, false)
 
 
-const arrayColor = document.getElementById('arrayColor')
-arrayColor.addEventListener('input', colorChoice, false)
+// const arrayColor = document.getElementById('arrayColor')
+// arrayColor.addEventListener('input', colorChoice, false)
 
 
 function selectAlgo(algo, array) {
