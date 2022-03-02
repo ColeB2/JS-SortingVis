@@ -100,10 +100,7 @@ function createSliders() {
 		let newSliderRange = document.getElementById(key)
 		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
 		newSliderOutput.innerHTML = newSliderRange.value;
-		newSliderRange.addEventListener(
-		    'input',
-		    (newSliderRange.value, newSliderOutput, sliders[key]["globalVar"]) => changeSlider,
-			false)
+		newSliderRange.addEventListener('input', (newSliderRange.value, newSliderOutput, sliders[key]["globalVar"]) => changeSlider,false)
 		
 	}
 	
