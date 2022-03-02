@@ -75,7 +75,7 @@ sizeRange.addEventListener('input', arraySize, false)
 
 
 
-
+//Color Selection Pickers
 function colorChoice(event) {
 	myGlobal.colors[event.target.id.toString()] = this.value
 }
@@ -88,25 +88,6 @@ function createColorSelects() {
 		myGlobal.colors[color] = newSelect.value
 	})
 }
-
-// const compareColor = document.getElementById('compareColor')
-// compareColor.addEventListener('input', colorChoice, false)
-
-// const swapColor = document.getElementById('swapColor')
-// swapColor.addEventListener('input', colorChoice, false)
-
-
-// const tertiaryColor = document.getElementById('tertiaryColor')
-// tertiaryColor.addEventListener('input', colorChoice, false)
-
-
-// const arrayFocusColor = document.getElementById('arrayFocusColor')
-// arrayFocusColor.addEventListener('input', colorChoice, false)
-
-
-// const arrayColor = document.getElementById('arrayColor')
-// arrayColor.addEventListener('input', colorChoice, false)
-
 
 function selectAlgo(algo, array) {
 	if (algo) {
