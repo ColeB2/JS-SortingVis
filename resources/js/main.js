@@ -81,7 +81,7 @@ const sliders = {
 		"function": arraySize, 
 		"htmlOutput": "sizeValue",
 		"globalVar": myGlobal.arrayLength
-		}
+		},
 	"delayRange": {
 		"function": gameDelay,
 		"htmlOutput": "delayValue",
