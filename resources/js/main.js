@@ -89,6 +89,7 @@ function createColorSelects() {
 	})
 }
 
+//Algorithm Selection Drop Down
 function selectAlgo(algo, array) {
 	if (algo) {
 	myGlobal.generatorAlgo = algo(array)
@@ -105,6 +106,7 @@ const algoDict = {
 	"quicksort": quickSort
 	} 
 
+
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
 	let option = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
@@ -113,6 +115,7 @@ function algorithmSelectFunction() {
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)	
 	}
 }
+
 
 function mainLoop() {	
 	function main() {
@@ -146,17 +149,11 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
-// myGlobal.colors = {
-	// "compareColor": compareColor.value,
-	// "swapColor": swapColor.value,
-	// "tertiaryColor": tertiaryColor.value,
-	// "arrayFocusColor": arrayFocusColor.value,
-	// "arrayColor": arrayColor.value,
-// }
 myGlobal.colors = {}
-createColorSelects()
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
+
+createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
 mainLoop();
