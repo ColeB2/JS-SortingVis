@@ -83,7 +83,7 @@ function colorChoice(event) {
 const colorSelects = ["compareColor", "swapColor", "tertiaryColor", "arrayFocusColor", "arrayColor"]
 function createColorSelects() {
 	colorSelects.forEach((color) => {
-		newSelect = document.getElementById()
+		newSelect = document.getElementById(color)
 		newSelect.addEventListener('input', colorChoice, false)
 		myGlobal.colors[color] = newSelect.value()
 	})
