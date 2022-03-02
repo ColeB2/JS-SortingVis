@@ -85,6 +85,7 @@ function createColorSelects() {
 	colorSelects.forEach((color) => {
 		newSelect = document.getElementById()
 		newSelect.addEventListener('input', colorChoice, false)
+		myGlobal.colors[color] = newSelect.value()
 	})
 }
 
@@ -164,14 +165,15 @@ myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
 myGlobal.delay = delayRange.value;
-myGlobal.colors = {
-	"compareColor": compareColor.value,
-	"swapColor": swapColor.value,
-	"tertiaryColor": tertiaryColor.value,
-	"arrayFocusColor": arrayFocusColor.value,
-	"arrayColor": arrayColor.value,
-}
-myGlobal.compareColor = compareColor.value;
+// myGlobal.colors = {
+	// "compareColor": compareColor.value,
+	// "swapColor": swapColor.value,
+	// "tertiaryColor": tertiaryColor.value,
+	// "arrayFocusColor": arrayFocusColor.value,
+	// "arrayColor": arrayColor.value,
+// }
+myGlobal.colors = {}
+createColorSelects()
 myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
