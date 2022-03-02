@@ -76,17 +76,17 @@ pauseButton.addEventListener('click', pauseLoop, false)
 // sizeOutput.innerHTML = sizeRange.value;
 // sizeRange.addEventListener('input', arraySize, false)
 
-// const sliders = {
-	// "sizeRange": {
-		// "function": arraySize, 
-		// "htmlOutput": "sizeValue"
-		// "globalVar": myGlobal.arrayLength
-		// }
-	// "delayRange": {
-		// "function": gameDelay,
-		// "htmlOutput": "delayValue"
-		// "globalVar": myGlobal.delay
-	// }
+const sliders = {
+	"sizeRange": {
+		"function": arraySize, 
+		"htmlOutput": "sizeValue"
+		"globalVar": myGlobal.arrayLength
+		}
+	"delayRange": {
+		"function": gameDelay,
+		"htmlOutput": "delayValue"
+		"globalVar": myGlobal.delay
+	}
 }
 
 function changeSlider(value, htmlOutput, globalVariable) {
