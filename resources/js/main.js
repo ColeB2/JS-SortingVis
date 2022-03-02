@@ -53,61 +53,61 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
-//Delay Range Slider
-// function gameDelay() {
-	// delayOutput.innerHTML = this.value;
-	// myGlobal.delay = this.value;	
-// }
-
-// const delayRange = document.getElementById('delayRange');
-// const delayOutput = document.getElementById('delayValue');
-// delayOutput.innerHTML = delayRange.value;
-// delayRange.addEventListener('input', gameDelay, false)
-
-
-// Size of Array Range Slider
-// function arraySize() {
-	// sizeOutput.innerHTML = this.value;
-	// myGlobal.arrayLength = this.value;
-// }
-
-// const sizeRange = document.getElementById('sizeRange');
-// const sizeOutput = document.getElementById('sizeValue');
-// sizeOutput.innerHTML = sizeRange.value;
-// sizeRange.addEventListener('input', arraySize, false)
-
-const sliders = {
-	"sizeRange": {
-		// "function": arraySize, 
-		"htmlOutput": "sizeValue",
-		"globalVar": myGlobal.arrayLength
-		},
-	"delayRange": {
-		// "function": gameDelay,
-		"htmlOutput": "delayValue",
-		"globalVar": myGlobal.delay
-	}
+// //Delay Range Slider
+function gameDelay() {
+	delayOutput.innerHTML = this.value;
+	myGlobal.delay = this.value;	
 }
 
-function changeSlider(value, htmlOutput, globalVariable) {
-	htmlOutput.innerHTML = this.value;
-	globalVariable = this.value;
+const delayRange = document.getElementById('delayRange');
+const delayOutput = document.getElementById('delayValue');
+delayOutput.innerHTML = delayRange.value;
+delayRange.addEventListener('input', gameDelay, false)
+
+
+// //Size of Array Range Slider
+function arraySize() {
+	sizeOutput.innerHTML = this.value;
+	myGlobal.arrayLength = this.value;
+}
+
+const sizeRange = document.getElementById('sizeRange');
+const sizeOutput = document.getElementById('sizeValue');
+sizeOutput.innerHTML = sizeRange.value;
+sizeRange.addEventListener('input', arraySize, false)
+
+// const sliders = {
+	// "sizeRange": {
+		"function": arraySize, 
+		// "htmlOutput": "sizeValue",
+		// "globalVar": myGlobal.arrayLength
+		// },
+	// "delayRange": {
+		"function": gameDelay,
+		// "htmlOutput": "delayValue",
+		// "globalVar": myGlobal.delay
+	// }
+// }
+
+// function changeSlider(value, htmlOutput, globalVariable) {
+	// htmlOutput.innerHTML = this.value;
+	// globalVariable = this.value;
 	
-}
+// }
 
-function createSliders() {
-	for (let key in sliders) {
-		let newSliderRange = document.getElementById(key)
-		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
-		newSliderOutput.innerHTML = newSliderRange.value;
-		newSliderRange.addEventListener(
-		    'input',
-		    function(event){changeSlider(newSliderRange.value, newSliderOutput, sliders[key]["globalVar"])},
-			false)
+// function createSliders() {
+	// for (let key in sliders) {
+		// let newSliderRange = document.getElementById(key)
+		// let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
+		// newSliderOutput.innerHTML = newSliderRange.value;
+		// newSliderRange.addEventListener(
+		    // 'input',
+		    // function(event){changeSlider(newSliderRange.value, newSliderOutput, sliders[key]["globalVar"])},
+			// false)
 		
-	}
+	// }
 	
-}
+// }
 
 
 
