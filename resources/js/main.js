@@ -98,7 +98,7 @@ function changeSlider() {
 	console.log(event.target)
 	console.log(event.target.id)
 	event.target.innerHTML = this.value;
-	myGlobal.sliderValues[globalVariable] = this.value;
+	myGlobal.sliderValues[event.target.id] = this.value;
 	
 }
 const rangeSliders = []
@@ -110,6 +110,7 @@ function createSliders() {
 		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
 		newSliderOutput.innerHTML = newSliderRange.value;
 		newSliderRange.addEventListener('input',changeSlider, false)
+		myGlobal.sliderValues[key]["htmlOutput"] = newSliderOutput
 		
 	}
 	
@@ -197,8 +198,12 @@ myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 
 myGlobal.sliderValues = {
-	"arraySize" : 20,
-	"delay" : 300,
+	"sizeRange":  {
+		"arrayLength": 20,
+		"htmlOutput": null},
+	"delayRange" :  {
+		"delay": 300,
+		"htmlOutput": null}
 }
 createSliders()
 createColorSelects()
