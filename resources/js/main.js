@@ -93,7 +93,8 @@ const sliders = {
 	}
 }
 
-function changeSlider(value, htmlOutput, globalVariable) {
+function changeSlider() {
+	console.log(event)
 	console.log(value, htmlOutput, globalVariable, this)
 	htmlOutput.innerHTML = this.value;
 	myGlobal.sliderValues[globalVariable] = this.value;
@@ -107,10 +108,7 @@ function createSliders() {
 		let newSliderRange = document.getElementById(key)
 		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
 		newSliderOutput.innerHTML = newSliderRange.value;
-		newSliderRange.addEventListener(
-		    'input',
-		    function(event){changeSlider(newSliderRange.value, newSliderOutput, sliders[key]["globalVar"])},
-			false)
+		newSliderRange.addEventListener('input',changeSlider, false)
 		
 	}
 	
