@@ -90,7 +90,6 @@ function changeSlider() {
 	myGlobal.sliders[event.target.id]["value"] = this.value;
 	
 }
-const rangeSliders = []
 
 function createSliders() {
 	for (let key in myGlobal.sliders) {
@@ -196,6 +195,7 @@ myGlobal.sliders = {
 		"htmlOutputName": "delayValue"
 		"htmlOutput": null}
 }
+console.log(myGlobal.sliders)
 createSliders()
 createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
