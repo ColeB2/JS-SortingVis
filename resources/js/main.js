@@ -103,6 +103,7 @@ function changeSlider(value, htmlOutput, globalVariable) {
 
 function createSliders() {
 	for (let key in sliders) {
+		console.log(key)
 		let newSliderRange = document.getElementById(key)
 		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
 		newSliderOutput.innerHTML = newSliderRange.value;
