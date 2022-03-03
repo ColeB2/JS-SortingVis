@@ -201,6 +201,7 @@ myGlobal.sliderValues = {
 	"arraySize" : 20,
 	"delay" : 300,
 }
+createSliders()
 createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
 mainLoop();
