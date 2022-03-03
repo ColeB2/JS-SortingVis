@@ -179,11 +179,7 @@ var myGlobal = {}
 myGlobal.isRunning = false
 myGlobal.generatorAlgo = null;
 myGlobal.algoSelected = false;
-myGlobal.delay = delayRange.value;
 myGlobal.colors = {}
-myGlobal.arrayLength = 20
-;
-
 myGlobal.sliders = {
 	"sizeRange":  {
 		"value": 20,
