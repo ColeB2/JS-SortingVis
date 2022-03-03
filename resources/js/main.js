@@ -26,8 +26,8 @@ function _genArray() {
 
 function generateArray() {
 	if (!myGlobal.isRunning) {
-		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.delayRange.value)
-		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.delayRange.value}, () => _genArray());
+		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
+		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray());
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
 		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		
@@ -194,8 +194,8 @@ myGlobal.sliders = {
 		"htmlOutputName": "delayValue",
 		"htmlOutput": null}
 }
-myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.delayRange.value)
-myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.delayRange.value}, () => _genArray())
+myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
+myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray())
 createSliders()
 createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
