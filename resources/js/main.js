@@ -159,7 +159,7 @@ function mainLoop() {
 					updateCanvas(val[0], cons.CTX, val[1], val[2], val[3], val[4])
 					setTimeout( () => {
 						window.requestAnimationFrame(main);
-						}, myGlobal.delay)	
+						}, myGlobal.sliders.delayRange.value)	
 				} else {
 					myGlobal.generatorAlgo = null;
 					myGlobal.algoSelected = false;
