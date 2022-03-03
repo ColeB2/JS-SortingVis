@@ -79,10 +79,7 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 //////////////////////
 
-myGlobal.sliderValues = {
-	"arraySize" : 20,
-	"delay" : 300,
-}
+
 const sliders = {
 	"sizeRange": {
 		//"function": arraySize, 
@@ -198,6 +195,10 @@ myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 
+myGlobal.sliderValues = {
+	"arraySize" : 20,
+	"delay" : 300,
+}
 createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
 mainLoop();
