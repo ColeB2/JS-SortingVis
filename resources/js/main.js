@@ -188,11 +188,11 @@ myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray
 myGlobal.sliders = {
 	"sizeRange":  {
 		"value": 20,
-		"htmlOutputName": "sizeValue"
+		"htmlOutputName": "sizeValue",
 		"htmlOutput": null},
 	"delayRange" :  {
 		"value": 300,
-		"htmlOutputName": "delayValue"
+		"htmlOutputName": "delayValue",
 		"htmlOutput": null}
 }
 console.log(myGlobal.sliders)
