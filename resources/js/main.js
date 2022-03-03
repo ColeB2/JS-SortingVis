@@ -79,40 +79,27 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 //////////////////////
 
-
-const sliders = {
-	"sizeRange": {
-		//"function": arraySize, 
-		"htmlOutput": "sizeValue",
-		"globalVar": "arraySize"
-		},
-	"delayRange": {
-		//"function": gameDelay,
-		"htmlOutput": "delayValue",
-		"globalVar": "delay"
-	}
-}
-
 function changeSlider() {
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.id)
 	event.target.innerHTML = this.value;
-	console.log(myGlobal.sliderValues[event.target.id]["htmlOutput"])
-	myGlobal.sliderValues[event.target.id]["htmlOutput"].innerHTML = this.value
-	myGlobal.sliderValues[event.target.id]["value"] = this.value;
+	
+	console.log(myGlobal.sliders[event.target.id]["htmlOutput"])
+	myGlobal.sliders[event.target.id]["htmlOutput"].innerHTML = this.value
+	myGlobal.sliders[event.target.id]["value"] = this.value;
 	
 }
 const rangeSliders = []
 
 function createSliders() {
-	for (let key in sliders) {
+	for (let key in myGlobal.sliders) {
 		console.log(key)
 		let newSliderRange = document.getElementById(key)
-		let newSliderOutput = document.getElementById(sliders[key]["htmlOutput"])
+		let newSliderOutput = document.getElementById(myGlobal.sliders[key]["htmlOutputName"])
 		newSliderOutput.innerHTML = newSliderRange.value;
 		newSliderRange.addEventListener('input',changeSlider, false)
-		myGlobal.sliderValues[key]["htmlOutput"] = newSliderOutput
+		myGlobal.sliders[key]["htmlOutput"] = newSliderOutput
 		
 	}
 	
@@ -199,12 +186,14 @@ myGlobal.arrayLength = 20
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.arrayLength)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray());
 
-myGlobal.sliderValues = {
+myGlobal.sliders = {
 	"sizeRange":  {
 		"value": 20,
+		"htmlOutputName": "sizeValue"
 		"htmlOutput": null},
 	"delayRange" :  {
 		"value": 300,
+		"htmlOutputName": "delayValue"
 		"htmlOutput": null}
 }
 createSliders()
