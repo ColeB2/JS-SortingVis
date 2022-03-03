@@ -100,7 +100,7 @@ function changeSlider() {
 	event.target.innerHTML = this.value;
 	console.log(myGlobal.sliderValues[event.target.id]["htmlOutput"])
 	myGlobal.sliderValues[event.target.id]["htmlOutput"].innerHTML = this.value
-	myGlobal.sliderValues[event.target.id] = this.value;
+	myGlobal.sliderValues[event.target.id]["value"] = this.value;
 	
 }
 const rangeSliders = []
@@ -201,10 +201,10 @@ myGlobal.TEST_ARRAY = Array.from({length: myGlobal.arrayLength}, () => _genArray
 
 myGlobal.sliderValues = {
 	"sizeRange":  {
-		"arrayLength": 20,
+		"value": 20,
 		"htmlOutput": null},
 	"delayRange" :  {
-		"delay": 300,
+		"value": 300,
 		"htmlOutput": null}
 }
 createSliders()
