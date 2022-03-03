@@ -79,23 +79,27 @@ pauseButton.addEventListener('click', pauseLoop, false)
 
 //////////////////////
 
-
+myGlobal.sliderValues = {
+	"arraySize" : 20,
+	"delay" : 300,
+}
 const sliders = {
 	"sizeRange": {
 		//"function": arraySize, 
 		"htmlOutput": "sizeValue",
-		"globalVar": myGlobal.arrayLength
+		"globalVar": "arraySize"
 		},
 	"delayRange": {
 		//"function": gameDelay,
 		"htmlOutput": "delayValue",
-		"globalVar": myGlobal.delay
+		"globalVar": "delay"
 	}
 }
 
 function changeSlider(value, htmlOutput, globalVariable) {
 	htmlOutput.innerHTML = this.value;
-	globalVariable = this.value;
+	myGlobal.sliderValues[globalVariable] = this.value;
+	console.log(myGlobal.sliderValues)
 	
 }
 
