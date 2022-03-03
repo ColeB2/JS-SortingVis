@@ -98,7 +98,7 @@ function changeSlider() {
 	console.log(event.target)
 	console.log(event.target.id)
 	event.target.innerHTML = this.value;
-	console.log(myGlobal.sliderValues[event.target.id]["htmlOutput"].innerHTML)
+	console.log(myGlobal.sliderValues[event.target.id]["htmlOutput"])
 	myGlobal.sliderValues[event.target.id]["htmlOutput"].innerHTML = this.value
 	myGlobal.sliderValues[event.target.id] = this.value;
 	
