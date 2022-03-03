@@ -96,7 +96,7 @@ const sliders = {
 function changeSlider() {
 	console.log(event)
 	console.log(event.target)
-	htmlOutput.innerHTML = this.value;
+	event.target.innerHTML = this.value;
 	myGlobal.sliderValues[globalVariable] = this.value;
 	
 }
