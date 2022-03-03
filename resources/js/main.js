@@ -96,10 +96,12 @@ const sliders = {
 function changeSlider() {
 	console.log(event)
 	console.log(event.target)
+	console.log(event.target.id)
 	event.target.innerHTML = this.value;
 	myGlobal.sliderValues[globalVariable] = this.value;
 	
 }
+const rangeSliders = []
 
 function createSliders() {
 	for (let key in sliders) {
