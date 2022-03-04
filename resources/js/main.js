@@ -114,7 +114,7 @@ function algorithmSelectFunction() {
 	if (myGlobal.generatorAlgo === null || option != myGlobal.generatorAlgo) {
 		//myGlobal.algoSelected = option
 		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
-		myGlobal.generatorAlgo = myGlobal.algoSelected(myGlobal.TEST_ARRAY)
+		myGlobal.generatorAlgo = option(myGlobal.TEST_ARRAY)
 	}
 }
 
