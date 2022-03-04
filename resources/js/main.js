@@ -16,7 +16,7 @@ function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]
 		} else {
 			context.fillStyle = myGlobal.colors["arrayColor"]
 		}
-		context.fillRect( ((index * myGlobal.barWidth)+10), 0, myGlobal.barWidth-1, (2*element.Value))
+		context.fillRect( ((index * myGlobal.barWidth)), 0, myGlobal.barWidth-1, (2*element.Value))
 	})
 }
 
