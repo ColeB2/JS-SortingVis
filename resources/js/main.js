@@ -80,21 +80,8 @@ pauseButton.addEventListener('click', pauseLoop, false)
 //////////////////////
 
 function changeSlider() {
-	console.log(this.value)
-	console.log(event)
-	console.log(event.target)
-	console.log(event.target.innerHTML)
-	console.log(event.target.parentNode.children.p.children.span)
-	console.log(event.target.parentNode.children)
-	console.log(myGlobal.sliders[event.target.id]["htmlOutput"])
-	console.log(event.target.id)
-	console.log(event.target.firstChild)
-	//event.target.firstChild.wholeText = this.value;
-	event.target.innerHTML = this.value
-	console.log(myGlobal.sliders[event.target.id]["htmlOutput"])
-	//myGlobal.sliders[event.target.id]["htmlOutput"].innerHTML = this.value
+	myGlobal.sliders[event.target.id]["htmlOutput"].innerHTML = this.value
 	myGlobal.sliders[event.target.id]["value"] = this.value;
-	
 }
 
 function createSliders() {
