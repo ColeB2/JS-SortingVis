@@ -80,9 +80,12 @@ pauseButton.addEventListener('click', pauseLoop, false)
 //////////////////////
 
 function changeSlider() {
+	console.log(this.value)
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.innerHTML)
+	console.log(event.target.input)
+	console.log(event.input)
 	console.log(event.target.id)
 	console.log(event.target.firstChild)
 	//event.target.firstChild.wholeText = this.value;
