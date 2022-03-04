@@ -29,8 +29,7 @@ function generateArray() {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray());
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
-		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
-		myGlobal.generatorAlgo = myGlobal.algoSelected(myGlobal.TEST_ARRAY)
+		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		
 	}
 }
@@ -108,13 +107,10 @@ const algoDict = {
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
-	console.log("genAlgo")
-	console.log(myGlobal.generatorAlgo)
 	let option = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
-	if (myGlobal.generatorAlgo === null || option != myGlobal.generatorAlgo) {
-		//myGlobal.algoSelected = option
-		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
-		myGlobal.generatorAlgo = option(myGlobal.TEST_ARRAY)
+	if (myGlobal.algoSelected === false || option != myGlobal.algoSelected) {
+		myGlobal.algoSelected = option
+		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)		
 	}
 }
 
