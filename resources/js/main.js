@@ -108,9 +108,11 @@ const algoDict = {
 
 const algorithmSelectMenu = document.getElementById('algorithm-menu')
 function algorithmSelectFunction() {
+	console.log("genAlgo")
+	console.log(myGlobal.generatorAlgo)
 	let option = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
-	if (myGlobal.algoSelected === false || option != myGlobal.algoSelected) {
-		myGlobal.algoSelected = option
+	if (myGlobal.generatorAlgo === null || option != myGlobal.generatorAlgo) {
+		//myGlobal.algoSelected = option
 		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
 		myGlobal.generatorAlgo = myGlobal.algoSelected(myGlobal.TEST_ARRAY)
 	}
