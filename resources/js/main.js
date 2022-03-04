@@ -25,8 +25,15 @@ function _genArray() {
 }
 
 function generateArray() {
+	console.log("genArray1")
 	if (!myGlobal.isRunning) {
+		console.log("genArray2")
+		console.log(cons.CANVAS_WIDTH, myGlobal.sliders.sizeRange.value)
+		console.log(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
+		console.log(myGlobal.barWidth)
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
+		console.log(cons.CANVAS_WIDTH, myGlobal.sliders.sizeRange.value)
+		console.log(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
 		console.log(myGlobal.barWidth)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray());
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
