@@ -84,6 +84,7 @@ function changeSlider() {
 	console.log(event)
 	console.log(event.target)
 	console.log(event.target.innerHTML)
+	console.log(event.target.parentNode.children)
 	console.log(myGlobal.sliders[event.target.id]["htmlOutput"])
 	console.log(event.target.id)
 	console.log(event.target.firstChild)
