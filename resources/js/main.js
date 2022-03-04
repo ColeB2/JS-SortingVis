@@ -29,7 +29,8 @@ function generateArray() {
 		myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
 		myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray());
 		updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [],[],[],myGlobal.TEST_ARRAY);
-		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
+		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
+		myGlobal.generatorAlgo = myGlobal.algoSelected(myGlobal.TEST_ARRAY)
 		
 	}
 }
@@ -53,32 +54,8 @@ function pauseLoop() {
 const pauseButton = document.getElementById('pause')
 pauseButton.addEventListener('click', pauseLoop, false)
 
-// //Delay Range Slider
-// function gameDelay() {
-	// delayOutput.innerHTML = this.value;
-	// myGlobal.delay = this.value;	
-// }
 
-// const delayRange = document.getElementById('delayRange');
-// const delayOutput = document.getElementById('delayValue');
-// delayOutput.innerHTML = delayRange.value;
-// delayRange.addEventListener('input', gameDelay, false)
-
-
-//Size of Array Range Slider
-// function arraySize() {
-	// sizeOutput.innerHTML = this.value;
-	// myGlobal.arrayLength = this.value;
-// }
-
-// const sizeRange = document.getElementById('sizeRange');
-// const sizeOutput = document.getElementById('sizeValue');
-// sizeOutput.innerHTML = sizeRange.value;
-// sizeRange.addEventListener('input', arraySize, false)
-
-
-//////////////////////
-
+//Sliders
 function changeSlider() {
 	myGlobal.sliders[event.target.id]["htmlOutput"].innerHTML = this.value
 	myGlobal.sliders[event.target.id]["value"] = this.value;
@@ -92,9 +69,7 @@ function createSliders() {
 		newSliderOutput.innerHTML = newSliderRange.value;
 		newSliderRange.addEventListener('input',changeSlider, false)
 		myGlobal.sliders[key]["htmlOutput"] = newSliderOutput
-		
 	}
-	
 }
 
 
@@ -136,11 +111,12 @@ function algorithmSelectFunction() {
 	let option = algoDict[algorithmSelectMenu.options[algorithmSelectMenu.selectedIndex].value]
 	if (myGlobal.algoSelected === false || option != myGlobal.algoSelected) {
 		myGlobal.algoSelected = option
-		selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)	
+		// selectAlgo(myGlobal.algoSelected, myGlobal.TEST_ARRAY)
+		myGlobal.generatorAlgo = myGlobal.algoSelected(myGlobal.TEST_ARRAY)
 	}
 }
 
-
+//Main Loop
 function mainLoop() {	
 	function main() {
 		if (myGlobal.isRunning) {
@@ -185,6 +161,7 @@ myGlobal.sliders = {
 }
 myGlobal.barWidth = Math.floor(cons.CANVAS_WIDTH/myGlobal.sliders.sizeRange.value)
 myGlobal.TEST_ARRAY = Array.from({length: myGlobal.sliders.sizeRange.value}, () => _genArray())
+
 createSliders()
 createColorSelects()
 updateCanvas(myGlobal.TEST_ARRAY, cons.CTX, [], [] ,[], myGlobal.TEST_ARRAY);
