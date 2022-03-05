@@ -439,7 +439,8 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 		return
 	} else if (maxDepth === 0) {
 		console.log("Heap Sort")
-		yield* introHeapSort(arr, left, right)
+		//yield* introHeapSort(arr, left, right)
+		yield* heapSort(arrSlice)
 	} else {
 		console.log("Quick Partition")
 		//Partition portioning:
