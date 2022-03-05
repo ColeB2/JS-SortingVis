@@ -388,7 +388,7 @@ function* partition(arr, left, right) {
 }
 
 function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
-	arrSlice = arr.slice(leftRight[0], leftRight[1])
+	let arrSlice = arr.slice(leftRight[0], leftRight[1])
 	let n = arrSlice.length
 	if (n <= 1) {
 		return
