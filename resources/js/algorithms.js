@@ -354,3 +354,8 @@ export function* quickSort(arr) {
 	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
 }
+
+
+export function* introSort(arr) {
+	
+}

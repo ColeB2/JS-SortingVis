@@ -1,5 +1,5 @@
 import * as cons from './constants.js'
-import {bubbleSort, heapSort, insertionSort, mergeSort, quickSort, selectionSort, shellSort} from './algorithms.js'
+import {bubbleSort, heapSort, insertionSort, introSort, mergeSort, quickSort, selectionSort, shellSort} from './algorithms.js'
 
 
 function updateCanvas(arr, context, compare=[], swap=[], focusElem=[], arrObj=[]) {
@@ -101,7 +101,8 @@ const algoDict = {
 	"insertionsort": insertionSort,
 	"mergesort": mergeSort,
 	"heapsort": heapSort,
-	"quicksort": quickSort
+	"quicksort": quickSort,
+	"introsort": introSort,
 	} 
 
 
