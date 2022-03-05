@@ -385,6 +385,7 @@ function* partition(arr, left, right) {
 	}
 		
 	let pivot_index = i + 1
+	return pivot_index
 }
 
 function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
