@@ -355,36 +355,79 @@ export function* quickSort(arr) {
 	yield [arr]
 }
 //////////////////INTRO SORT 
-function* partition(arr, left, right) {
-	let i = left - 1
-	let pivot = arr[right] // last element as pivot
-	// yield [arr, [],[], [pivot, arr[i]], displayArr]
-	for (let j = left; j < right; j++) {
-		// yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
-		if (arr[j].Value < pivot.Value) {
-			i++;
-			
-			if (i == j) {
-				continue
+function* introHeapSort(arr, left, right) {
+	let displayArr = arr.slice(left, right)
+	//Build Heap,
+	yield [arr, [], [], [], displayArr]
+	for (let i = left; i < right; i++) {
+		yield [arr, [arr[parseInt((i-1)/2)]], [], [arr[i]], displayArr]
+		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
+			var j = i
+			//While object j is larger than its parent, swap em up.
+			yield [arr, [arr[i], arr[parseInt((i-1)/2)]], [], [], displayArr]
+			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
+				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], displayArr]
+				let temp = arr[j]
+				arr[j] = arr[parseInt((j-1)/2)]
+				arr[parseInt((j-1)/2)] = temp
+				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], displayArr]
+				
+				j = parseInt((j-1)/2)	
 			}
-			// yield [arr, [],[arr[i], arr[j]],[],displayArr]
-			let temp = arr[i]
-			arr[i] = arr[j]
-			arr[j] = temp
-			// yield [arr, [],[arr[i], arr[j]],[],displayArr]
+		}
+		
+	}
+	yield [arr, [], [], [], displayArr]
+	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
+	for (let i = arr.length-1; i > 0; i--) {
+		var completed_arr = arr.slice(0, i+1)
+		
+		
+		yield [arr, [], [arr[i], arr[0]], [], displayArr]
+		let temp = arr[i]
+		arr[i] = arr[0]
+		arr[0] = temp
+		var completed_arr = arr.slice(0, i)
+		yield [arr, [], [arr[i], arr[0]], [], displayArr]
+		
+		var j = 0
+		var index = 0
+		
+		
+		//Heap Maintaining
+		while (true) {
+			index = 2 * j + 1
+			
+			let compare_arr = []
+			completed_arr.includes(arr[index])? compare_arr.push(arr[index]) : null
+			completed_arr.includes(arr[index+1])? compare_arr.push(arr[index+1]) : null
+			
+			yield [arr, compare_arr, [], [arr[j]], displayArr]
+			if (index < (i - 1) && arr[index].Value < arr[index + 1].Value) {
+				index++;
+			}
+			
+			let compare_arr2 = []
+			completed_arr.includes(arr[index])? compare_arr2.push(arr[index]) : null
+			completed_arr.includes(arr[j])? compare_arr2.push(arr[j]) : null
+			
+			yield [arr, compare_arr2, [], [], displayArr]
+			if (index < i && arr[j].Value < arr[index].Value) {
+				yield [arr, [], [arr[j], arr[index]], [], displayArr]
+				let temp = arr[j]
+				arr[j] = arr[index]
+				arr[index] = temp
+				yield [arr, [], [arr[j], arr[index]], [], displayArr]
+			}
+			
+			var j = index
+			if (index >= i) {
+				break
+			} 
+			
 		}
 	}
-	
-	if (i+1 != right) {
-		// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		let temp = arr[i+1]
-		arr[i+1] = arr[right]
-		arr[right] = temp
-		// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-	}
-		
-	let pivot_index = i + 1
-	return pivot_index
+	yield [arr]	
 }
 
 function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
@@ -396,7 +439,7 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 		return
 	} else if (maxDepth === 0) {
 		console.log("Heap Sort")
-		yield* heapSort(arr)
+		yield* introHeapSort(arr, left, right)
 	} else {
 		console.log("Quick Partition")
 		//Partition portioning:
