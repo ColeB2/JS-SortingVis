@@ -450,5 +450,5 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 export function* introSort(arr) {
 	let log2 = Math.log(arr.length) / Math.log(2) // Gets Log base 2 of length of array.
 	let maxDepth = Math.floor(log2) * 2
-	yield* introSortHelper(arr, maxDepth, [0, arr.length])
+	yield* introSortHelper(arr, maxDepth, [0, arr.length-1])
 }
