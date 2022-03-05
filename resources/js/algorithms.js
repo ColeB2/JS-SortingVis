@@ -356,6 +356,64 @@ export function* quickSort(arr) {
 }
 
 
-export function* introSort(arr) {
+function* partition(arr, left, right) {
+	let i = left - 1
+	let pivot = arr[right] // last element as pivot
+	// yield [arr, [],[], [pivot, arr[i]], displayArr]
+	for (let j = left; j < right; j++) {
+		// yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
+		if (arr[j].Value < pivot.Value) {
+			i++;
+			
+			if (i == j) {
+				continue
+			}
+			// yield [arr, [],[arr[i], arr[j]],[],displayArr]
+			let temp = arr[i]
+			arr[i] = arr[j]
+			arr[j] = temp
+			// yield [arr, [],[arr[i], arr[j]],[],displayArr]
+		}
+	}
 	
+	if (i+1 != right) {
+		// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+		let temp = arr[i+1]
+		arr[i+1] = arr[right]
+		arr[right] = temp
+		// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+	}
+		
+	let pivot_index = i + 1
+}
+
+function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
+	arrSlice = arr.slice(leftRight[0], leftRight[1])
+	let n = arrSlice.length
+	if (n <= 1) {
+		return
+	} else if (maxDepth === 0) {
+		yield* heapSort(arr)
+	} else {
+		pivotIndex = partition(arr)
+		introSortHelper(arr, maxDepth - 1, leftRight=[0, pivotIndex-1])
+		introSortHelper(arr, maxDepth - 1, leftRight=[pivotIndex + 1, n])
+	}
+	yield [arr]
+	
+}
+	// n ← length(A)
+    // if n ≤ 1:
+        // return  // base case
+    // else if maxdepth = 0:
+        // heapsort(A)
+    // else:
+        // p ← partition(A)  // assume this function does pivot selection, p is the final position of the pivot
+        // introsort(A[0:p-1], maxdepth - 1)
+        // introsort(A[p+1:n], maxdepth - 1)
+
+export function* introSort(arr) {
+	let log2 = Math.log(arr.length) / Math.log(2) // Gets Log base 2 of length of array.
+	let maxDepth = Math.floor(log2) * 2
+	yield* introSortHelper(arr, maxDepth, [0, arr.length])
 }
