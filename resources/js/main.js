@@ -62,7 +62,6 @@ function changeSlider() {
 
 function createSliders() {
 	for (let key in myGlobal.sliders) {
-		console.log(key)
 		let newSliderRange = document.getElementById(key)
 		let newSliderOutput = document.getElementById(myGlobal.sliders[key]["htmlOutputName"])
 		newSliderOutput.innerHTML = newSliderRange.value;
