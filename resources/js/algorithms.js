@@ -428,7 +428,7 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 			// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 		}
 			
-		let pivot_index = i + 1
+		let pivotIndex = i + 1
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[0, pivotIndex-1])
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[pivotIndex + 1, n])
 	}
