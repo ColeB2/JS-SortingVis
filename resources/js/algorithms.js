@@ -395,7 +395,7 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 	} else if (maxDepth === 0) {
 		yield* heapSort(arr)
 	} else {
-		pivotIndex = partition(arr)
+		let pivotIndex = partition(arr)
 		introSortHelper(arr, maxDepth - 1, leftRight=[0, pivotIndex-1])
 		introSortHelper(arr, maxDepth - 1, leftRight=[pivotIndex + 1, n])
 	}
