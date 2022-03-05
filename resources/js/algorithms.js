@@ -400,6 +400,8 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 	} else {
 		console.log("Quick Sort Portion")
 		let pivotIndex = partition(arr)
+		console.log("After Partition")
+		console.log(pivotIndex)
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[0, pivotIndex-1])
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[pivotIndex + 1, n])
 	}
