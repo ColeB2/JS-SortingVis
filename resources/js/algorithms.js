@@ -382,9 +382,7 @@ function* introHeapSort(arr, left, right) {
 	}
 	yield [arr, [], [], [], displayArr]
 	//Sort --> Take 0(left) index element(max) and put it to end of array, and reheap
-	for (let i = (right-left)-1; i > left; i--) {
-		console.log("TESTING")
-		console.log(left, right, i)
+	for (let i = (right-left); i > left; i--) {
 		var completed_arr = arr.slice(left, i+1)
 		
 		
