@@ -162,9 +162,7 @@ export function* heapSort(arr) {
 			yield [arr, [arr[i], arr[parseInt((i-1)/2)]], [], [], arr]
 			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
 				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], arr]
-				let temp = arr[j]
-				arr[j] = arr[parseInt((j-1)/2)]
-				arr[parseInt((j-1)/2)] = temp
+				swapElements(arr, j, parseInt((j-1)/2))
 				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], arr]
 				
 				j = parseInt((j-1)/2)	
@@ -179,9 +177,7 @@ export function* heapSort(arr) {
 		
 		
 		yield [arr, [], [arr[i], arr[0]], [], completed_arr]
-		let temp = arr[i]
-		arr[i] = arr[0]
-		arr[0] = temp
+		swapElements(arr, i, 0)
 		var completed_arr = arr.slice(0, i)
 		yield [arr, [], [arr[i], arr[0]], [], completed_arr]
 		
@@ -209,9 +205,7 @@ export function* heapSort(arr) {
 			yield [arr, compare_arr2, [], [], completed_arr]
 			if (index < i && arr[j].Value < arr[index].Value) {
 				yield [arr, [], [arr[j], arr[index]], [], completed_arr]
-				let temp = arr[j]
-				arr[j] = arr[index]
-				arr[index] = temp
+				swapElements(arr, j, index)
 				yield [arr, [], [arr[j], arr[index]], [], completed_arr]
 			}
 			
