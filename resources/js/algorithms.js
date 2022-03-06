@@ -155,18 +155,19 @@ export function* heapSort(arr) {
 	//Build Heap,
 	yield [arr]
 	for (let i = 0; i < arr.length; i++) {
-		var parentNodeI = parseInt((i-1)/2)
+		let parentNodeI = parseInt((i-1)/2)
 		yield [arr, [arr[parentNodeI]], [], [arr[i]], arr]
 		if (arr[i].Value > arr[parentNodeI].Value) {
 			var j = i
+			var parentNodeJ = parseInt((j-1)/2)
 			//While object j is larger than its parent, swap em up.
 			yield [arr, [arr[i], arr[parentNodeI]], [], [], arr]
-			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], arr]
-				swapElements(arr, j, parseInt((j-1)/2))
-				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], arr]
+			while (arr[j].Value > arr[parentNodeJ)].Value) {
+				yield [arr, [], [arr[j], arr[parentNodeJ]], [], arr]
+				swapElements(arr, j, parentNodeJ)
+				yield [arr, [], [arr[j], arr[parentNodeJ]], [], arr]
 				
-				j = parseInt((j-1)/2)	
+				j = parentNodeJ	
 			}
 		}
 		
