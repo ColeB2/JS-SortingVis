@@ -155,6 +155,7 @@ export function* heapSort(arr) {
 	//Build Heap,
 	yield [arr]
 	for (let i = 0; i < arr.length; i++) {
+		var pI = i-1 >> 1
 		yield [arr, [arr[parseInt((i-1)/2)]], [], [arr[i]], arr]
 		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
 			var j = i
@@ -342,42 +343,6 @@ export function* quickSort(arr) {
 	yield [arr]
 }
 //////////////////INTRO SORT 
-function* introQuickSortHelper(arr, left, right) {
-	let displayArr = arr.slice(left, right+1)
-	if (left < right) {
-		let i = left - 1
-		let pivot = arr[right] // last element as pivot
-		yield [arr, [],[], [pivot, arr[i]], displayArr]
-		for (let j = left; j < right; j++) {
-			yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
-			if (arr[j].Value < pivot.Value) {
-				i++;
-				
-				if (i == j) {continue}
-				yield [arr, [],[arr[i], arr[j]],[],displayArr]
-				let temp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = temp
-				yield [arr, [],[arr[i], arr[j]],[],displayArr]
-			}
-		}
-		
-		if (i+1 != right) {
-			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-			let temp = arr[i+1]
-			arr[i+1] = arr[right]
-			arr[right] = temp
-			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		}
-			
-		let pivot_index = i + 1
-		
-		yield* quickSortHelper(arr, left, pivot_index-1)
-		yield* quickSortHelper(arr, pivot_index+1, right)
-		
-	}	
-}
-
 function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 	let [left, right] = leftRight
 	let arrSlice = arr.slice(left, right)
@@ -390,37 +355,8 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 		yield* heapSort(arr)
 		return
 	} else {
-		console.log("Quick Partition")
-		//Partition portioning:
-		let i = left - 1
-		let pivot = arr[right] // last element as pivot
-		// yield [arr, [],[], [pivot, arr[i]], displayArr]
-		console.log(i, pivot, left, right)
-		for (let j = left; j < right; j++) {
-			// yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
-			if (arr[j].Value < pivot.Value) {
-				i++;
-				
-				if (i == j) {
-					continue
-				}
-				// yield [arr, [],[arr[i], arr[j]],[],displayArr]
-				let temp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = temp
-				// yield [arr, [],[arr[i], arr[j]],[],displayArr]
-			}
-		}
-		
-		if (i+1 != right) {
-			// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-			let temp = arr[i+1]
-			arr[i+1] = arr[right]
-			arr[right] = temp
-			// yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		}
-			
-		let pivotIndex = i + 1
+		console.log("Quick Partition")		
+		let pivotIndex = yield* partition(arr, left, right)
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[0, pivotIndex-1])
 		yield* introSortHelper(arr, maxDepth - 1, leftRight=[pivotIndex + 1, n])
 	}
