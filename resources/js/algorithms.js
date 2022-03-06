@@ -334,67 +334,22 @@ function* partition(arr, left, right) {
 		arr[right] = temp
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 	}
-	console.log(i+1)
 	return i + 1
 }
 
-function* quickSortHelper2(arr, left, right) {
+function* quickSortHelper(arr, left, right) {
     if (left < right) {
- 
-        // pi is partitioning index, arr[p]
-        // is now at right place
         let pi = yield *partition(arr, left, right);
-		console.log(pi)
- 
-        // Separately sort elements before
-        // partition and after partition
         yield* quickSortHelper2(arr, left, pi - 1);
         yield* quickSortHelper2(arr, pi + 1, right);
     }
-}
-//End of testing above
-function* quickSortHelper(arr, left, right) {
-	let displayArr = arr.slice(left, right+1)
-	if (left < right) {
-		let i = left - 1
-		let pivot = arr[right] // last element as pivot
-		yield [arr, [],[], [pivot, arr[i]], displayArr]
-		for (let j = left; j < right; j++) {
-			yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
-			if (arr[j].Value < pivot.Value) {
-				i++;
-				
-				if (i == j) {continue}
-				yield [arr, [],[arr[i], arr[j]],[],displayArr]
-				let temp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = temp
-				yield [arr, [],[arr[i], arr[j]],[],displayArr]
-			}
-		}
-		
-		if (i+1 != right) {
-			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-			let temp = arr[i+1]
-			arr[i+1] = arr[right]
-			arr[right] = temp
-			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		}
-			
-		let pivot_index = i + 1
-		
-		yield* quickSortHelper(arr, left, pivot_index-1)
-		yield* quickSortHelper(arr, pivot_index+1, right)
-		
-	}	
 }
 
 export function* quickSort(arr) {
 	
 	let n = arr.length
 	yield [arr, [],[],[], arr]
-	// yield* quickSortHelper(arr, 0, n-1)
-	yield* quickSortHelper2(arr, 0, n-1)
+	yield* quickSortHelper(arr, 0, n-1)
 	yield [arr]
 }
 //////////////////INTRO SORT 
