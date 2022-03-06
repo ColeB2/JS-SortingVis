@@ -308,7 +308,50 @@ export function* shellSort(arr) {
 	}
 	yield [arr]
 }
+function partition(arr, left, right) {
+    let displayArr = arr.slice(left, right+1)
+	let i = left - 1
+	let pivot = arr[right] // last element as pivot
+	yield [arr, [],[], [pivot, arr[i]], displayArr]
+	for (let j = left; j < right; j++) {
+		yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
+		if (arr[j].Value < pivot.Value) {
+			i++;
+			
+			if (i == j) {continue}
+			yield [arr, [],[arr[i], arr[j]],[],displayArr]
+			let temp = arr[i]
+			arr[i] = arr[j]
+			arr[j] = temp
+			yield [arr, [],[arr[i], arr[j]],[],displayArr]
+		}
+	}
+	
+	if (i+1 != right) {
+		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+		let temp = arr[i+1]
+		arr[i+1] = arr[right]
+		arr[right] = temp
+		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+	}
+		
+	return pivot_index = i + 1
+}
 
+function* quickSortHelper2(arr, left, right) {
+    if (left < right) {
+ 
+        // pi is partitioning index, arr[p]
+        // is now at right place
+        let pi = yield *partition(arr, left, right);
+ 
+        // Separately sort elements before
+        // partition and after partition
+        quickSortHelper2(arr, left, pi - 1);
+        quickSortHelper2(arr, pi + 1, right);
+    }
+}
+//End of testing above
 function* quickSortHelper(arr, left, right) {
 	let displayArr = arr.slice(left, right+1)
 	if (left < right) {
@@ -349,86 +392,45 @@ export function* quickSort(arr) {
 	
 	let n = arr.length
 	yield [arr, [],[],[], arr]
-	yield* quickSortHelper(arr, 0, n-1)
+	// yield* quickSortHelper(arr, 0, n-1)
+	yield* quickSortHelper2(arr, 0, n-1)
 	yield [arr]
 }
 //////////////////INTRO SORT 
-function* introHeapSort(arr, left, right) {
-	let displayArr = arr.slice(left, right)
-	//Build Heap,
-	yield [arr, [], [], [], displayArr]
-	for (let i = left; i < right; i++) {
-		let parentNodeI = (i-1) >> 1
-		if (parentNodeI < left) {continue}
-		yield [arr, [arr[parentNodeI]], [], [arr[i]], displayArr]
-		if (arr[i].Value > arr[parentNodeI].Value) {
-			var j = i
-			let parentNodeJ = (j-1) >> 1
-			//While object j is larger than its parent, swap em up.
-			yield [arr, [arr[i], arr[parentNodeI]], [], [], displayArr]
-			while (arr[j].Value > arr[parentNodeJ].Value && parentNodeJ  >= left) {
-				yield [arr, [], [arr[j], arr[parentNodeJ]], [], displayArr]
-				let temp = arr[j]
-				arr[j] = arr[parentNodeJ]
-				arr[parentNodeJ] = temp
-				yield [arr, [], [arr[j], arr[parentNodeJ]], [], displayArr]
+function* introQuickSortHelper(arr, left, right) {
+	let displayArr = arr.slice(left, right+1)
+	if (left < right) {
+		let i = left - 1
+		let pivot = arr[right] // last element as pivot
+		yield [arr, [],[], [pivot, arr[i]], displayArr]
+		for (let j = left; j < right; j++) {
+			yield [arr, [arr[j], pivot], [], [arr[i+1]], displayArr]
+			if (arr[j].Value < pivot.Value) {
+				i++;
 				
-				j = parentNodeJ	
+				if (i == j) {continue}
+				yield [arr, [],[arr[i], arr[j]],[],displayArr]
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+				yield [arr, [],[arr[i], arr[j]],[],displayArr]
 			}
 		}
 		
-	}
-	yield [arr, [], [], [], displayArr]
-	//Sort --> Take 0(left) index element(max) and put it to end of array, and reheap
-	for (let i = (right-left)-1; i > left; i--) {
-		var completed_arr = arr.slice(left, i+1)
-		
-		
-		yield [arr, [], [arr[i], arr[left]], [], displayArr]
-		let temp = arr[i]
-		arr[i] = arr[left]
-		arr[left] = temp
-		var completed_arr = arr.slice(left, i)
-		yield [arr, [], [arr[i], arr[left]], [], displayArr]
-		
-		var j = left
-		var index = left
-		
-		
-		//Heap Maintaining
-		while (true) {
-			index = 2 * j + 1
-			
-			let compare_arr = []
-			completed_arr.includes(arr[index])? compare_arr.push(arr[index]) : null
-			completed_arr.includes(arr[index+1])? compare_arr.push(arr[index+1]) : null
-			
-			yield [arr, compare_arr, [], [arr[j]], displayArr]
-			if (index < (i - 1) && arr[index].Value < arr[index + 1].Value) {
-				index++;
-			}
-			
-			let compare_arr2 = []
-			completed_arr.includes(arr[index])? compare_arr2.push(arr[index]) : null
-			completed_arr.includes(arr[j])? compare_arr2.push(arr[j]) : null
-			
-			yield [arr, compare_arr2, [], [], displayArr]
-			if (index < i && arr[j].Value < arr[index].Value) {
-				yield [arr, [], [arr[j], arr[index]], [], displayArr]
-				let temp = arr[j]
-				arr[j] = arr[index]
-				arr[index] = temp
-				yield [arr, [], [arr[j], arr[index]], [], displayArr]
-			}
-			
-			var j = index
-			if (index >= i) {
-				break
-			} 
-			
+		if (i+1 != right) {
+			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
+			let temp = arr[i+1]
+			arr[i+1] = arr[right]
+			arr[right] = temp
+			yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 		}
-	}
-	yield [arr]	
+			
+		let pivot_index = i + 1
+		
+		yield* quickSortHelper(arr, left, pivot_index-1)
+		yield* quickSortHelper(arr, pivot_index+1, right)
+		
+	}	
 }
 
 function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
