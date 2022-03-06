@@ -359,39 +359,41 @@ function* introHeapSort(arr, left, right) {
 	let displayArr = arr.slice(left, right)
 	//Build Heap,
 	yield [arr, [], [], [], displayArr]
-	for (let i = left; i < right; i++) {
-		yield [arr, [arr[parseInt((i-1)/2)]], [], [arr[i]], displayArr]
-		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
+	for (let i = left; i <= right; i++) {
+		let parentNodeI = (i-1) >> 1
+		yield [arr, [arr[parentNodeI]], [], [arr[i]], displayArr]
+		if (arr[i].Value > arr[parentNodeI].Value && parentNodeI >= left) {
 			var j = i
+			let parentNodeJ = (j-1) >> 1
 			//While object j is larger than its parent, swap em up.
-			yield [arr, [arr[i], arr[parseInt((i-1)/2)]], [], [], displayArr]
-			while (arr[j].Value > arr[parseInt((j-1)/2)].Value) {
-				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], displayArr]
+			yield [arr, [arr[i], arr[parentNodeI]], [], [], displayArr]
+			while (arr[j].Value > arr[parentNodeJ].Value && parentNodeJ  >= left) {
+				yield [arr, [], [arr[j], arr[parentNodeJ]], [], displayArr]
 				let temp = arr[j]
-				arr[j] = arr[parseInt((j-1)/2)]
-				arr[parseInt((j-1)/2)] = temp
-				yield [arr, [], [arr[j], arr[parseInt((j-1)/2)]], [], displayArr]
+				arr[j] = arr[parentNodeJ]
+				arr[parentNodeJ] = temp
+				yield [arr, [], [arr[j], arr[parentNodeJ]], [], displayArr]
 				
-				j = parseInt((j-1)/2)	
+				j = parentNodeJ	
 			}
 		}
 		
 	}
 	yield [arr, [], [], [], displayArr]
-	//Sort --> Take 0 index element(max) and put it to end of array, and reheap
-	for (let i = arr.length-1; i > 0; i--) {
-		var completed_arr = arr.slice(0, i+1)
+	//Sort --> Take 0(left) index element(max) and put it to end of array, and reheap
+	for (let i = (right-left)-1; i > left; i--) {
+		var completed_arr = arr.slice(left, i+1)
 		
 		
-		yield [arr, [], [arr[i], arr[0]], [], displayArr]
+		yield [arr, [], [arr[i], arr[left]], [], displayArr]
 		let temp = arr[i]
-		arr[i] = arr[0]
-		arr[0] = temp
-		var completed_arr = arr.slice(0, i)
-		yield [arr, [], [arr[i], arr[0]], [], displayArr]
+		arr[i] = arr[left]
+		arr[left] = temp
+		var completed_arr = arr.slice(left, i)
+		yield [arr, [], [arr[i], arr[left]], [], displayArr]
 		
-		var j = 0
-		var index = 0
+		var j = left
+		var index = left
 		
 		
 		//Heap Maintaining
