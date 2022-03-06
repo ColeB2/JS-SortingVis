@@ -241,9 +241,7 @@ export function* shellSort2(arr) {
 				yield [arr, [arr[position-gap], arr[j]], [], [], displayArr]
 				while (position >= gap && arr[position-gap].Value > current_value.Value) {
 					yield [arr, [],[arr[position-gap], arr[position]],[],displayArr]
-					let temp = arr[position-gap]
-					arr[position-gap] = arr[position]
-					arr[position] = temp
+					swapElements(arr, position-gap, position)
 					yield [arr, [],[arr[position-gap], arr[position]],[], displayArr]
 					
 					position -= gap
@@ -289,9 +287,7 @@ export function* shellSort(arr) {
 				yield [arr, [arr[position-gapValue], arr[j]], [], [], displayArr]
 				while (position >= gapValue && arr[position-gapValue].Value > current_value.Value) {
 					yield [arr, [],[arr[position-gapValue], arr[position]],[],displayArr]
-					let temp = arr[position-gapValue]
-					arr[position-gapValue] = arr[position]
-					arr[position] = temp
+					swapElements(arr, position-gapValue, position)
 					yield [arr, [],[arr[position-gapValue], arr[position]],[], displayArr]
 					
 					position -= gapValue
@@ -317,18 +313,14 @@ function* partition(arr, left, right) {
 			
 			if (i == j) {continue}
 			yield [arr, [],[arr[i], arr[j]],[],displayArr]
-			let temp = arr[i]
-			arr[i] = arr[j]
-			arr[j] = temp
+			swapElements(arr, i, j)
 			yield [arr, [],[arr[i], arr[j]],[],displayArr]
 		}
 	}
 	
 	if (i+1 != right) {
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		let temp = arr[i+1]
-		arr[i+1] = arr[right]
-		arr[right] = temp
+		swapElements(i+1, right)
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 	}
 	return i + 1
