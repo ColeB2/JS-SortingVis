@@ -335,7 +335,7 @@ function* partition(arr, left, right) {
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 	}
 		
-	return pivot_index = i + 1
+	return i + 1
 }
 
 function* quickSortHelper2(arr, left, right) {
