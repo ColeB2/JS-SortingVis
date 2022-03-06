@@ -443,6 +443,7 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 	} else if (maxDepth === 0) {
 		console.log("Heap Sort")
 		yield* heapSort(arr)
+		return
 	} else {
 		console.log("Quick Partition")
 		//Partition portioning:
