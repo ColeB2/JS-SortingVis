@@ -155,6 +155,9 @@ export function* heapSort(arr) {
 	//Build Heap,
 	yield [arr]
 	for (let i = 0; i < arr.length; i++) {
+		var parentNodeI = parseInt((i-1)/2)
+		console.log(parentNodeI)
+		console.log(parseInt((i-1)/2))
 		yield [arr, [arr[parseInt((i-1)/2)]], [], [arr[i]], arr]
 		if (arr[i].Value > arr[parseInt((i-1)/2)].Value) {
 			var j = i
