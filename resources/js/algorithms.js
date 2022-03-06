@@ -359,7 +359,7 @@ function* introHeapSort(arr, left, right) {
 	let displayArr = arr.slice(left, right)
 	//Build Heap,
 	yield [arr, [], [], [], displayArr]
-	for (let i = left; i <= right; i++) {
+	for (let i = left; i < right; i++) {
 		let parentNodeI = (i-1) >> 1
 		if (parentNodeI < left) {continue}
 		yield [arr, [arr[parentNodeI]], [], [arr[i]], displayArr]
