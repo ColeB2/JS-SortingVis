@@ -334,7 +334,7 @@ function* partition(arr, left, right) {
 		arr[right] = temp
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 	}
-		
+	console.log(i+1)
 	return i + 1
 }
 
@@ -344,6 +344,7 @@ function* quickSortHelper2(arr, left, right) {
         // pi is partitioning index, arr[p]
         // is now at right place
         let pi = yield *partition(arr, left, right);
+		console.log(pi)
  
         // Separately sort elements before
         // partition and after partition
