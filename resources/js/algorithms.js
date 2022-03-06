@@ -12,12 +12,10 @@ export function* bubbleSort(arr) {
 		for (let j = 0; j < i; j++) {
 			let completed_arr = arr.slice(0, i+1)
 			yield [arr, [arr[j], arr[j+1]],[] ,[], completed_arr];
+			
 			if (arr[j].Value > arr[j+1].Value) {
 				swap = true
 				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
-				// let temp = arr[j]
-				// arr[j] = arr[j+1]
-				// arr[j+1] = temp
 				swapElements(arr, j, j+1)
 				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 			}
@@ -45,9 +43,7 @@ export function* selectionSort(arr) {
 		}
 		yield [arr, [],[arr[i], arr[maxI]],[], completed_arr]
 		
-		let temp = arr[i]
-		arr[i] = arr[maxI]
-		arr[maxI] = temp
+		swapElements(arr, i, maxI)
 		
 		yield [arr, [],[arr[i], arr[maxI]],[], completed_arr]
 	}
