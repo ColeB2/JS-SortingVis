@@ -308,7 +308,7 @@ export function* shellSort(arr) {
 	}
 	yield [arr]
 }
-function partition(arr, left, right) {
+function* partition(arr, left, right) {
     let displayArr = arr.slice(left, right+1)
 	let i = left - 1
 	let pivot = arr[right] // last element as pivot
