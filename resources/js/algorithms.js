@@ -15,9 +15,10 @@ export function* bubbleSort(arr) {
 			if (arr[j].Value > arr[j+1].Value) {
 				swap = true
 				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
-				let temp = arr[j]
-				arr[j] = arr[j+1]
-				arr[j+1] = temp
+				// let temp = arr[j]
+				// arr[j] = arr[j+1]
+				// arr[j+1] = temp
+				swapElements(arr, j, j+1)
 				yield [arr, [], [arr[j], arr[j+1]], [], completed_arr];
 			}
 		}
