@@ -320,7 +320,7 @@ function* partition(arr, left, right) {
 	
 	if (i+1 != right) {
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
-		swapElements(i+1, right)
+		swapElements(arr, i+1, right)
 		yield [arr, [],[arr[i+1], arr[right]],[],displayArr]
 	}
 	return i + 1
