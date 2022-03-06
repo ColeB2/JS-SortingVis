@@ -2,7 +2,7 @@
 
 function swapElements(arr, elementIndex1, elementIndex2){
 	let temp = arr[elementIndex1]
-	arr[elementIndex1] = arr[elementedIndex2]
+	arr[elementIndex1] = arr[elementIndex2]
 	arr[elementIndex2] = temp
 }
 
