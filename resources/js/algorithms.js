@@ -156,6 +156,7 @@ export function* heapSort(arr) {
 	yield [arr]
 	for (let i = 0; i < arr.length; i++) {
 		let parentNodeI = i-1 >> 1
+		if (parentNodeI < 0) {continue}
 		yield [arr, [arr[parentNodeI]], [], [arr[i]], arr]
 		if (arr[i].Value > arr[parentNodeI].Value) {
 			var j = i
