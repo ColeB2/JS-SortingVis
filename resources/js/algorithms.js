@@ -1,5 +1,11 @@
 
 
+function swapElements(arr, elementIndex1, elementIndex2){
+	let temp = arr[elementIndex1]
+	arr[elementIndex1] = arr[elementedIndex2]
+	arr[elementIndex2] = temp
+}
+
 export function* bubbleSort(arr) {
 	for (let i = arr.length - 1; i >= 0; i--) {
 		let swap = false;
@@ -340,8 +346,8 @@ function* partition(arr, left, right) {
 function* quickSortHelper(arr, left, right) {
     if (left < right) {
         let pi = yield *partition(arr, left, right);
-        yield* quickSortHelper2(arr, left, pi - 1);
-        yield* quickSortHelper2(arr, pi + 1, right);
+        yield* quickSortHelper(arr, left, pi - 1);
+        yield* quickSortHelper(arr, pi + 1, right);
     }
 }
 
