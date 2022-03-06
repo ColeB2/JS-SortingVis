@@ -382,7 +382,7 @@ function* introHeapSort(arr, left, right) {
 	}
 	yield [arr, [], [], [], displayArr]
 	//Sort --> Take 0(left) index element(max) and put it to end of array, and reheap
-	for (let i = (right-left); i > left; i--) {
+	for (let i = (right-left)-1; i > left; i--) {
 		var completed_arr = arr.slice(left, i+1)
 		
 		
@@ -442,7 +442,7 @@ function* introSortHelper(arr, maxDepth, leftRight=[null,null]) {
 		return
 	} else if (maxDepth === 0) {
 		console.log("Heap Sort")
-		yield* introHeapSort(arr, left, right)
+		yield* heapSort(arr)
 	} else {
 		console.log("Quick Partition")
 		//Partition portioning:
