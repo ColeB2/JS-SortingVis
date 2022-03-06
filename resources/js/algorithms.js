@@ -320,9 +320,7 @@ function* quickSortHelper(arr, left, right) {
 			if (arr[j].Value < pivot.Value) {
 				i++;
 				
-				if (i == j) {
-					continue
-				}
+				if (i == j) {continue}
 				yield [arr, [],[arr[i], arr[j]],[],displayArr]
 				let temp = arr[i]
 				arr[i] = arr[j]
