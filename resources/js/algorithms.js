@@ -348,8 +348,8 @@ function* quickSortHelper2(arr, left, right) {
  
         // Separately sort elements before
         // partition and after partition
-        quickSortHelper2(arr, left, pi - 1);
-        quickSortHelper2(arr, pi + 1, right);
+        yield* quickSortHelper2(arr, left, pi - 1);
+        yield* quickSortHelper2(arr, pi + 1, right);
     }
 }
 //End of testing above
