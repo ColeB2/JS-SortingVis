@@ -361,8 +361,9 @@ function* introHeapSort(arr, left, right) {
 	yield [arr, [], [], [], displayArr]
 	for (let i = left; i <= right; i++) {
 		let parentNodeI = (i-1) >> 1
+		if (parentNodeI < left) {continue}
 		yield [arr, [arr[parentNodeI]], [], [arr[i]], displayArr]
-		if (arr[i].Value > arr[parentNodeI].Value && parentNodeI >= left) {
+		if (arr[i].Value > arr[parentNodeI].Value) {
 			var j = i
 			let parentNodeJ = (j-1) >> 1
 			//While object j is larger than its parent, swap em up.
